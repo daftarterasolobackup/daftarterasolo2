@@ -1,0 +1,160 @@
+body {
+    justify-content: center;
+    background-color: #FFFFFF;
+}
+
+div.header {
+    background-color: #509bb9;
+    border-radius: 3px;
+    width : 95%;
+    height : 120px;
+    position: relative;
+    margin: 7px auto 0 auto;
+    left: 0;
+    right: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    background-image: url('img/weighing.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position-x: right;
+    background-position-y: bottom;
+    border-bottom: 5px solid orange;
+;
+}
+
+#greeting1 {
+    font-size: 10px;
+    padding-left: 7px;
+    display : flex;
+    align-items: flex-end;
+    height: 60%;
+}
+#greeting2 {
+    font-size: 15px;
+    padding-left: 7px;
+    margin-top: 0;
+}
+
+div.menu {
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 3px;
+    width : 95%;
+    height : 50px;
+    position: relative;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    /*padding-top: 15px;*/
+    margin: 7px auto 0 auto;
+
+}
+
+div.captionMenu {
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 3px;
+    width : 95%;
+    height : 25px;
+    position: relative;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    /*padding-top: 15px;*/
+    margin: 0 auto 0 auto;
+
+}
+
+.credits {
+    position: relative !important;
+    width: 95% !important;
+    height :fit-content !important;
+    margin: 7px auto 0 auto !important;
+    font-size: 11px !important;
+}
+
+.credits p {
+    color: #38C;
+    font-weight: 700;
+    font-size: 11px;
+    margin-bottom: 0px;
+}
+
+#creditTitle {
+    border: 2px solid #509bb9; 
+    border-top-color: #509bb9;
+    border-radius: 3px;
+    box-sizing: border-box; 
+    grid-area: 1 / 1; /* first row, first column */
+    padding: 5px; 
+    width: 100%;
+    background-color: #FFFFFF; 
+}
+
+#legendTitle {
+    font-size: 13px; 
+    padding: 0 4px; 
+    width : auto;
+    background-color: #38C;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    height: 50px;
+    background-position: center;
+}
+
+.column:first-child {
+    background-image: url("img/manufacturing-plant.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.column:nth-child(2) {
+    background-image: url("img/partners.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.column:nth-child(3) {
+    background-image: url("img/petrol.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.column:nth-child(4) {
+    background-image: url("img/scale-up.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.captionMenu:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.caption {
+    float: left;
+    width: 25%;
+    height: 25px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.main{
+    width: 95%;
+    border-radius: 3px;
+    position: relative;
+    height : fit-content;
+    margin: 0 auto 0 auto;
+    background-color: grey;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
