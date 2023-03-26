@@ -1,4 +1,4 @@
-body {
+body:not() {
     justify-content: center;
     background-color: #FFFFFF;
 }
@@ -66,12 +66,17 @@ div.captionMenu {
 
 }
 
+.footer * :not(ul, li, a) {
+    all:unset;
+}
+
 .credits {
-    position: relative !important;
-    width: 95% !important;
-    height :fit-content !important;
-    margin: 7px auto 0 auto !important;
-    font-size: 11px !important;
+    position: relative;
+    width: 95%;
+    height :fit-content;
+    margin: 7px auto 0 auto;
+    font-size: 11px;
+    display : grid;
 }
 
 .credits p {
@@ -81,7 +86,7 @@ div.captionMenu {
     margin-bottom: 0px;
 }
 
-#creditTitle {
+fieldset.creditTitle {
     border: 2px solid #509bb9; 
     border-top-color: #509bb9;
     border-radius: 3px;
@@ -90,9 +95,10 @@ div.captionMenu {
     padding: 5px; 
     width: 100%;
     background-color: #FFFFFF; 
+    position: absolute;
 }
 
-#legendTitle {
+legend.legendTitle {
     font-size: 13px; 
     padding: 0 4px; 
     width : auto;
@@ -139,6 +145,7 @@ div.captionMenu {
     clear: both;
 }
 
+
 .caption {
     float: left;
     width: 25%;
@@ -149,12 +156,18 @@ div.captionMenu {
 
 .main{
     width: 95%;
+    border : 2px solid #509bb9;
     border-radius: 3px;
     position: relative;
     height : fit-content;
     margin: 0 auto 0 auto;
-    background-color: grey;
+    /*background-color: #509bb9;*/
     font-size: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
+    padding : 5px 5px 0 5px;
 }
 
+li {
+    color : orangered;
+    font-weight: 500;
+}

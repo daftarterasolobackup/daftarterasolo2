@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
         <link rel="stylesheet" href="index.css">
+        
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
@@ -39,14 +40,42 @@
 
 
         <div class="main">
- 
+            
+            <!--<div class="container-sm kontainer">-->
+                
+                <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="formWTU d-block w-100">
+                  
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="formWTU2 d-block w-100">
+                  
+                        </div>            
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                      <span class="visually-show">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                      <span class="visually-show">Next</span>
+                    </button>
+                  </div>
+                
+            <!--</div>-->
+
         </div>
+        <script src="bootstrap.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     </body>
     <footer class="footer">
         <div class="credits">
-            <fieldset id="creditTitle">
-                <legend id="legendTitle">Credits</legend>
+            <fieldset class="creditTitle">
+                <legend class="legendTitle">Credits</legend>
                 <p>Karena kami menggunakan icon pihak ketiga secara gratis, dalam rangka menghormati hak cipta icon yang digunakan pada aplikasi ini, kami merasa perlu untuk menampilkan kredit sesuai persyaratan dari penyedia icon.<br><br>
                 Semua icon dalam aplikasi ini menggunakan icon dari :</p>
                 <ul>
