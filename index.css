@@ -171,3 +171,111 @@ li {
     color : orangered;
     font-weight: 500;
 }
+
+/* form style */
+.ui-mobile label, div.ui-controlgroup-label {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+label {
+    font-family: 'Montserrat';
+    color : #38C;
+    margin-left: 10px;
+    width : 80%;
+}
+
+.ui-mobile label, .ui-controlgroup-label {
+    display: block;
+    margin: 10px 0 0 10px;
+}
+
+input, select {
+    border : none;
+    width : 80%;
+    margin : 4px 0;
+    margin-top : 4px ;
+    padding : 2px 8px;
+    margin-left: 10px;
+    border-bottom : 1px solid #008CBA;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    color : #008CBA;
+    font-weight: 800;
+}
+
+input:focus {
+    outline: none;
+    border: 3px solid #008CBA;
+}
+
+div .formWTU, div .formWTU2 {
+    width : 50%;
+    height : 90%;
+    display: inline-block;
+    background-color: #FFFFFF;
+    vertical-align: top;
+    position: relative;
+}
+
+span.thisForm, span.thisForm2 {
+    background-color: #008CBA;
+    font-size: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+hr {
+    border: 3px solid #008CBA;
+}
+
+span.thisForm, span.thisForm2 {
+    color : #FFFFFF; 
+    font-family : 'Montserrat';
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    align-items: flex-end;; /* Aligns it at the bottom */
+    border: 2px solid white;
+    opacity: 1;
+
+}
+
+button.ui-btn {
+    width: 49%;
+}
+
+.ui-btn {
+    display: inline;
+    background-color: black;
+
+}
+
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
+    background-color: orange;
+    border-color: #ddd;
+    color: #333;
+}
+
+#carouselExample {
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+
+.ui-input-text input, .ui-input-search input {
+    border : 1;
+}

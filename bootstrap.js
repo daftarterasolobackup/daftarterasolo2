@@ -15,8 +15,8 @@ class buatForm {
         let a, b;
 
         for ([a ,b] of this.inputType.entries()) {
-            b === 'text' ? formStr += `<label for='${this.inputNameId[a]}'>${this.labelName[a]}</label>
-            <input type='text' name='${this.inputNameId[a]}' id='${this.inputNameId[a]}'>` : 
+            b === 'text' ? formStr += `<label for='${this.inputNameId[a]}' data-role="none" >${this.labelName[a]}</label>
+            <input type='text' data-role="none" name='${this.inputNameId[a]}' id='${this.inputNameId[a]}'>` : 
             b === 'hidden' ? formStr += `<input type='hidden' name='${this.inputNameId[a]}' id='${this.inputNameId[a]}'>` : 
             b === 'password' ? formStr += `<label for='${this.inputNameId[a]}'>${this.labelName[a]}</label><input type='password' name='${this.inputNameId[a]}' id='${this.inputNameId[a]}'>` : 
             b === 'select' ? formStr += `<label for='${this.inputNameId[a][0]}'>${this.labelName[a]}</label><select name='${this.inputNameId[a][0]}' id='${this.inputNameId[a][0]}'>${this.generateOptionSelectVersiBaru(this.inputNameId[a][1])}</select>` : '';
