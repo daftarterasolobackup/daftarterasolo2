@@ -1,8 +1,3 @@
-body:not() {
-    justify-content: center;
-    background-color: #FFFFFF;
-}
-
 div.header {
     background-color: #509bb9;
     border-radius: 3px;
@@ -25,13 +20,13 @@ div.header {
 
 #greeting1 {
     font-size: 10px;
-    padding-left: 7px;
+    padding-left: 9px;
     display : flex;
     align-items: flex-end;
-    height: 60%;
+    height: 55%;
 }
 #greeting2 {
-    font-size: 15px;
+    font-size: 17px;
     padding-left: 7px;
     margin-top: 0;
 }
@@ -56,7 +51,8 @@ div.captionMenu {
     text-align: center;
     border-radius: 3px;
     width : 95%;
-    height : 25px;
+    height : fit-content;
+    /*height : 25px;*/
     position: relative;
     left: 0;
     right: 0;
@@ -65,18 +61,32 @@ div.captionMenu {
     margin: 0 auto 0 auto;
 
 }
-
+/*
 .footer * :not(ul, li, a) {
     all:unset;
 }
+
+.footer {
+    border: 2px solid orangered;
+    position: relative;
+    height : 200px;
+    width : 100%;
+    margin: 7px auto 0 auto;
+}
+*/
 
 .credits {
     position: relative;
     width: 95%;
     height :fit-content;
-    margin: 7px auto 0 auto;
+    margin-top: 7px;
+    left : 0;
+    right : 0;
     font-size: 11px;
     display : grid;
+    font-family: 'Poppins', sans-serif;
+    margin: 7px auto 0 auto;
+    /*border: 2px solid grey;*/
 }
 
 .credits p {
@@ -84,18 +94,21 @@ div.captionMenu {
     font-weight: 700;
     font-size: 11px;
     margin-bottom: 0px;
+    text-align: justify;
 }
 
 fieldset.creditTitle {
     border: 2px solid #509bb9; 
     border-top-color: #509bb9;
-    border-radius: 3px;
+    border-radius: 6px;
     box-sizing: border-box; 
-    grid-area: 1 / 1; /* first row, first column */
-    padding: 5px; 
-    width: 100%;
+    /*grid-area: 1 / 1; 
+    padding: 5px;*/ 
+    width: 100.5%;
+    margin-left: -1px;
     background-color: #FFFFFF; 
-    position: absolute;
+    /*position: absolute;
+    display : inline-block;*/
 }
 
 legend.legendTitle {
@@ -118,24 +131,40 @@ legend.legendTitle {
     background-image: url("img/manufacturing-plant.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-color: #EEEEEE;
+    border-radius: 6px;
+    margin-right: 4px;
+    width : 25%;
 }
 
 .column:nth-child(2) {
     background-image: url("img/partners.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-color: #EEEEEE;
+    border-radius: 6px;
+    margin-right: 4px;
+    width : 24%;
 }
 
 .column:nth-child(3) {
     background-image: url("img/petrol.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-color: #EEEEEE;
+    border-radius: 6px;
+    margin-right: 4px;
+    width : 23%;
 }
 
 .column:nth-child(4) {
     background-image: url("img/scale-up.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-color: #EEEEEE;
+    border-radius: 6px;
+    /*margin-right: 2px;*/
+    width : 24.5%;
 }
 
 
@@ -151,28 +180,100 @@ legend.legendTitle {
     width: 25%;
     height: 25px;
     font-size: 10px;
-    font-weight: 700;
+    font-weight:bold;
+    font-family: 'Montserrat';
+    color : #0098BA;
+    /*border: 1px solid black;*/
 }
+/*
+.main {
+    width : 95%;
+    border : 1px solid #509bb9;
+    border-radius: 3px;
+    position: relative;
+    height : 400;
+    margin: 7px auto 0 auto;
+    margin-top: 10px;
+}
+*/
 
 .main{
     width: 95%;
-    border : 2px solid #509bb9;
-    border-radius: 3px;
+    /*border : 2px solid #509bb9;*/
+    border-radius: 6px;
     position: relative;
-    height : fit-content;
-    margin: 0 auto 0 auto;
-    /*background-color: #509bb9;*/
+    height : 400px;
+    margin: 7px auto 0 auto;
     font-size: 10px;
     margin-top: 10px;
-    padding : 5px 5px 0 5px;
+    background-image: url("img/manjaro.jpg");
+    background-size: 100% 100%;
+}
+
+.mainContent {
+    height : 350px;
+    width : 90%;
+    border-radius: 6px;
+    position: relative;
+    margin-left : auto;
+    margin-right: auto;
+    background-color: #000000;
+    opacity: 0.7;
+    top : 25px;
+    text-align: center;
+
+    display: flex;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;  
+  
+  
+}
+
+.mainContent > div {
+    /* CURRENT way. */
+    scroll-snap-align: start;
+}
+
+.subContent {
+    height : 300px;
+    width : 100%;
+    border-radius: 6px;
+    position: relative;
+    margin-left : auto;
+    margin-right: auto;
+    background-color: #000000;
+    opacity: 0.7;
+    top : 15px;
+    border: 1px solid orangered;
+    flex-shrink: 0;
+}
+
+.kontrol {
+    color : #FFFFFF;
+    background-color: orangered;
+    text-decoration: none;
+    border-radius: 6px;
+    padding : 5px 5px 5px 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 200;
 }
 
 li {
-    color : orangered;
+    color : #38C;
     font-weight: 500;
 }
 
-/* form style */
+a {
+    color : #38C;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+/* form style 
 .ui-mobile label, div.ui-controlgroup-label {
     font-weight: 700;
     font-size: 12px;
@@ -234,21 +335,21 @@ span.thisForm, span.thisForm2 {
     font-family : 'Montserrat';
 }
 
-/* Chrome, Safari, Edge, Opera */
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
+
 input[type=number] {
   -moz-appearance: textfield;
 }
 
 .carousel-control-prev,
 .carousel-control-next{
-    align-items: flex-end;; /* Aligns it at the bottom */
+    align-items: flex-end;
     border: 2px solid white;
     opacity: 1;
 
@@ -279,3 +380,5 @@ button.ui-btn {
 .ui-input-text input, .ui-input-search input {
     border : 1;
 }
+*/
+

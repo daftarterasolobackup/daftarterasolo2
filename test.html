@@ -3,10 +3,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
-
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
     <style>
@@ -15,41 +11,71 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     </style>
+    <style>
+      .container {
+        position: relative;
+        width : 90%;
+        height : fit-content;
+        border: 2px solid salmon;
+        top : 100px;
+        margin-left : auto;
+        margin-right : auto;
+      }
 
+      .isi {
+        position: relative;
+        width : 100%;
+        height : fit-content;
+        border: 2px solid black;
+      }
+
+.slider {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  overflow-x: auto;
+}
+.slide {
+  width: 300px;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.slider {
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;  
+}
+
+.slider > div {
+  /* CURRENT way. */
+  scroll-snap-align: start;
+}
+
+.slide:nth-child(1) {
+  background-color: brown;
+}
+.slide:nth-child(2) {
+  background-color: green;
+}
+.slide:nth-child(3) {
+  background-color: yellow;
+}
+
+
+</style>
 </head>
 <body>
+  <a href="#slide-1">1</a>
+  <a href="#slide-2">2</a>
+  <a href="#slide-3">3</a>
+
+  <div class="slider">
+
     
-        <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-                <div class="formWTU d-block w-100">
-                  
-                </div>
-
-            </div>
-          <div class="carousel-item">
-            <div class="formWTU2 d-block w-100">
-                  
-            </div>
-          </div>
-        </div>
-        
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-      
-        
-      </div>
-
-
-
-    <script src="bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <div class="slide" id="slide-1"></div>
+    <div class="slide" id="slide-2"></div>
+    <div class="slide" id="slide-3"></div>
+  </div>
 </body>
 
 </html>
