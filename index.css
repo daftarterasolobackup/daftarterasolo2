@@ -236,6 +236,22 @@ legend.legendTitle {
     scroll-snap-align: start;
 }
 
+.uttpDiv {
+    width: 90%;
+    height : 90%;
+    position: absolute;
+    left : 4.25%;
+    background-color: #000000;
+    top : 25px;
+    border-radius: 6px;
+    opacity: 0.8;
+    border: 3px solid #FFFFFF;
+    /*display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: flex-start;*/
+}
+
 .subContent {
     height : 350px;
     width : 100%;
