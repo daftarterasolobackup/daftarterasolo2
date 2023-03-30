@@ -250,7 +250,7 @@ legend.legendTitle {
 }
 
 .subContent .title {
-    height : 15%;
+    height : 10%;
     width: 100%;
     position: relative;
     background-color: orangered;
@@ -300,6 +300,37 @@ legend.legendTitle {
     transform : translateY(2px);
 }
 
+.addDiv {
+    position: relative;
+    width:100px;
+    height:100px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    margin-left:auto;
+    margin-right : auto;
+    top : 25%;
+    justify-content: center;
+    color : #000000;
+    font-size: 70px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.addDiv:active {
+    background-color: #000000;
+    transform: translateY(2px);
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+
+}
+
+#klik {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: -30px;
+    position: relative;
+    font-weight: bold;
+}
 /*
 #swipe {
     color : #4682B4;

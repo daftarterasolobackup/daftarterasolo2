@@ -11,3 +11,9 @@ fetch(url)
 
     document.getElementById("kelurahan").innerHTML = str;
 });
+
+let nextBtn = document.getElementById("next");
+
+nextBtn.addEventListener('click',() => {
+    location.href="#sub2";
+});
