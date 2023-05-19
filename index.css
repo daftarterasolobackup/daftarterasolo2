@@ -246,10 +246,30 @@ legend.legendTitle {
     border-radius: 6px;
     opacity: 0.8;
     border: 3px solid #FFFFFF;
-    /*display: flex;
+    padding : 5px;
+    display: flex;
     flex-direction:row;
+    
     flex-wrap: wrap;
-    justify-content: flex-start;*/
+    
+    justify-content: space-between;
+    overflow : auto;
+}
+
+/*
+.uttpDiv.hidden {
+    display : none;	
+}
+*/
+
+.uttpDiv div {
+    width : 170px;
+    height : 150px;
+    background-color : #000000;
+    margin : 2px;
+    background-image : url("img/TE.webp");
+    background-size : cover;
+    background-repeat : no-repeat;
 }
 
 .subContent {
@@ -316,6 +336,27 @@ legend.legendTitle {
     transform : translateY(2px);
 }
 
+#back {
+    background-color: #1E3F66;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width : 100%;
+    color : #FFFFFF;
+    outline: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+#back:active {
+    background-color: orangered;
+    transform : translateY(2px);
+}
+
+
 .addDiv {
     position: relative;
     width:100px;
@@ -330,6 +371,21 @@ legend.legendTitle {
     font-size: 70px;
     font-family: 'Poppins', sans-serif;
 }
+
+.backBtnDiv {
+    position: relative;
+    width:100px;
+    height:100px;
+    border-radius: 3px;
+    margin-left:auto;
+    margin-right : auto;
+    top : 25%;
+    justify-content: center;   
+    color : #000000;
+    font-size: 70px;
+    font-family: 'Poppins', sans-serif;
+}
+
 
 .addDiv:active {
     background-color: #000000;
@@ -347,6 +403,21 @@ legend.legendTitle {
     position: relative;
     font-weight: bold;
 }
+
+
+li {
+    color : #38C;
+    font-weight: 500;
+}
+
+a {
+    color : #38C;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+
 /*
 #swipe {
     color : #4682B4;
@@ -371,19 +442,6 @@ legend.legendTitle {
     display: inline-block;
 }
 */
-
-li {
-    color : #38C;
-    font-weight: 500;
-}
-
-a {
-    color : #38C;
-    font-size: 11px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
 /* form style 
 .ui-mobile label, div.ui-controlgroup-label {
     font-weight: 700;
