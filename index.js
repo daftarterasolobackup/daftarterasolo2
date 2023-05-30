@@ -64,7 +64,7 @@ function main() {
 	    location.href="#sub1";
 	});
 
-
+	
 	let addBtn = document.querySelector(".addDiv");
 	addBtn.addEventListener('click',() => {
 	    setTimeout(() => {
@@ -76,11 +76,14 @@ function main() {
 	    }, 300);
 	});
 	
-	//let str = "";
+
+	let str = "";
 	for (k in listOfuttp()) {
+		str += `<div id=${k} class=${listOfuttp()[k][0]} style="background-image : url(${listOfuttp()[k][1]});"></div>`;
 	    console.log(listOfuttp()[k]);
 	}
 	
+	document.querySelector(".uttpDiv").innerHTML = str;
 	//const uttpDiv = document.getElementById("uttpDiv");
 	//console.log(uttpDiv);
 	//onsole.log('tes');

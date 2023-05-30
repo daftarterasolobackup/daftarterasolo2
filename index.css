@@ -61,19 +61,7 @@ div.captionMenu {
     margin: 0 auto 0 auto;
 
 }
-/*
-.footer * :not(ul, li, a) {
-    all:unset;
-}
 
-.footer {
-    border: 2px solid orangered;
-    position: relative;
-    height : 200px;
-    width : 100%;
-    margin: 7px auto 0 auto;
-}
-*/
 
 .credits {
     position: relative;
@@ -244,7 +232,7 @@ legend.legendTitle {
     background-color: #000000;
     top : 25px;
     border-radius: 6px;
-    opacity: 0.8;
+    opacity: 1;
     border: 3px solid #FFFFFF;
     padding : 5px;
     display: flex;
@@ -254,20 +242,21 @@ legend.legendTitle {
     
     justify-content: space-between;
     overflow : auto;
+    scrollbar-color: #38c red;
 }
 
-/*
+
 .uttpDiv.hidden {
     display : none;	
 }
-*/
+
 
 .uttpDiv div {
-    width : 170px;
-    height : 150px;
+    width : 160px;
+    height : 145px;
     background-color : #000000;
     margin : 2px;
-    background-image : url("img/TE.webp");
+    /*background-image : url("img/TE.webp");*/
     background-size : cover;
     background-repeat : no-repeat;
 }
