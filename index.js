@@ -31,22 +31,22 @@ async function getGroupedUttp() {
 
 function listOfuttp() {
 	return uttpArrPic = [
-	    ['TBI','img/TBI.jpg'],
-	    ['TE','img/TE.webp'],
-	    ['TE','img/TE_analytic.webp'],
-	    ['TE','img/TE_hanging.webp'],
-	    ['TE','img/TE2.webp'],
-	    ['TE','img/TE3.jfif'],
-	    ['TM','img/TM.jfif'],
-	    ['TP','img/TP.jfif'],
-	    ['TP','img/TP2.webp'],
-	    ['TP','img/TP3.webp'],
-	    ['TS','img/TS.jpg'],
-	    ['DL','img/DL.jpg'],
-	    ['N','img/N.jpg'],
-	    ['Meter Kayu','img/MK.jpg'],
-	    ['PUBBM','pubbm.jpg'],
-	    ['TJE', 'TJE.jpg']
+	    ['TBI','img/TBI.jpg','Timb Bobot Ingsut'],
+	    ['TE','img/TE.webp', 'Timb Elektronik'],
+	    ['TE','img/TE_analytic.webp', 'Timb Elektronik'],
+	    ['TE','img/TE_hanging.webp', 'Timb Elektronik'],
+	    ['TE','img/TE2.webp', 'Timb Elektronik'],
+	    ['TE','img/TE3.jfif', 'Timb Elektronik'],
+	    ['TM','img/TM.jfif', 'Timbangan Meja'],
+	    ['TP','img/TP.jfif', 'Timbangan Pegas'],
+	    ['TP','img/TP2.webp', 'Timbangan Pegas'],
+	    ['TP','img/TP3.webp', 'Timbangan Pegas'],
+	    ['TS','img/TS.jpg', 'Timb Sentisimal'],
+	    ['DL','img/DL.jpg', 'Dacin Logam'],
+	    ['N','img/N.jpg', 'Neraca'],
+	    ['Meter Kayu','img/MK.jpg', 'Meter Kayu'],
+	    ['PUBBM','img/pubbm.jpg', 'Pompa Ukur BBM'],
+	    ['TJE', 'img/TJE.jpg', 'Timb Jembatan']
 	];
 }
 
@@ -79,14 +79,15 @@ function main() {
 
 	let str = "";
 	for (k in listOfuttp()) {
-		str += `<div id=${k} class=${listOfuttp()[k][0]} style="background-image : url(${listOfuttp()[k][1]});"></div>`;
+		str += `<div id=${k} class=${listOfuttp()[k][0]} style="background-image : url(${listOfuttp()[k][1]});">
+		<fieldset class="listFieldset">
+		<legend class="listLegend">${listOfuttp()[k][2]}</legend>
+		</fieldset>	
+		</div>`;
 	    console.log(listOfuttp()[k]);
 	}
 	
 	document.querySelector(".uttpDiv").innerHTML = str;
-	//const uttpDiv = document.getElementById("uttpDiv");
-	//console.log(uttpDiv);
-	//onsole.log('tes');
 	
 }
 

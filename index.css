@@ -255,10 +255,11 @@ legend.legendTitle {
     width : 160px;
     height : 145px;
     background-color : #000000;
-    margin : 2px;
-    /*background-image : url("img/TE.webp");*/
+    margin : 2px 2px 15px 2px;
     background-size : cover;
     background-repeat : no-repeat;
+    display : grid;
+    
 }
 
 .subContent {
@@ -406,7 +407,21 @@ a {
     font-weight: 700;
 }
 
+.listFieldset {
+    border: 10px solid transparent; 
+    border-top-color: #1E3F66; 
+    box-sizing: border-box; 
+    grid-area: 1 / 1; 
+    padding: 20px; 
+    width: auto; 
+    font-family : 'Montserrat';
+    font-size: 9px;
+    color : #FFFFFF;
+}
 
+.listLegend {
+    background-color: #1E3F66;
+}
 /*
 #swipe {
     color : #4682B4;
