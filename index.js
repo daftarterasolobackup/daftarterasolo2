@@ -6,8 +6,7 @@ async function getKelurahan() {
 	.then(datas => {
 	    let str = '';
 	    for (k in datas.data) {
-		//console.log(datas.data[k]);
-		str += `<option value='${datas.data[k]}'>${datas.data[k][0]}</option>`;
+			str += `<option value='${datas.data[k]}'>${datas.data[k][0]}</option>`;
 	    }
 
 	    document.getElementById("kelurahan").innerHTML = str;
@@ -46,11 +45,44 @@ function listOfuttp() {
 	    ['N','img/N.jpg', 'Neraca'],
 	    ['Meter Kayu','img/MK.jpg', 'Meter Kayu'],
 	    ['PUBBM','img/pubbm.jpg', 'Pompa Ukur BBM'],
-	    ['TJE', 'img/TJE.jpg', 'Timb Jembatan']
+	    ['TJE', 'img/TJE.jpg', 'Timb Jembatan'],
+		['TAK', 'img/TAK.jpeg', 'Takaran']
 	];
 }
 
-function main() {
+class generateListUttp {
+	constructor(kontainer, listOfUttp) {
+		this.kontainer = kontainer;
+		this.list = listOfUttp;
+		this.#setCss();
+		this.#generateKonten();
+	}
+
+	#setCss() {
+	    setTimeout(() => {
+			this.kontainer.style.display = "flex";
+			this.kontainer.style.flexDirection = "row";
+			this.kontainer.style.flexWrap = "wrap";
+			this.kontainer.style.justifyContent = "flex-start";
+			this.kontainer.hidden = false;  
+		}, 100);		
+	}
+
+	#generateKonten() {
+		let str = "";
+		for (let k in this.list) {
+			str += `<div id=${k} class=${this.list[k][0]} style="background-image : url(${this.list[k][1]});">
+						<fieldset class="listFieldset">
+							<legend class="listLegend">${this.list[k][2]}</legend>
+						</fieldset>	
+					</div>`;
+		}	
+		this.kontainer.innerHTML = str;
+	}
+
+}
+
+(function main() {
 	getKelurahan();
 	//getGroupedUttp();
 
@@ -67,28 +99,10 @@ function main() {
 	
 	let addBtn = document.querySelector(".addDiv");
 	addBtn.addEventListener('click',() => {
-	    setTimeout(() => {
-		document.querySelector(".uttpDiv").style.display = "flex";
-		document.querySelector(".uttpDiv").style.flexDirection = "row";
-		document.querySelector(".uttpDiv").style.flexWrap = "wrap";
-		document.querySelector(".uttpDiv").style.justifyContent = "flex-start";
-		document.querySelector(".uttpDiv").hidden = false;  
-	    }, 300);
+		const wtuKontainer = new generateListUttp(document.querySelector(".uttpDiv"), listOfuttp());
 	});
 	
-
-	let str = "";
-	for (k in listOfuttp()) {
-		str += `<div id=${k} class=${listOfuttp()[k][0]} style="background-image : url(${listOfuttp()[k][1]});">
-		<fieldset class="listFieldset">
-		<legend class="listLegend">${listOfuttp()[k][2]}</legend>
-		</fieldset>	
-		</div>`;
-	    console.log(listOfuttp()[k]);
-	}
 	
-	document.querySelector(".uttpDiv").innerHTML = str;
-	
-}
+})();
 
-main();
+
