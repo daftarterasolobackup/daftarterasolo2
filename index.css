@@ -224,6 +224,10 @@ legend.legendTitle {
     scroll-snap-align: start;
 }
 
+.mainContent.hidden {
+    display : none;    
+}
+
 .uttpDiv {
     width: 90%;
     height : 90%;
@@ -422,6 +426,31 @@ a {
 
 .listLegend {
     background-color: #1E3F66;
+}
+
+.tutorial {
+    display: flex;
+    flex-direction:row;
+    
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+
+}
+
+.tutorial div {
+    width : 175px;
+    height : 180px;
+    margin : 30px 5px 5px 5px;
+    border-radius: 4px;
+}
+
+.tutorial div:nth-child(1) {
+    background-color: #92DFF3;
+}
+
+.tutorial div:nth-child(2) {
+    background-color: peachpuff;
 }
 /*
 #swipe {
