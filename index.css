@@ -421,7 +421,7 @@ a {
     font-family : 'Montserrat';
     font-size: 9px;
     color : #FFFFFF;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .listLegend {
@@ -439,19 +439,44 @@ a {
 }
 
 .tutorial div {
-    width : 175px;
+    width : 165px;
     height : 180px;
-    margin : 30px 5px 5px 5px;
+    margin : 20px 5px 5px 5px;
     border-radius: 4px;
+    opacity : 0.85;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    padding : 15px 3px 3px 8px;
+    font-weight: 800;
 }
 
 .tutorial div:nth-child(1) {
-    background-color: #92DFF3;
+    background-color: #FFFFFF;
+    color : #000000;
 }
 
 .tutorial div:nth-child(2) {
-    background-color: peachpuff;
+    background-color: #000000;
+    color : #FFFFFF;
+    font-weight: 100;
 }
+
+.tutorial div:nth-child(3) {
+    background-color: #000000;
+    color : #FFFFFF;
+    font-weight: 100;
+
+}
+
+.tutorial div:nth-child(4) {
+    background-color: #FFFFFF;
+    color : #000000;
+    padding-top: 5px;
+}
+
+
+
+
 /*
 #swipe {
     color : #4682B4;
