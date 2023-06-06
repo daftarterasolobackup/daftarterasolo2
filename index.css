@@ -439,24 +439,26 @@ a {
 }
 
 .tutorial div {
-    width : 165px;
-    height : 180px;
-    margin : 20px 5px 5px 5px;
+    width : 355px;
+    height : 70px;
+    margin-bottom: 5px;
+    margin-left: 5px;
     border-radius: 4px;
     opacity : 0.85;
     font-family: 'Montserrat';
     font-size: 12px;
-    padding : 5px 3px 3px 8px;
+    padding : 2px 3px 3px 8px;
     font-weight: 800;
 }
 
 .tutorial div:nth-child(1) {
     background-color: #FFFFFF;
     color : #000000;
+    margin-top: 25px;
 }
 
 .tutorial div:nth-child(2) {
-    background-color: #000000;
+    background-color: #900a0a;
     color : #FFFFFF;
     font-weight: 100;
 }
@@ -471,8 +473,7 @@ a {
 .tutorial div:nth-child(4) {
     background-color: #FFFFFF;
     color : #000000;
-    padding-top: 5px;
-
+    height : 120px;
 }
 
 
