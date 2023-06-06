@@ -18,12 +18,22 @@ div.header {
 ;
 }
 
+#greeting0 {
+    font-size: 15px;
+    padding-left: 9px;
+    height: 10%;
+    color : orange;
+    background-color: #EEEEEE;
+    font-weight: bolder;
+    opacity: 1;
+}
+
 #greeting1 {
     font-size: 10px;
     padding-left: 9px;
     display : flex;
     align-items: flex-end;
-    height: 55%;
+    height: 30%;
 }
 #greeting2 {
     font-size: 17px;
