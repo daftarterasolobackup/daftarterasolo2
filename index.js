@@ -50,25 +50,38 @@ function listOfuttp() {
 	];
 }
 
-class generateListUttp {
-	constructor(kontainer, listOfUttp) {
-		this.kontainer = kontainer;
-		this.list = listOfUttp;
-		this.#setCss();
-		this.#generateKonten();
+class createFormMasy {
+	constructor(formKontainer, listOfuttp, str) {
+		this.formKontainer = formKontainer;
+		this.list = listOfuttp;
+		this.str = str;
+		this.#generateForm();
+		this.#loadKelurahan();
+		this.#addBtnHandler();
+		this.#nextBtnHandler();
+		this.#backBtnHandler();
+		this.lsKontainer = document.querySelector(".uttpDiv");
+	}
+ 
+	#generateForm() {
+		this.formKontainer.innerHTML = this.str;
+	}
+	
+	async #loadKelurahan() {
+		getKelurahan();
 	}
 
 	#setCss() {
 	    setTimeout(() => {
-			this.kontainer.style.display = "flex";
-			this.kontainer.style.flexDirection = "row";
-			this.kontainer.style.flexWrap = "wrap";
-			this.kontainer.style.justifyContent = "flex-start";
-			this.kontainer.hidden = false;  
+			this.lsKontainer.style.display = "flex";
+			this.lsKontainer.style.flexDirection = "row";
+			this.lsKontainer.style.flexWrap = "wrap";
+			this.lsKontainer.style.justifyContent = "flex-start";
+			this.lsKontainer.hidden = false;  
 		}, 100);		
 	}
 
-	#generateKonten() {
+	#generateListUttp() {
 		let str = "";
 		for (let k in this.list) {
 			str += `<div id=${k} class=${this.list[k][0]} style="background-image : url(${this.list[k][1]});">
@@ -77,32 +90,75 @@ class generateListUttp {
 						</fieldset>	
 					</div>`;
 		}	
-		this.kontainer.innerHTML = str;
+		this.lsKontainer.innerHTML = str;
+	}
+
+	#addBtnHandler() {
+		let addBtn = document.querySelector(".addDiv");
+		addBtn.addEventListener('click',() => {
+			this.#setCss();
+			this.#generateListUttp();
+		});	
+	}
+
+	#nextBtnHandler() {
+		let nextBtn = document.getElementById("next");
+		nextBtn.addEventListener('click',() => {
+			location.href="#sub2";
+		});		
+	}
+
+	#backBtnHandler() {
+		let backBtn = document.getElementById("back");
+		backBtn.addEventListener('click',() => {
+			location.href="#sub1";
+		});		
 	}
 
 }
 
 (function main() {
-	getKelurahan();
-	//getGroupedUttp();
+	let menuMsy = document.querySelector(".menu").children[1];
 
-	let nextBtn = document.getElementById("next");
-	nextBtn.addEventListener('click',() => {
-	    location.href="#sub2";
+	menuMsy.addEventListener("click", () => {
+		let str = `
+		<div class="mainContent">      
+			<div class="subContent" id="sub1">
+				<div class="title">Silahkan isi data Anda</div>
+				<form>
+					<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama">
+					<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
+					<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
+					<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+					<input type="button" name="next" id="next" value="Next..">
+				</form>
+			</div>
+			<div class="subContent" id="sub2">
+				<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+				<div class="addDiv">+<p id="klik">Klik disini</p></div>
+				<div class="backBtnDiv">
+					<form><input type="button" name="back" id="back" value="Back.."></form>
+				</div>                  
+			</div>
+
+			<datalist id="kelurahan"></datalist>
+		</div>
+		<div class="uttpDiv hidden">
+		</div>		
+		`;
+		new createFormMasy(document.querySelector(".main"), listOfuttp(), str);
 	});
 
-	let backBtn = document.getElementById("back");
-	backBtn.addEventListener('click',() => {
-	    location.href="#sub1";
-	});
+	let menuPbrk = document.querySelector(".menu").children[0];
+	menuPbrk.addEventListener("click", () => alert("test"));
 
+	let menuSpbu = document.querySelector(".menu").children[2];
+	menuSpbu.addEventListener("click", () => alert("test"));
+
+	let menuLoko = document.querySelector(".menu").children[3];
 	
-	let addBtn = document.querySelector(".addDiv");
-	addBtn.addEventListener('click',() => {
-		const wtuKontainer = new generateListUttp(document.querySelector(".uttpDiv"), listOfuttp());
-	});
-	
-	
+	menuLoko.addEventListener("click", () => alert("test"));
+
 })();
 
 
