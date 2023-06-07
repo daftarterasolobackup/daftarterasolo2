@@ -56,22 +56,24 @@ class createFormMasy {
 		this.list = listOfuttp;
 		this.str = str;
 		this.#generateForm();
-		this.#loadKelurahan();
+		/*this.#loadKelurahan();
 		this.#addBtnHandler();
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
-		this.lsKontainer = document.querySelector(".uttpDiv");
+		*/
+		this.lsKontainer = "";
 	}
  
 	#generateForm() {
 		this.formKontainer.innerHTML = this.str;
 	}
 	
-	async #loadKelurahan() {
+	async loadKelurahan() {
 		getKelurahan();
 	}
 
 	#setCss() {
+		this.lsKontainer = document.querySelector(".uttpDiv")
 	    setTimeout(() => {
 			this.lsKontainer.style.display = "flex";
 			this.lsKontainer.style.flexDirection = "row";
@@ -115,42 +117,66 @@ class createFormMasy {
 		});		
 	}
 
+	generateBtnHandler() {
+		this.#nextBtnHandler();
+		this.#backBtnHandler();
+		this.#addBtnHandler();
+	}
 }
+/*
+class createFormPabrik extends createFormMasy {
+	constructor() {
+		super();
+	}
 
+	async getUttp() {
+		url = "https://script.google.com/macros/s/AKfycbxQ93CMJ3bS86cZOV99AK3T75pexk44ImtnaYJYcmLiNVs9mXiu-7-ee3vGrbOXI4Q/exec";
+
+		await fetch(url)
+		.then(datas => datas.json())
+		.then(datas => {
+			console.log(datas);
+		});		
+	}
+}
+*/
 (function main() {
 	let menuMsy = document.querySelector(".menu").children[1];
 
 	menuMsy.addEventListener("click", () => {
-		let str = `
-		<div class="mainContent">      
-			<div class="subContent" id="sub1">
-				<div class="title">Silahkan isi data Anda</div>
-				<form>
-					<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama">
-					<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
-					<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
-					<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
-					<input type="button" name="next" id="next" value="Next..">
-				</form>
-			</div>
-			<div class="subContent" id="sub2">
-				<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
-				<div class="addDiv">+<p id="klik">Klik disini</p></div>
-				<div class="backBtnDiv">
-					<form><input type="button" name="back" id="back" value="Back.."></form>
-				</div>                  
-			</div>
+		let str = `<div class="mainContent">      
+						<div class="subContent" id="sub1">
+							<div class="title">Silahkan isi data Anda</div>
+							<form>
+								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama">
+								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
+								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
+								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="button" name="next" id="next" value="Next..">
+							</form>
+						</div>
+						<div class="subContent" id="sub2">
+							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="addDiv">+<p id="klik">Klik disini</p></div>
+							<div class="backBtnDiv">
+								<form><input type="button" name="back" id="back" value="Back.."></form>
+							</div>                  
+						</div>
+						<datalist id="kelurahan"></datalist>
+					</div>
+					<div class="uttpDiv hidden">
+					</div>`;
 
-			<datalist id="kelurahan"></datalist>
-		</div>
-		<div class="uttpDiv hidden">
-		</div>		
-		`;
-		new createFormMasy(document.querySelector(".main"), listOfuttp(), str);
+		const formMasy = new createFormMasy(document.querySelector(".main"), listOfuttp(), str);
+		formMasy.generateBtnHandler();
+
 	});
 
 	let menuPbrk = document.querySelector(".menu").children[0];
-	menuPbrk.addEventListener("click", () => alert("test"));
+	menuPbrk.addEventListener("click", () => {
+		/*let formPabrik = new createFormPabrik(document.querySelector(".main"), listOfuttp(), "<div>/<div>");
+		formPabrik.getUttp();*/
+	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
 	menuSpbu.addEventListener("click", () => alert("test"));
