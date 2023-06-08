@@ -55,8 +55,8 @@ class createFormMasy {
 		this.formKontainer = formKontainer;
 		this.list = listOfuttp;
 		this.str = str;
-		this.#generateForm();
-		/*this.#loadKelurahan();
+		/*this.#generateForm();
+		this.#loadKelurahan();
 		this.#addBtnHandler();
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
@@ -64,7 +64,7 @@ class createFormMasy {
 		this.lsKontainer = "";
 	}
  
-	#generateForm() {
+	generateForm() {
 		this.formKontainer.innerHTML = this.str;
 	}
 	
@@ -123,23 +123,28 @@ class createFormMasy {
 		this.#addBtnHandler();
 	}
 }
-/*
+
 class createFormPabrik extends createFormMasy {
-	constructor() {
-		super();
+	constructor(formKontainer, listOfuttp, str) {
+		super(formKontainer);
+		this.str = str;
 	}
 
-	async getUttp() {
-		url = "https://script.google.com/macros/s/AKfycbxQ93CMJ3bS86cZOV99AK3T75pexk44ImtnaYJYcmLiNVs9mXiu-7-ee3vGrbOXI4Q/exec";
+	async getUttpDetail() {
+		let url = "https://script.google.com/macros/s/AKfycbxQ93CMJ3bS86cZOV99AK3T75pexk44ImtnaYJYcmLiNVs9mXiu-7-ee3vGrbOXI4Q/exec";
+		
+		let mydata = [];
 
 		await fetch(url)
 		.then(datas => datas.json())
 		.then(datas => {
-			console.log(datas);
+			mydata = datas.uttp;
 		});		
+
+		return mydata;
 	}
 }
-*/
+
 (function main() {
 	let menuMsy = document.querySelector(".menu").children[1];
 
@@ -168,14 +173,16 @@ class createFormPabrik extends createFormMasy {
 					</div>`;
 
 		const formMasy = new createFormMasy(document.querySelector(".main"), listOfuttp(), str);
+		formMasy.generateForm();
 		formMasy.generateBtnHandler();
 
 	});
 
 	let menuPbrk = document.querySelector(".menu").children[0];
-	menuPbrk.addEventListener("click", () => {
-		/*let formPabrik = new createFormPabrik(document.querySelector(".main"), listOfuttp(), "<div>/<div>");
-		formPabrik.getUttp();*/
+	menuPbrk.addEventListener("click", async () => {
+		const formPabrik = new createFormPabrik(document.querySelector(".main"), listOfuttp(), "<div>Test</div>");
+		console.log(await formPabrik.getUttpDetail());
+		formPabrik.generateForm();
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];

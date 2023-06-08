@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script language="javascript">
+        class HospitalEmployee {
+        constructor(name) {
+            this._name = name;
+            this._remainingVacationDays = 25;
+        }
+        
+        get #name() {
+            return this._name;
+        }
+        
+        get #remainingVacationDays() {
+            return this._remainingVacationDays;
+        }
+        
+        takeVacationDays(daysOff) {
+            return this._remainingVacationDays = this._remainingVacationDays - daysOff;
+        }
+        }
+
+        class Doctor extends HospitalEmployee{
+        constructor(name,remainingVacationDays,insurance){
+            super(name);
+            this._remainingVacationDays = remainingVacationDays;
+            this._insurance = insurance;
+        } 
+        }
+
+        const doc = new Doctor('doc',14,true); 
+        //console.log(doc.name);
+        //console.log(doc.remainingVacationDays);
+        console.log(doc.takeVacationDays(5));
+        //console.log(doc.remainingVacationDays);
+        //console.log(doc);
+    </script>
+</body>
+</html>
