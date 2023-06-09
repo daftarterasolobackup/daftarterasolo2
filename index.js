@@ -143,12 +143,16 @@ class createFormPabrik extends createFormMasy {
 
 		return mydata;
 	}
+
+	#setCSSPabrik() {
+		document.querySelector(".title").style.backgroundColor = "green";
+	}
 }
 
 (function main() {
 	let menuMsy = document.querySelector(".menu").children[1];
 
-	menuMsy.addEventListener("click", () => {
+	menuMsy.addEventListener("click", async () => {
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
@@ -173,6 +177,7 @@ class createFormPabrik extends createFormMasy {
 					</div>`;
 
 		const formMasy = new createFormMasy(document.querySelector(".main"), listOfuttp(), str);
+		await formMasy.loadKelurahan();
 		formMasy.generateForm();
 		formMasy.generateBtnHandler();
 
@@ -180,9 +185,32 @@ class createFormPabrik extends createFormMasy {
 
 	let menuPbrk = document.querySelector(".menu").children[0];
 	menuPbrk.addEventListener("click", async () => {
-		const formPabrik = new createFormPabrik(document.querySelector(".main"), listOfuttp(), "<div>Test</div>");
-		console.log(await formPabrik.getUttpDetail());
+		let str = `<div class="mainContent">      
+		<div class="subContent" id="sub1">
+			<div class="title">Silahkan isi data Anda</div>
+			<form>
+				<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama Pabrik">
+				<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat Pabrik/Perusahaan"></textarea>  
+				<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
+				<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+				<input type="button" name="next" id="next" value="Next..">
+			</form>
+		</div>
+		<div class="subContent" id="sub2">
+			<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+			<div class="addDiv">+<p id="klik">Klik disini</p></div>
+			<div class="backBtnDiv">
+				<form><input type="button" name="back" id="back" value="Back.."></form>
+			</div>                  
+		</div>
+		<datalist id="kelurahan"></datalist>
+	</div>
+	<div class="uttpDiv hidden">
+	</div>`;
+		const formPabrik = new createFormPabrik(document.querySelector(".main"), listOfuttp(), str);
+		await formPabrik.loadKelurahan();
 		formPabrik.generateForm();
+		formPabrik.generateBtnHandler();
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
