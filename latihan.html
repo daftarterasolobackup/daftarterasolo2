@@ -13,16 +13,17 @@
             this._name = name;
             this._remainingVacationDays = 25;
         }
-        
-        get #name() {
+        /*
+        get name() {
             return this._name;
         }
         
-        get #remainingVacationDays() {
+        get remainingVacationDays() {
             return this._remainingVacationDays;
         }
-        
+        */
         takeVacationDays(daysOff) {
+            console.log(`${this._name} : ${this._remainingVacationDays}`)
             return this._remainingVacationDays = this._remainingVacationDays - daysOff;
         }
         }

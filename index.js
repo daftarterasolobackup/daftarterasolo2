@@ -55,15 +55,13 @@ class createFormMasy {
 		this.formKontainer = formKontainer;
 		this.list = listOfuttp;
 		this.str = str;
-		/*this.#generateForm();
-		this.#loadKelurahan();
-		this.#addBtnHandler();
-		this.#nextBtnHandler();
-		this.#backBtnHandler();
-		*/
 		this.lsKontainer = "";
 	}
  
+	set listUttp(val) {
+		this.list = val;
+	}
+
 	generateForm() {
 		this.formKontainer.innerHTML = this.str;
 	}
@@ -138,14 +136,21 @@ class createFormPabrik extends createFormMasy {
 		await fetch(url)
 		.then(datas => datas.json())
 		.then(datas => {
-			mydata = datas.uttp;
+			mydata = datas.uttp.filter(e => {return e[0] != "N" && e[0] != "TP" && e[0] != "Meter Kayu" && e[0] != "PUBBM" && e[0] != "TJE"});
 		});		
 
 		return mydata;
 	}
 
 	#setCSSPabrik() {
-		document.querySelector(".title").style.backgroundColor = "green";
+		document.querySelectorAll(".title").forEach(e => e.style.backgroundColor = "#20b2aa");
+		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "3px solid #20b2aa");
+		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "3px solid #20b2aa");
+	}
+
+	generateForm() {
+		super.generateForm();
+		this.#setCSSPabrik();
 	}
 }
 
@@ -211,6 +216,7 @@ class createFormPabrik extends createFormMasy {
 		await formPabrik.loadKelurahan();
 		formPabrik.generateForm();
 		formPabrik.generateBtnHandler();
+		formPabrik.getUttpDetail();
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
