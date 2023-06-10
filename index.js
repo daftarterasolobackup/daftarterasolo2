@@ -1,3 +1,5 @@
+//const { resolve } = require("path");
+
 async function getKelurahan() {
 	url = "https://script.google.com/macros/s/AKfycbxNbS3tE2nm7KCbhIFw71dkBpwZn0MJWPbM2b7mhot7a3Ir0WxB3wCFCAnYOE38Dvo/exec";
 
@@ -13,53 +15,35 @@ async function getKelurahan() {
 	});
 }
 
-
-async function getGroupedUttp() {
-	url = "https://script.google.com/macros/s/AKfycbzywsoS9ptJU25w4JdlY2fD99sLY24tmNUx5tK0I-zB4FZr5ZDEq5hDHQ0SK_2iFxI/exec";
-
-	await fetch(url, {
-		method : 'POST',
-		body : JSON.stringify({'uttp' : ''})
-	})
-	.then(datas => datas.json())
-	.then(datas => {
-		console.log(datas);
-	});
-
+async function listOfUttpMasy() {
+	let url = "https://script.google.com/macros/s/AKfycby7EeCgoLpKAKNy9En83dAIg9cgovMEPrbwl9bNYI9M0-Br50gG53fBOpwi3p_3PQQ/exec";		
+	return await fetch(url).then(datas => datas.json()).then(datas => datas.uttp);		
 }
 
-function listOfuttp() {
-	return uttpArrPic = [
-	    ['TBI','img/TBI.jpg','Timb Bobot Ingsut'],
-	    ['TE','img/TE.webp', 'Timb Elektronik'],
-	    ['TE','img/TE_analytic.webp', 'Timb Elektronik'],
-	    ['TE','img/TE_hanging.webp', 'Timb Elektronik'],
-	    ['TE','img/TE2.webp', 'Timb Elektronik'],
-	    ['TE','img/TE3.jfif', 'Timb Elektronik'],
-	    ['TM','img/TM.jfif', 'Timbangan Meja'],
-	    ['TP','img/TP.jfif', 'Timbangan Pegas'],
-	    ['TP','img/TP2.webp', 'Timbangan Pegas'],
-	    ['TP','img/TP3.webp', 'Timbangan Pegas'],
-	    ['TS','img/TS.jpg', 'Timb Sentisimal'],
-	    ['DL','img/DL.jpg', 'Dacin Logam'],
-	    ['N','img/N.jpg', 'Neraca'],
-	    ['Meter Kayu','img/MK.jpg', 'Meter Kayu'],
-	    ['PUBBM','img/pubbm.jpg', 'Pompa Ukur BBM'],
-	    ['TJE', 'img/TJE.jpg', 'Timb Jembatan'],
-		['TAK', 'img/TAK.jpeg', 'Takaran']
-	];
+async function listOfUttpPabrik() {
+	let url = "https://script.google.com/macros/s/AKfycbzH27ZTSKFF2Q2xXIRQEs7sd6uNzTfZpp-9BvO9a5JDDrhnf_YHzqc_TYoMtdDNOVI/exec";
+	let mydata = [];
+	await fetch(url).then(datas => datas.json()).then(datas => {
+		mydata = datas.uttp.filter(e => {return e[0] != "N" && e[0] != "TP" && e[0] != "Meter Kayu" && e[0] != "PUBBM" && e[0] != "TJE"});
+	});		
+	return mydata;
 }
 
 class createFormMasy {
+	lsKontainer;
+	strUttp;
+	argsUttp;
+
+
 	constructor(formKontainer, listOfuttp, str) {
 		this.formKontainer = formKontainer;
 		this.list = listOfuttp;
 		this.str = str;
-		this.lsKontainer = "";
 	}
- 
-	set listUttp(val) {
-		this.list = val;
+	
+	stringUttp(string, ...args) {
+		this.strUttp = string;
+		this.argsUttp = args;
 	}
 
 	generateForm() {
@@ -81,14 +65,14 @@ class createFormMasy {
 		}, 100);		
 	}
 
+	setCssUttp() {
+		return 0;
+	}
+
 	#generateListUttp() {
 		let str = "";
 		for (let k in this.list) {
-			str += `<div id=${k} class=${this.list[k][0]} style="background-image : url(${this.list[k][1]});">
-						<fieldset class="listFieldset">
-							<legend class="listLegend">${this.list[k][2]}</legend>
-						</fieldset>	
-					</div>`;
+			str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
 		}	
 		this.lsKontainer.innerHTML = str;
 	}
@@ -98,6 +82,7 @@ class createFormMasy {
 		addBtn.addEventListener('click',() => {
 			this.#setCss();
 			this.#generateListUttp();
+			this.setCssUttp();
 		});	
 	}
 
@@ -126,20 +111,7 @@ class createFormPabrik extends createFormMasy {
 	constructor(formKontainer, listOfuttp, str) {
 		super(formKontainer);
 		this.str = str;
-	}
-
-	async getUttpDetail() {
-		let url = "https://script.google.com/macros/s/AKfycbxQ93CMJ3bS86cZOV99AK3T75pexk44ImtnaYJYcmLiNVs9mXiu-7-ee3vGrbOXI4Q/exec";
-		
-		let mydata = [];
-
-		await fetch(url)
-		.then(datas => datas.json())
-		.then(datas => {
-			mydata = datas.uttp.filter(e => {return e[0] != "N" && e[0] != "TP" && e[0] != "Meter Kayu" && e[0] != "PUBBM" && e[0] != "TJE"});
-		});		
-
-		return mydata;
+		this.list = listOfuttp;
 	}
 
 	#setCSSPabrik() {
@@ -151,6 +123,14 @@ class createFormPabrik extends createFormMasy {
 	generateForm() {
 		super.generateForm();
 		this.#setCSSPabrik();
+	}
+
+	setCssUttp() {
+		document.querySelectorAll(".listFieldset").forEach(e => {
+			e.style.fontSize = "12px";
+			e.style.borderTopColor = "green";
+		});
+		document.querySelectorAll(".listLegend").forEach(e => e.style.backgroundColor = "green");
 	}
 }
 
@@ -180,10 +160,12 @@ class createFormPabrik extends createFormMasy {
 					</div>
 					<div class="uttpDiv hidden">
 					</div>`;
-
-		const formMasy = new createFormMasy(document.querySelector(".main"), listOfuttp(), str);
+		const x = await listOfUttpMasy();
+		const formMasy = new createFormMasy(document.querySelector(".main"), x, str);
 		await formMasy.loadKelurahan();
 		formMasy.generateForm();
+		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][3]']
+		formMasy.stringUttp`<div id=${args[0]} class=${args[1]} style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formMasy.generateBtnHandler();
 
 	});
@@ -191,32 +173,34 @@ class createFormPabrik extends createFormMasy {
 	let menuPbrk = document.querySelector(".menu").children[0];
 	menuPbrk.addEventListener("click", async () => {
 		let str = `<div class="mainContent">      
-		<div class="subContent" id="sub1">
-			<div class="title">Silahkan isi data Anda</div>
-			<form>
-				<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama Pabrik">
-				<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat Pabrik/Perusahaan"></textarea>  
-				<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
-				<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
-				<input type="button" name="next" id="next" value="Next..">
-			</form>
-		</div>
-		<div class="subContent" id="sub2">
-			<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
-			<div class="addDiv">+<p id="klik">Klik disini</p></div>
-			<div class="backBtnDiv">
-				<form><input type="button" name="back" id="back" value="Back.."></form>
-			</div>                  
-		</div>
-		<datalist id="kelurahan"></datalist>
-	</div>
-	<div class="uttpDiv hidden">
-	</div>`;
-		const formPabrik = new createFormPabrik(document.querySelector(".main"), listOfuttp(), str);
+						<div class="subContent" id="sub1">
+							<div class="title">Silahkan isi data Anda</div>
+							<form>
+								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama Pabrik">
+								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat Pabrik/Perusahaan"></textarea>  
+								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
+								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="button" name="next" id="next" value="Next..">
+							</form>
+						</div>
+						<div class="subContent" id="sub2">
+							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="addDiv">+<p id="klik">Klik disini</p></div>
+							<div class="backBtnDiv">
+								<form><input type="button" name="back" id="back" value="Back.."></form>
+							</div>                  
+						</div>
+						<datalist id="kelurahan"></datalist>
+					</div>
+					<div class="uttpDiv hidden">
+					</div>`;
+		const x = await listOfUttpPabrik();
+		const formPabrik = new createFormPabrik(document.querySelector(".main"), x, str);
 		await formPabrik.loadKelurahan();
 		formPabrik.generateForm();
+		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
+		formPabrik.stringUttp`<div id=${args[0]} class='${args[1]}/${args[4]}/${args[5]}' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
 		formPabrik.generateBtnHandler();
-		formPabrik.getUttpDetail();
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
