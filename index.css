@@ -26,6 +26,7 @@ div.header {
     background-color: #EEEEEE;
     font-weight: bolder;
     opacity: 1;
+    padding-right: 4px;
 }
 
 #greeting1 {
