@@ -129,9 +129,14 @@ class createFormPabrik extends createFormMasy {
 	}
 }
 */
-
+import { createFormMasy } from './service/formMasy.js';
+import { createFormPabrik } from './service/formPabrik.js';
+import { getKelurahan } from './util/utilFunc.js'; 
+import { listOfUttpMasy } from './util/utilFunc.js'; 
+import { listOfUttpPabrik } from './util/utilFunc.js'; 
 
 (function main() {
+
 	let menuMsy = document.querySelector(".menu").children[1];
 
 	menuMsy.addEventListener("click", async () => {

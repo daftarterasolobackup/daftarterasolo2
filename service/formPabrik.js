@@ -1,4 +1,6 @@
-class createFormPabrik extends createFormMasy {
+import { createFormMasy } from './formMasy.js'
+
+export class createFormPabrik extends createFormMasy {
 	constructor(formKontainer, listOfuttp, str) {
 		super(formKontainer);
 		this.str = str;

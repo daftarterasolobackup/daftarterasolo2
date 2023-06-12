@@ -1,4 +1,6 @@
-class createFormMasy {
+import { getKelurahan } from '../util/utilFunc.js'; 
+
+export class createFormMasy {
 	lsKontainer;
 	strUttp;
 	argsUttp;
