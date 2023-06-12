@@ -1,3 +1,4 @@
+/*
 async function getKelurahan() {
 	url = "https://script.google.com/macros/s/AKfycbxNbS3tE2nm7KCbhIFw71dkBpwZn0MJWPbM2b7mhot7a3Ir0WxB3wCFCAnYOE38Dvo/exec";
 
@@ -127,6 +128,8 @@ class createFormPabrik extends createFormMasy {
 		document.querySelectorAll(".listLegend").forEach(e => e.style.backgroundColor = "green");
 	}
 }
+*/
+
 
 (function main() {
 	let menuMsy = document.querySelector(".menu").children[1];
