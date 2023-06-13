@@ -178,7 +178,7 @@ import { listOfUttpPabrik } from './util/utilFunc.js';
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
 							<form>
-								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama Pabrik">
+								<input type="text" class="form_data" name="nama" id="nama" list="pabrik" placeholder="Masukkan nama Pabrik">
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat Pabrik/Perusahaan"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
@@ -193,6 +193,7 @@ import { listOfUttpPabrik } from './util/utilFunc.js';
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>
+						<datalist id="pabrik"></datalist>
 					</div>
 					<div class="uttpDiv hidden">
 					</div>`;
@@ -200,9 +201,10 @@ import { listOfUttpPabrik } from './util/utilFunc.js';
 		const formPabrik = new createFormPabrik(document.querySelector(".main"), x, str);
 		await formPabrik.loadKelurahan();
 		formPabrik.generateForm();
+		formPabrik.generateBtnHandler();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
 		formPabrik.stringUttp`<div id=${args[0]} class='${args[1]}/${args[4]}/${args[5]}' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
-		formPabrik.generateBtnHandler();
+		
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
