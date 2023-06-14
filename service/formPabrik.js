@@ -54,11 +54,11 @@ export class createFormPabrik extends createFormMasy {
 
 	#generateEventHandler() {	
 		document.getElementById("nama").addEventListener('input', e => {
-			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value) : '';
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase()) : '';
 		});
 
 		document.getElementById("nama").addEventListener('keyup', e => {
-			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value) : '';
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase()) : '';
 		});
 
 	}
