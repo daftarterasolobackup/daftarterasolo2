@@ -2,14 +2,12 @@ import { createFormMasy } from './formMasy.js';
 import { getPabrikTimb } from '../util/utilFunc.js';
 
 export class createFormPabrik extends createFormMasy {
-
+	#pabrikData = [];
 	constructor(formKontainer, listOfuttp, str) {
 		super(formKontainer);
 		this.str = str;
 		this.list = listOfuttp;
 	}
-
-	#pabrikData = "";
 
 	#setCSSPabrik() {
 		document.querySelectorAll(".title").forEach(e => e.style.backgroundColor = "#20b2aa");
@@ -34,16 +32,22 @@ export class createFormPabrik extends createFormMasy {
 	}
 
 	async #loadPabrikTimb() {
-		await getPabrikTimb();
-		this.#pabrikData = "test";
+		this.#pabrikData = await getPabrikTimb();
+	}
+
+	//fungsi untuk dijalankan pada fungsi #generateEventHandler()
+	#autoCompleteForm(katakunci) {
+		let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
+		if (filteredData[0] != undefined) {
+			document.getElementById("alamat").value = filteredData[0][2];
+			document.getElementById("kel").value = filteredData[0][4];
+			document.getElementById("wa").value = filteredData[0][3];			
+		}
 	}
 
 	#generateEventHandler() {	
-		function eventHandler() {
-			console.log(this.#pabrikData);
-		}
-		document.getElementById("nama").addEventListener('keyup', e => {
-			e.target.value.length > 1 ? eventHandler() : '';
+		document.getElementById("nama").addEventListener('input', e => {
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value) : '';
 		});
 	}
 
