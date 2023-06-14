@@ -76,5 +76,9 @@ export class createFormMasy {
 		this.#backBtnHandler();
 		this.#addBtnHandler();
 	}
+
+	#generateLoadingBar() {
+		
+	}
 }
 
