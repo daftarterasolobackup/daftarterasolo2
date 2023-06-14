@@ -35,8 +35,15 @@ export class createFormPabrik extends createFormMasy {
 		this.#pabrikData = await getPabrikTimb();
 	}
 
+	#clearFormPendaftaran() {
+		document.getElementById("alamat").value = "";
+		document.getElementById("kel").value = "";
+		document.getElementById("wa").value = "";			
+	}
+
 	//fungsi untuk dijalankan pada fungsi #generateEventHandler()
 	#autoCompleteForm(katakunci) {
+		this.#clearFormPendaftaran();
 		let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
 		if (filteredData[0] != undefined) {
 			document.getElementById("alamat").value = filteredData[0][2];
@@ -49,6 +56,11 @@ export class createFormPabrik extends createFormMasy {
 		document.getElementById("nama").addEventListener('input', e => {
 			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value) : '';
 		});
+
+		document.getElementById("nama").addEventListener('keyup', e => {
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value) : '';
+		});
+
 	}
 
 	//override generateBtnHandler() from parent class
