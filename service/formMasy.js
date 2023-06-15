@@ -76,9 +76,16 @@ export class createFormMasy {
 		this.#backBtnHandler();
 		this.#addBtnHandler();
 	}
-
-	#generateLoadingBar() {
-		
+/*
+	showLoadingBar(logic) {
+		if (logic === true) {
+			document.querySelector(".tutorial").classList.add("hidden");
+			document.querySelector(".loadingselect").classList.remove("hidden");		
+		} else {
+			document.querySelector(".tutorial").classList.remove("hidden");
+			document.querySelector(".loadingselect").classList.add("hidden");		
+		} 
 	}
+*/
 }
 

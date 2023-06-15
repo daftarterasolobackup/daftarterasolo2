@@ -174,6 +174,8 @@ import { listOfUttpPabrik } from './util/utilFunc.js';
 
 	let menuPbrk = document.querySelector(".menu").children[0];
 	menuPbrk.addEventListener("click", async () => {
+		document.querySelector(".ld1").classList.remove("hidden");
+
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
@@ -204,7 +206,6 @@ import { listOfUttpPabrik } from './util/utilFunc.js';
 		formPabrik.generateBtnHandler();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
 		formPabrik.stringUttp`<div id=${args[0]} class='${args[1]}/${args[4]}/${args[5]}' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
-		
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
