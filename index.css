@@ -445,6 +445,7 @@ a {
     flex-direction:row;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: absolute;
 
 }
 
@@ -508,6 +509,10 @@ a {
   left : 0;
   background-color: #FFFFFF;
   opacity: 0.9;
+}
+
+.ld1.hidden {
+    display: none;
 }
 
 .ld2 {

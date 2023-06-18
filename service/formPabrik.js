@@ -1,18 +1,29 @@
 import { createFormMasy } from './formMasy.js';
-import { getPabrikTimb } from '../util/utilFunc.js';
+import { getPabrikTimb, listOfUttpPabrik } from '../util/utilFunc.js';
 
 export class createFormPabrik extends createFormMasy {
-	#pabrikData = [];
-	constructor(formKontainer, listOfuttp, str) {
+	#pabrikData = [];    //field yg digunakan pada method #loadPabrikTimb
+
+	constructor(formKontainer, str) {
 		super(formKontainer);
 		this.str = str;
-		this.list = listOfuttp;
 	}
 
+	//================ method-method utk dijalankan pada method generateForm() =========================
 	#setCSSPabrik() {
 		document.querySelectorAll(".title").forEach(e => e.style.backgroundColor = "#20b2aa");
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "3px solid #20b2aa");
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "3px solid #20b2aa");
+	}
+
+	async #loadPabrikTimb() {
+		this.#pabrikData = await getPabrikTimb();
+	}
+	//======================== end of methods ==========================================================
+
+	//Override setLoadingBarColor() from parent class
+	setLoadingBarColor() {
+		document.querySelectorAll(".lds-facebook div").forEach(el => el.style.background = "#0098BA");
 	}
 
 	//Override generateForm() from parent class
@@ -20,6 +31,16 @@ export class createFormPabrik extends createFormMasy {
 		super.generateForm();
 		this.#setCSSPabrik();
 		await this.#loadPabrikTimb();
+	}
+
+	//override generateListUttp() from parent class
+	async generateListUttp() {
+		let str = "";
+		this.list = await listOfUttpPabrik();
+		for (let k in this.list) {
+			str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
+		}	
+		this.lsKontainer.innerHTML = str;
 	}
 
 	//Override setCssUttp() from parent class
@@ -31,17 +52,14 @@ export class createFormPabrik extends createFormMasy {
 		document.querySelectorAll(".listLegend").forEach(e => e.style.backgroundColor = "green");
 	}
 
-	async #loadPabrikTimb() {
-		this.#pabrikData = await getPabrikTimb();
-	}
-
+	//method utk dijalankan pd method #autoCompleteForm()
 	#clearFormPendaftaran() {
 		document.getElementById("alamat").value = "";
 		document.getElementById("kel").value = "";
 		document.getElementById("wa").value = "";			
 	}
 
-	//fungsi untuk dijalankan pada fungsi #generateEventHandler()
+	//method untuk dijalankan pada method #generateEventHandler()
 	#autoCompleteForm(katakunci) {
 		this.#clearFormPendaftaran();
 		let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
@@ -52,6 +70,7 @@ export class createFormPabrik extends createFormMasy {
 		}
 	}
 
+	//method utk dijalankan pd method generateBtnHandler()
 	#generateEventHandler() {	
 		document.getElementById("nama").addEventListener('input', e => {
 			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase()) : '';

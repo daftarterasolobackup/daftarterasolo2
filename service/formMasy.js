@@ -1,28 +1,37 @@
-import { getKelurahan } from '../util/utilFunc.js'; 
+import { getKelurahan, listOfUttpMasy } from '../util/utilFunc.js'; 
 
 export class createFormMasy {
 	lsKontainer;
 	strUttp;
 	argsUttp;
+	list;
 
-
-	constructor(formKontainer, listOfuttp, str) {
+	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
-		this.list = listOfuttp;
 		this.str = str;
 	}
 	
-	stringUttp(string, ...args) {
-		this.strUttp = string;
-		this.argsUttp = args;
-	}
-
-	generateForm() {
-		this.formKontainer.innerHTML = this.str;
+	setLoadingBarColor() {
+		document.querySelectorAll(".lds-facebook div").forEach(el => el.style.background = "#ff6600");
 	}
 	
-	async loadKelurahan() {
-		getKelurahan();
+	#generateLoadingBar(logic) {
+		document.querySelector(".tutorial") != null ? document.querySelector(".tutorial").remove() : '';
+		this.setLoadingBarColor();
+		logic === true ? document.querySelector(".ld1").classList.remove("hidden") : document.querySelector(".ld1").classList.add("hidden");
+	}
+
+	#removeMenuContent() {
+		document.querySelector(".uttpDiv") != null ? document.querySelector(".uttpDiv").remove() : '';
+		document.querySelector(".mainContent") != null ? document.querySelector(".mainContent").remove() : '';
+	}
+
+	async generateForm() {
+		this.#generateLoadingBar(true);
+		this.#removeMenuContent();
+		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
+		await getKelurahan();
+		this.#generateLoadingBar(false);
 	}
 
 	#setCss() {
@@ -36,12 +45,19 @@ export class createFormMasy {
 		}, 100);		
 	}
 
+
+	stringUttp(string, ...args) {
+		this.strUttp = string;
+		this.argsUttp = args;
+	}
+
 	setCssUttp() {
 		return 0;
 	}
 
-	#generateListUttp() {
+	async generateListUttp() {
 		let str = "";
+		this.list = await listOfUttpMasy();
 		for (let k in this.list) {
 			str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
 		}	
@@ -50,9 +66,9 @@ export class createFormMasy {
 
 	#addBtnHandler() {
 		let addBtn = document.querySelector(".addDiv");
-		addBtn.addEventListener('click',() => {
+		addBtn.addEventListener('click',async () => {
 			this.#setCss();
-			this.#generateListUttp();
+			await this.generateListUttp();
 			this.setCssUttp();
 		});	
 	}
@@ -79,11 +95,10 @@ export class createFormMasy {
 /*
 	showLoadingBar(logic) {
 		if (logic === true) {
-			document.querySelector(".tutorial").classList.add("hidden");
-			document.querySelector(".loadingselect").classList.remove("hidden");		
+			//document.querySelector(".tutorial").classList.add("hidden");
+			document.querySelector(".ld1").classList.remove("hidden");		
 		} else {
-			document.querySelector(".tutorial").classList.remove("hidden");
-			document.querySelector(".loadingselect").classList.add("hidden");		
+			document.querySelector(".ld1").classList.add("hidden");		
 		} 
 	}
 */
