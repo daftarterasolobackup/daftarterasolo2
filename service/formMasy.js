@@ -21,14 +21,14 @@ export class createFormMasy {
 		logic === true ? document.querySelector(".ld1").classList.remove("hidden") : document.querySelector(".ld1").classList.add("hidden");
 	}
 
-	#removeMenuContent() {
+	#removeContentComponent() {
 		document.querySelector(".uttpDiv") != null ? document.querySelector(".uttpDiv").remove() : '';
 		document.querySelector(".mainContent") != null ? document.querySelector(".mainContent").remove() : '';
 	}
 
 	async generateForm() {
 		this.#generateLoadingBar(true);
-		this.#removeMenuContent();
+		this.#removeContentComponent();
 		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
 		await getKelurahan();
 		this.#generateLoadingBar(false);
@@ -56,12 +56,17 @@ export class createFormMasy {
 	}
 
 	async generateListUttp() {
-		let str = "";
+		let str = `<div class="judl"><a class="closeHref" href=#>Close</a></div>`;
 		this.list = await listOfUttpMasy();
 		for (let k in this.list) {
 			str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
 		}	
 		this.lsKontainer.innerHTML = str;
+	}
+
+	#closeBtnHandler() {
+		let closeBtn = document.querySelector(".closeHref");
+		closeBtn.addEventListener('click',() => document.querySelector(".uttpDiv").style.display = "none");
 	}
 
 	#addBtnHandler() {
@@ -70,6 +75,7 @@ export class createFormMasy {
 			this.#setCss();
 			await this.generateListUttp();
 			this.setCssUttp();
+			this.#closeBtnHandler();
 		});	
 	}
 
@@ -92,15 +98,6 @@ export class createFormMasy {
 		this.#backBtnHandler();
 		this.#addBtnHandler();
 	}
-/*
-	showLoadingBar(logic) {
-		if (logic === true) {
-			//document.querySelector(".tutorial").classList.add("hidden");
-			document.querySelector(".ld1").classList.remove("hidden");		
-		} else {
-			document.querySelector(".ld1").classList.add("hidden");		
-		} 
-	}
-*/
+
 }
 

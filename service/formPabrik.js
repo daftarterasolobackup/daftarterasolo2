@@ -35,7 +35,7 @@ export class createFormPabrik extends createFormMasy {
 
 	//override generateListUttp() from parent class
 	async generateListUttp() {
-		let str = "";
+		let str = `<div class="judl"><a class="closeHref" href=# style="color : #7FFF00;">Close</a></div>`;
 		this.list = await listOfUttpPabrik();
 		for (let k in this.list) {
 			str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
