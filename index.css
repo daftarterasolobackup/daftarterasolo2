@@ -242,19 +242,18 @@ legend.legendTitle {
 }
 
 .uttpDiv {
-    width: 90%;
+    width: 95%;
     height : 90%;
     position: absolute;
-    left : 4.25%;
+    /*left : 4.25%;*/
     background-color: #000000;
-    top : 25px;
+    top : 20px;
     border-radius: 6px;
     opacity: 1;
     border: 3px solid #FFFFFF;
     padding : 5px;
     display: flex;
     flex-direction:row;
-    
     flex-wrap: wrap;
     
     justify-content: space-between;
@@ -269,7 +268,7 @@ legend.legendTitle {
 
 
 .uttpDiv div {
-    width : 160px;
+    width : 48%;
     height : 145px;
     background-color : #000000;
     margin : 2px 2px 15px 2px;
