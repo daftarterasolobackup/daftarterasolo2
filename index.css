@@ -54,6 +54,7 @@ div.menu {
     background-color: #FFFFFF;
     /*padding-top: 15px;*/
     margin: 7px auto 0 auto;
+    display: flex;
 
 }
 
@@ -70,6 +71,7 @@ div.captionMenu {
     background-color: #FFFFFF;
     /*padding-top: 15px;*/
     margin: 0 auto 0 auto;
+    display: flex;
 
 }
 
