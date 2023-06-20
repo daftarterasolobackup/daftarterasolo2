@@ -32,7 +32,8 @@ import { createFormPabrik } from './service/formPabrik.js';
 		const formMasy = new createFormMasy(document.querySelector(".main"), str);
 		await formMasy.generateForm();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][3]']
-		formMasy.stringUttp`<div id=${args[0]} class=${args[1]} style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
+		//formMasy.stringUttp`<div id=${args[0]} class='${args[1]}'' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
+		formMasy.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formMasy.generateBtnHandler();
 
 	});
@@ -69,7 +70,8 @@ import { createFormPabrik } from './service/formPabrik.js';
 		await formPabrik.generateForm();
 		formPabrik.generateBtnHandler();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
-		formPabrik.stringUttp`<div id=${args[0]} class='${args[1]}/${args[4]}/${args[5]}' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+		//formPabrik.stringUttp`<div id=${args[0]} class='${args[1]}/${args[4]}/${args[5]}' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+		formPabrik.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];

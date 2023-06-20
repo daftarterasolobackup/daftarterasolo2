@@ -68,6 +68,10 @@ export class createFormMasy {
 		let closeBtn = document.querySelector(".closeHref");
 		closeBtn.addEventListener('click',() => document.querySelector(".uttpDiv").style.display = "none");
 	}
+	
+	#pickUttpHandler() {
+		document.querySelectorAll(".daftarUttp").forEach(e => console.log(e));
+	}
 
 	#addBtnHandler() {
 		let addBtn = document.querySelector(".addDiv");
@@ -76,6 +80,7 @@ export class createFormMasy {
 			await this.generateListUttp();
 			this.setCssUttp();
 			this.#closeBtnHandler();
+			this.#pickUttpHandler();
 		});	
 	}
 
