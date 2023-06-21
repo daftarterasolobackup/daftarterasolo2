@@ -70,7 +70,12 @@ export class createFormMasy {
 	}
 	
 	#pickUttpHandler() {
-		document.querySelectorAll(".daftarUttp").forEach(e => console.log(e));
+		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
+			let newPercentage = 25 - document.querySelector(".shopChart").offsetHeight/document.getElementById("sub2").offsetHeight*100;
+			console.log(newPercentage);
+			document.querySelector(".addDiv").style.top = newPercentage;
+			document.querySelector(".backBtnDiv").style.top = `${newPercentage}%`;
+		}));
 	}
 
 	#addBtnHandler() {

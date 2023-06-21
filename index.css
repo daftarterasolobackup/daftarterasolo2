@@ -365,6 +365,9 @@ legend.legendTitle {
     transform : translateY(2px);
 }
 
+.shopChart {
+    position: relative;
+}
 
 .addDiv {
     position: relative;

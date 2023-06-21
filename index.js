@@ -19,6 +19,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 						</div>
 						<div class="subContent" id="sub2">
 							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="shopChart"><ul><li>test</li></ul></div>
 							<div class="addDiv">+<p id="klik">Klik disini</p></div>
 							<div class="backBtnDiv">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
@@ -55,6 +56,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 						</div>
 						<div class="subContent" id="sub2">
 							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="shopChart"></div>	
 							<div class="addDiv">+<p id="klik">Klik disini</p></div>
 							<div class="backBtnDiv">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
