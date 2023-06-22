@@ -10,7 +10,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
 							<form>
-								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama">
+								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha">
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
@@ -19,7 +19,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 						</div>
 						<div class="subContent" id="sub2">
 							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
-							<div class="shopChart"><ul><li>test</li></ul></div>
+							<div class="shopChart"></div>
 							<div class="addDiv">+<p id="klik">Klik disini</p></div>
 							<div class="backBtnDiv">
 								<form><input type="button" name="back" id="back" value="Back.."></form>

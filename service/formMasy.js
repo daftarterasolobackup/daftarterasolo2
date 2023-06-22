@@ -5,6 +5,7 @@ export class createFormMasy {
 	strUttp;
 	argsUttp;
 	list;
+	#shopChartTemp = [];
 
 	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
@@ -69,12 +70,25 @@ export class createFormMasy {
 		closeBtn.addEventListener('click',() => document.querySelector(".uttpDiv").style.display = "none");
 	}
 	
+	//utk dijalankan pada method #pickUttpHandler
+	#changeShopChartLayout() {
+		//let newPercentage = 1 + ((document.querySelector(".shopChart").offsetHeight/document.getElementById("sub2").offsetHeight)*100);
+		//document.querySelector(".addDiv").style.top = `${newPercentage}%`;
+		//document.querySelector(".backBtnDiv").style.top = `${newPercentage}%`;
+		document.querySelector(".addDiv").style.top = "5px";
+		document.querySelector(".backBtnDiv").style.top = "-10px";
+	}
+
 	#pickUttpHandler() {
 		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
-			let newPercentage = 25 - document.querySelector(".shopChart").offsetHeight/document.getElementById("sub2").offsetHeight*100;
-			console.log(newPercentage);
-			document.querySelector(".addDiv").style.top = newPercentage;
-			document.querySelector(".backBtnDiv").style.top = `${newPercentage}%`;
+			this.#changeShopChartLayout();
+
+			this.#shopChartTemp.push(this.list[e.id]);
+			console.log(this.#shopChartTemp);
+			let str = `<table><thead><tr><td>UTTP</td><td>Keterangan</td><td>Jumlah</td></tr></thead>`;
+			this.#shopChartTemp.forEach(e => str += `<tr><td>${e[0]}</td><td>${e[3]}</td><td>1</td></tr>`);
+			str += `</table>`
+			document.querySelector(".shopChart").innerHTML = str;
 		}));
 	}
 
