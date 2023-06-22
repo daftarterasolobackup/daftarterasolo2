@@ -23,6 +23,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 							<div class="addDiv">+<p id="klik">Klik disini</p></div>
 							<div class="backBtnDiv">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
+								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>
@@ -60,6 +61,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 							<div class="addDiv">+<p id="klik">Klik disini</p></div>
 							<div class="backBtnDiv">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
+								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>

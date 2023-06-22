@@ -350,7 +350,28 @@ legend.legendTitle {
     margin-top: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    width : 100%;
+    width : 90px;
+    color : #FFFFFF;
+    outline: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    margin-right: 5px;
+}
+
+#back:active {
+    background-color: orangered;
+    transform : translateY(2px);
+}
+
+#sbmt {
+    background-color: #ff6565;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width : 90px;
     color : #FFFFFF;
     outline: none;
     border: 2px solid #FFFFFF;
@@ -360,7 +381,7 @@ legend.legendTitle {
     font-weight: 300;
 }
 
-#back:active {
+#sbmt:active {
     background-color: orangered;
     transform : translateY(2px);
 }
@@ -396,6 +417,7 @@ legend.legendTitle {
     color : #000000;
     font-size: 70px;
     font-family: 'Poppins', sans-serif;
+    display: flex;
 }
 
 
@@ -591,6 +613,8 @@ div.judl {
     border : 1px solid #FFFFFF;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
+    border-collapse:collapse;
 }
 
 .shopChart table td {
@@ -599,4 +623,21 @@ div.judl {
     font-weight: 800;
     color : #FFFFFF;
     text-align: left;
+    border : 1px solid #FFFFFF;
+    border-collapse:collapse;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.shopChart table td:nth-child(4) {
+    text-align: right;
+}
+
+.shopChart table thead td {
+    
+    background-color: #ff6565;
+    font-weight: bolder;
+    color : #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
 }

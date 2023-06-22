@@ -72,23 +72,24 @@ export class createFormMasy {
 	
 	//utk dijalankan pada method #pickUttpHandler
 	#changeShopChartLayout() {
-		//let newPercentage = 1 + ((document.querySelector(".shopChart").offsetHeight/document.getElementById("sub2").offsetHeight)*100);
-		//document.querySelector(".addDiv").style.top = `${newPercentage}%`;
-		//document.querySelector(".backBtnDiv").style.top = `${newPercentage}%`;
-		document.querySelector(".addDiv").style.top = "5px";
-		document.querySelector(".backBtnDiv").style.top = "-10px";
+		document.querySelector(".addDiv").style.top = "15px";
+		document.querySelector(".backBtnDiv").style.top = "-25px";
+	}
+
+	//utk dijalankan pada method #pickUttpHandler
+	#generateShopChartTbl(arr) {
+		let str = `<table><thead><tr><td>No.</td><td>UTTP</td><td>Keterangan</td><td>Jumlah</td></tr></thead>`;
+		arr.forEach((e,i) => str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[3]}</td><td>1</td></tr>`);
+		str += `</table>`;
+		document.querySelector(".shopChart").innerHTML = str;
 	}
 
 	#pickUttpHandler() {
 		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
 			this.#changeShopChartLayout();
-
 			this.#shopChartTemp.push(this.list[e.id]);
-			console.log(this.#shopChartTemp);
-			let str = `<table><thead><tr><td>UTTP</td><td>Keterangan</td><td>Jumlah</td></tr></thead>`;
-			this.#shopChartTemp.forEach(e => str += `<tr><td>${e[0]}</td><td>${e[3]}</td><td>1</td></tr>`);
-			str += `</table>`
-			document.querySelector(".shopChart").innerHTML = str;
+			this.#generateShopChartTbl(this.#shopChartTemp);
+
 		}));
 	}
 
