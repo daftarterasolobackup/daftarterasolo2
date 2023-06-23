@@ -29,7 +29,12 @@ import { createFormPabrik } from './service/formPabrik.js';
 						<datalist id="kelurahan"></datalist>
 					</div>
 					<div class="uttpDiv hidden"></div>					
-					<div class="jmlhDiv hidden"></div>`;
+					<div class="jmlhDiv hidden"><h1>Jumlah : </h1>
+						<form class="spe">
+							<input type="number" class="form_data" name="jml" id="jml" value="1">
+							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
+						</form>
+					</div>`;
 		
 		const formMasy = new createFormMasy(document.querySelector(".main"), str);
 		await formMasy.generateForm();

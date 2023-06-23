@@ -285,24 +285,39 @@ legend.legendTitle {
     height : 90%;
     position: absolute;
     /*left : 4.25%;*/
-    background-color: #000000;
+    background-color: #1E3F66;
     top : 20px;
     border-radius: 6px;
     opacity: 1;
     border: 3px solid #FFFFFF;
     padding : 5px;
     display: flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    
-    justify-content: space-between;
-    /*overflow : auto;
+    flex-direction:column;
+    flex-wrap:wrap;
+    opacity: 0.95;
+    justify-content:center;
+    /*justify-content: center;
+    overflow : auto;
     scrollbar-color: #38c red;*/
 }
 
 
 .jmlhDiv.hidden {
     display : none; 
+}
+
+.jmlhDiv h1 {
+    font-family: 'Poppins', sans-serif;
+    color : #FFFFFF;
+    z-index: 10;
+    font-size: 30px;
+    margin-bottom: 0;
+    text-align: center;
+    display: grid;
+}
+
+.spe input{
+    margin: auto;
 }
 
 .subContent {
@@ -347,6 +362,27 @@ legend.legendTitle {
 .form_data:focus {
     outline: none;
     border: 4px solid #92DFF3;
+}
+
+#setJml {
+    background-color: #000000;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width :fit-content;
+    color : #FFFFFF;
+    outline: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    box-shadow: 4px 4px #999;
+}
+
+#setJml:active {
+    box-shadow: 0 2px #999;
+    transform: translateY(2px);
 }
 
 #next {

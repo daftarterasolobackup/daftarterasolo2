@@ -87,10 +87,10 @@ export class createFormMasy {
 	#pickUttpHandler() {
 		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
 			this.#changeShopChartLayout();
-			this.#shopChartTemp.push(this.list[e.id]);
-			this.#generateShopChartTbl(this.#shopChartTemp);
 			document.querySelector(".uttpDiv").style.display = "none";
 			document.querySelector(".jmlhDiv").style.display = "flex";
+			//this.#shopChartTemp.push(this.list[e.id]);
+			//this.#generateShopChartTbl(this.#shopChartTemp);
 		}));
 	}
 
