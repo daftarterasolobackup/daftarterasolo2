@@ -28,8 +28,8 @@ import { createFormPabrik } from './service/formPabrik.js';
 						</div>
 						<datalist id="kelurahan"></datalist>
 					</div>
-					<div class="uttpDiv hidden">
-					</div>`;
+					<div class="uttpDiv hidden"></div>					
+					<div class="jmlhDiv hidden"></div>`;
 		
 		const formMasy = new createFormMasy(document.querySelector(".main"), str);
 		await formMasy.generateForm();
@@ -67,8 +67,8 @@ import { createFormPabrik } from './service/formPabrik.js';
 						<datalist id="kelurahan"></datalist>
 						<datalist id="pabrik"></datalist>
 					</div>
-					<div class="uttpDiv hidden">
-					</div>`;
+					<div class="uttpDiv hidden"></div>
+					<div class="jmlhDiv hidden"></div>`;
 
 		const formPabrik = new createFormPabrik(document.querySelector(".main"), str);
 		await formPabrik.generateForm();

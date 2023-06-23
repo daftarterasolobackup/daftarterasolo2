@@ -89,7 +89,8 @@ export class createFormMasy {
 			this.#changeShopChartLayout();
 			this.#shopChartTemp.push(this.list[e.id]);
 			this.#generateShopChartTbl(this.#shopChartTemp);
-
+			document.querySelector(".uttpDiv").style.display = "none";
+			document.querySelector(".jmlhDiv").style.display = "flex";
 		}));
 	}
 

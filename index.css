@@ -269,7 +269,6 @@ legend.legendTitle {
     display : none;	
 }
 
-
 .uttpDiv div {
     width : 48%;
     height : 145px;
@@ -279,6 +278,31 @@ legend.legendTitle {
     background-repeat : no-repeat;
     display : grid;
     
+}
+
+.jmlhDiv {
+    width: 95%;
+    height : 90%;
+    position: absolute;
+    /*left : 4.25%;*/
+    background-color: #000000;
+    top : 20px;
+    border-radius: 6px;
+    opacity: 1;
+    border: 3px solid #FFFFFF;
+    padding : 5px;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+    /*overflow : auto;
+    scrollbar-color: #38c red;*/
+}
+
+
+.jmlhDiv.hidden {
+    display : none; 
 }
 
 .subContent {
