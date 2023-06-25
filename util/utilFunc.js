@@ -34,3 +34,15 @@ export async function getPabrikTimb() {
 
 	return pabrik;
 }
+
+export async function getSpbu() {
+	let url = "https://script.google.com/macros/s/AKfycbzTS7dvzJ28gIdHX5kE6BY_0cmPbMmP5dWpJXlt-wB2xzUnHvh8ol2Km6YnstBOTRs/exec";
+
+	let spbu = [];
+	await fetch(url).then(data => data.json()).then(data => {
+		document.getElementById("spbu").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
+		spbu = data.uttp;
+	});
+	
+	return spbu;
+}

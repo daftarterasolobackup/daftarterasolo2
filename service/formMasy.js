@@ -146,12 +146,14 @@ export class createFormMasy {
 	//method utk dijalankan pd generateBtnHandler()
 	#addBtnHandler() {
 		let addBtn = document.querySelector(".addDiv");
-		addBtn.addEventListener('click',async () => {
-			this.#setCss();
-			await this.generateListUttp();
-			this.setCssUttp();
-			this.#closeBtnHandler();
-		});	
+		if (addBtn !== null) {
+			addBtn.addEventListener('click',async () => {
+				this.#setCss();
+				await this.generateListUttp();
+				this.setCssUttp();
+				this.#closeBtnHandler();
+			});	
+		}
 	}
 
 	//method utk dijalankan pd generateBtnHandler()

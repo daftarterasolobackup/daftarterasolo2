@@ -21,7 +21,7 @@ export class createFormPabrik extends createFormMasy {
 	}
 
 	async #loadPabrikTimb() {
-		this.#pabrikData = await getPabrikTimb();
+		document.getElementById("pabrik") != null ? this.#pabrikData = await getPabrikTimb() : '';
 	}
 	//======================== end of methods ==========================================================
 
@@ -94,9 +94,10 @@ export class createFormPabrik extends createFormMasy {
 	}
 
 	//method untuk dijalankan pada method #generateEventHandler()
-	#autoCompleteForm(katakunci) {
+	#autoCompleteForm(katakunci, srcData) {
 		this.#clearFormPendaftaran();
-		let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
+		//let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
+		let filteredData = srcData.filter(e => e[1] === katakunci);
 		if (filteredData[0] != undefined) {
 			document.getElementById("alamat").value = filteredData[0][2];
 			document.getElementById("kel").value = filteredData[0][4];
@@ -104,14 +105,18 @@ export class createFormPabrik extends createFormMasy {
 		}
 	}
 
+	determineDataSrc() {
+		return this.#pabrikData;
+	}
+
 	//method utk dijalankan pd method generateBtnHandler()
 	#generateEventHandler() {	
 		document.getElementById("nama").addEventListener('input', e => {
-			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase()) : '';
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
 		});
 
 		document.getElementById("nama").addEventListener('keyup', e => {
-			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase()) : '';
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
 		});
 
 	}
