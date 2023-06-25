@@ -14,11 +14,19 @@ export class createFormSpbu extends createFormPabrik {
 		});
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "6px solid #432616");
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "6px solid #432616");
+		document.querySelector(".backBtnDiv").style.top = "10px";
 	}
 
 	//method load nama-nama spbu utk dijalankan pd method generateForm()
 	async #loadSpbu() {
 		document.getElementById("spbu") != null ? this.#spbuData = await getSpbu() : '';
+	}
+
+	//method utk menghandle tombol submit ketika ditekan..
+	#submitBtnHandler() {
+		document.getElementById("sbmt").addEventListener("click", e => {
+			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml_nozzle"));
+		});
 	}
 
 	//Override setLoadingBarColor() from parent class
@@ -30,6 +38,7 @@ export class createFormSpbu extends createFormPabrik {
 	async generateForm() {
 		await super.generateForm();
 		this.#setCSSSpbu();
+		this.#submitBtnHandler();
 		await this.#loadSpbu();
 	}
 

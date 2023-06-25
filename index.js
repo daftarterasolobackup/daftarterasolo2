@@ -104,6 +104,9 @@ import { createFormSpbu } from './service/formSpbu.js';
 						</div>
 						<div class="subContent" id="sub2">
 							<div class="title">Masukkan Jumlah Nozzle</div> 
+							<form>
+								<input type="number" class="form_data" name="jml_nozzle" id="jml_nozzle" placeholder="Masukkan Jumlah Nozzle">
+							</form>
 							<!--							
 							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
 							<div class="shopChart"></div>	

@@ -55,7 +55,7 @@ export class createFormPabrik extends createFormMasy {
 	//method for handling when user input serial number yg dijalankan pd generateListUttp()
 	#inputSerialHandler() {
 		document.getElementById("serial").addEventListener("keyup", e => {
-			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty(), e.target);
+			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"), e.target);
 
 			document.getElementById("serialAkhir").value = parseInt(e.target.value) + parseInt(document.getElementById("jml").value) - 1;
 		});

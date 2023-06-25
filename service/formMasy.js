@@ -68,8 +68,8 @@ export class createFormMasy {
 	}
 
 	//method utk memvalidasi apakah inputan jml uttp sdh diisi atau belum dan digunakan pada method #setJmlPickedUttp
-	static isJmlEmpty() {
-		let jumlah = document.getElementById("jml").value;
+	static isJmlEmpty(elemId) {
+		let jumlah = document.getElementById(elemId).value;
 		let returnVal = false;
 		(jumlah === "" || jumlah < 1) ? returnVal = true : '';
 		return returnVal;
@@ -98,7 +98,7 @@ export class createFormMasy {
 	//method utk dijalankan pada generateListUttp()
 	setJmlPickedUttp() {
 		document.querySelector("#setJml").addEventListener("click", () => {
-			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty());
+			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"));
 			document.querySelector(".jmlhDiv").style.display = "none";
 			this.#shopChartTemp.push(this.list[this.#listIndex]);
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
