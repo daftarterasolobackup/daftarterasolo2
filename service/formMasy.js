@@ -60,19 +60,45 @@ export class createFormMasy {
 		document.querySelector(".shopChart").innerHTML = str;
 	}
 
+
+	//method utk reset form memasukkan jumlah uttp yg digunakan pd method pickUttpHandler()
+	#resetFormJmlh() {
+		document.getElementById("jml").placeholder = "jumlah...";
+		document.querySelector(".jmlhDiv").children[1].reset();
+	}
+
+	//method utk memvalidasi apakah inputan jml uttp sdh diisi atau belum dan digunakan pada method #setJmlPickedUttp
+	static isJmlEmpty() {
+		let jumlah = document.getElementById("jml").value;
+		let returnVal = false;
+		(jumlah === "" || jumlah < 1) ? returnVal = true : '';
+		return returnVal;
+	}
+
 	//method utk dijalankan pada generateListUttp()
-	#pickUttpHandler() {
+	pickUttpHandler() {
 		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
 			this.#changeShopChartLayout();
 			document.querySelector(".uttpDiv").style.display = "none";
 			document.querySelector(".jmlhDiv").style.display = "flex";
+			this.#resetFormJmlh();
 			this.#listIndex = e.id;
 		}));
 	}
 
+	//method utk menampilkan alert jika isian blm lengkap. digunakan pd method setJmlPickedUttp()
+	static showUncompleteMsg(condition, elemToEmpty = null) {
+		if (condition === true) {
+			alert("Jumlah uttp belum diisi...Silahkan diisi dahulu");
+			elemToEmpty != null ? elemToEmpty.value = "" : "";
+			throw "exit";
+		}
+	}
+
 	//method utk dijalankan pada generateListUttp()
-	#setJmlPickedUttp() {
+	setJmlPickedUttp() {
 		document.querySelector("#setJml").addEventListener("click", () => {
+			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty());
 			document.querySelector(".jmlhDiv").style.display = "none";
 			this.#shopChartTemp.push(this.list[this.#listIndex]);
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
@@ -89,8 +115,8 @@ export class createFormMasy {
 				str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
 			}	
 			this.lsKontainer.innerHTML = str;		
-			this.#pickUttpHandler();
-			this.#setJmlPickedUttp();
+			this.pickUttpHandler();
+			this.setJmlPickedUttp();
 		} 
 	}
 

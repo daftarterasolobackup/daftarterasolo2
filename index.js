@@ -31,7 +31,7 @@ import { createFormPabrik } from './service/formPabrik.js';
 					<div class="uttpDiv hidden"></div>					
 					<div class="jmlhDiv hidden"><h1>Jumlah : </h1>
 						<form class="spe">
-							<input type="number" class="form_data" name="jml" id="jml" value="1">
+							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah..">
 							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
 						</form>
 					</div>`;
@@ -39,7 +39,6 @@ import { createFormPabrik } from './service/formPabrik.js';
 		const formMasy = new createFormMasy(document.querySelector(".main"), str);
 		await formMasy.generateForm();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][3]']
-		//formMasy.stringUttp`<div id=${args[0]} class='${args[1]}'' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formMasy.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formMasy.generateBtnHandler();
 
@@ -73,13 +72,19 @@ import { createFormPabrik } from './service/formPabrik.js';
 						<datalist id="pabrik"></datalist>
 					</div>
 					<div class="uttpDiv hidden"></div>
-					<div class="jmlhDiv hidden"></div>`;
+					<div class="jmlhDiv hidden"><h1>Silahkan isi jumlah & no.seri</h1>
+						<form>
+							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah...">
+							<input type="number" class="form_data" name="serial" id="serial" style="width : 45%;" placeholder="no seri awal">
+							<input type="number" class="form_data" name="serialAkhir" id="serialAkhir" style="width : 45%;" placeholder="no seri akhir" readonly>
+							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
+						</form>
+					</div>`;
 
 		const formPabrik = new createFormPabrik(document.querySelector(".main"), str);
 		await formPabrik.generateForm();
 		formPabrik.generateBtnHandler();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
-		//formPabrik.stringUttp`<div id=${args[0]} class='${args[1]}/${args[4]}/${args[5]}' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
 		formPabrik.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
 	});
 

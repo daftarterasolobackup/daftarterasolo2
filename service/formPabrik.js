@@ -11,7 +11,11 @@ export class createFormPabrik extends createFormMasy {
 
 	//================ method-method utk dijalankan pada method generateForm() =========================
 	#setCSSPabrik() {
-		document.querySelectorAll(".title").forEach(e => e.style.backgroundColor = "#20b2aa");
+		document.querySelectorAll(".title").forEach(e => {
+			e.style.backgroundColor = "#20b2aa";
+			e.style.fontWeight = "bolder";
+			e.style.textShadow = "1px 1px #000000";
+		});
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "3px solid #20b2aa");
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "3px solid #20b2aa");
 	}
@@ -33,14 +37,44 @@ export class createFormPabrik extends createFormMasy {
 		await this.#loadPabrikTimb();
 	}
 
+	//method ygg dijalankan pd pickUttpHandler()
+	#setCssFormJml() {
+		document.querySelector(".jmlhDiv").style.backgroundColor = "#0D98BA";
+		document.querySelector("#setJml").style.backgroundColor = "#072a6c";
+		document.querySelector("#jml").style.borderColor = "#FFFFFF";
+		document.querySelector("#serial").style.borderColor = "#FFFFFF";
+		document.querySelector("#serialAkhir").style.borderColor = "#FFFFFF";
+	}
+
+	//override pickUttpHandler() from parent class
+	pickUttpHandler() {
+		super.pickUttpHandler();
+		this.#setCssFormJml();
+	}
+
+	//method for handling when user input serial number yg dijalankan pd generateListUttp()
+	#inputSerialHandler() {
+		document.getElementById("serial").addEventListener("keyup", e => {
+			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty(), e.target);
+
+			document.getElementById("serialAkhir").value = parseInt(e.target.value) + parseInt(document.getElementById("jml").value) - 1;
+		});
+
+	}
+
 	//override generateListUttp() from parent class
 	async generateListUttp() {
-		let str = `<div class="judl"><a class="closeHref" href=# style="color : #7FFF00;">Close</a></div>`;
-		this.list = await listOfUttpPabrik();
-		for (let k in this.list) {
-			str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
-		}	
-		this.lsKontainer.innerHTML = str;
+		if (document.querySelectorAll(".daftarUttp").length === 0) { // cek jika elemen .daftarUttp sdh ada atau belum
+			let str = `<div class="judl"><a class="closeHref" href=# style="color : #7FFF00;">Close</a></div>`;
+			this.list = await listOfUttpPabrik();
+			for (let k in this.list) {
+				str += this.strUttp.reduce((result,str,i) => `${result}${str}${eval(this.argsUttp[i]) || ''}`,'');
+			}	
+			this.lsKontainer.innerHTML = str;
+			this.pickUttpHandler();
+			this.setJmlPickedUttp();
+			this.#inputSerialHandler();
+		}
 	}
 
 	//Override setCssUttp() from parent class
