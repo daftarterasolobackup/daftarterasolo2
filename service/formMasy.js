@@ -52,11 +52,11 @@ export class createFormMasy {
 		document.querySelector(".backBtnDiv").style.top = "-25px";
 	}
 
-	//utk dijalankan pada method #pickUttpHandler
-	#generateShopChartTbl(arr) {
+	//utk dijalankan pada method pickUttpHandler
+	static generateShopChartTbl(arr) {
 		let str = `<table><thead><tr><td>No.</td><td>UTTP</td><td>Keterangan</td><td>Jumlah</td></tr></thead>`;
 		arr.forEach((e,i) => str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[3]}</td><td>${e[5]}</td></tr>`);
-		str += `</table>`;
+		str += `</table>`;		
 		document.querySelector(".shopChart").innerHTML = str;
 	}
 
@@ -102,7 +102,8 @@ export class createFormMasy {
 			document.querySelector(".jmlhDiv").style.display = "none";
 			this.#shopChartTemp.push(this.list[this.#listIndex]);
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
-			this.#generateShopChartTbl(this.#shopChartTemp);
+			this.constructor.generateShopChartTbl(this.#shopChartTemp);
+			console.log(this.#shopChartTemp);
 		});
 	}
 
