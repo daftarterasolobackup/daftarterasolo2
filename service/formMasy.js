@@ -102,6 +102,7 @@ export class createFormMasy {
 			document.querySelector(".jmlhDiv").style.display = "none";
 			this.#shopChartTemp.push(this.list[this.#listIndex]);
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
+			document.getElementById("serial") !== null ? this.list[this.#listIndex].push(document.getElementById("serial").value) : '';
 			this.constructor.generateShopChartTbl(this.#shopChartTemp);
 			console.log(this.#shopChartTemp);
 		});
@@ -173,11 +174,27 @@ export class createFormMasy {
 		});		
 	}
 
+	static methodToRunWhenSubmit() {
+		console.log("test");
+	}
+
+	static setCssSubmitBtn() {
+
+	}
+
+	#submitBtnHandler() {
+		this.constructor.setCssSubmitBtn();
+		document.getElementById("sbmt").addEventListener("click", e => {
+			this.constructor.methodToRunWhenSubmit();
+		});
+	}
+
 	//method utk dijalankan pd generateBtnHandler()
 	generateBtnHandler() {
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
 		this.#addBtnHandler();
+		this.#submitBtnHandler();
 	}
 
 }

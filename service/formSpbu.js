@@ -22,11 +22,10 @@ export class createFormSpbu extends createFormPabrik {
 		document.getElementById("spbu") != null ? this.#spbuData = await getSpbu() : '';
 	}
 
-	//method utk menghandle tombol submit ketika ditekan..
-	#submitBtnHandler() {
-		document.getElementById("sbmt").addEventListener("click", e => {
-			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml_nozzle"));
-		});
+	//override method methodRunWhenSubmit() pd parent class utk menghandle tombol submit ketika ditekan..
+	static methodToRunWhenSubmit() {
+		this.showUncompleteMsg(this.isJmlEmpty("jml_nozzle"));
+		super.methodToRunWhenSubmit();
 	}
 
 	//Override setLoadingBarColor() from parent class
@@ -38,7 +37,6 @@ export class createFormSpbu extends createFormPabrik {
 	async generateForm() {
 		await super.generateForm();
 		this.#setCSSSpbu();
-		this.#submitBtnHandler();
 		await this.#loadSpbu();
 	}
 

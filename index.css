@@ -689,7 +689,7 @@ div.judl {
     padding-right: 4px;
 }
 
-.shopChart table td:nth-child(4) {
+.shopChart table td:nth-child(4), .shopChart table td:nth-child(5) {
     text-align: right;
 }
 
@@ -700,4 +700,9 @@ div.judl {
     color : #FFFFFF;
     text-align: center;
     vertical-align: middle;
+}
+
+.shopChart #tabelPabrik thead td {
+    background-color: #D3D3D3;
+    color : #000000;
 }
