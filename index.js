@@ -1,6 +1,7 @@
 import { createFormMasy } from './service/formMasy.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
+import { createFormLoko } from './service/formLoko.js';
 
 (function main() {
 
@@ -138,8 +139,43 @@ import { createFormSpbu } from './service/formSpbu.js';
 	});
 
 	let menuLoko = document.querySelector(".menu").children[3];
-	
-	menuLoko.addEventListener("click", () => alert("test"));
+	menuLoko.addEventListener("click", () => {
+		let str = `<div class="mainContent">      
+						<div class="subContent" id="sub1">
+							<div class="title">Silahkan isi data Anda</div>
+							<form>
+								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha">
+								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
+								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
+								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="button" name="next" id="next" value="Next..">
+							</form>
+						</div>
+						<div class="subContent" id="sub2">
+							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="shopChart"></div>
+							<div class="addDiv">+<p id="klik">Klik disini</p></div>
+							<div class="backBtnDiv">
+								<form><input type="button" name="back" id="back" value="Back.."></form>
+								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
+							</div>                  
+						</div>
+						<datalist id="kelurahan"></datalist>
+					</div>
+					<div class="uttpDiv hidden"></div>					
+					<div class="jmlhDiv hidden"><h1>Jumlah : </h1>
+						<form class="spe">
+							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah..">
+							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
+						</form>
+					</div>`;
+		
+		const formLoko = new createFormLoko(document.querySelector(".main"), str);
+		formLoko.generateForm();
+		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][3]']
+		formLoko.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
+		formLoko.generateBtnHandler();
+	});
 
 })();
 

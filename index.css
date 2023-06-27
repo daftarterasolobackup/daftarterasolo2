@@ -706,3 +706,12 @@ div.judl {
     background-color: #D3D3D3;
     color : #000000;
 }
+
+.shopChart #tabelLoko thead td {
+    background-color: #D3D3D3;
+    color : #000000;
+}
+
+.shopChart #tabelLoko tbody td {
+    background-color: #3399CC;
+}
