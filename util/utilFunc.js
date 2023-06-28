@@ -1,6 +1,6 @@
 export async function getKelurahan() {
 	let url = "https://script.google.com/macros/s/AKfycbxNbS3tE2nm7KCbhIFw71dkBpwZn0MJWPbM2b7mhot7a3Ir0WxB3wCFCAnYOE38Dvo/exec";
-
+	let kelurahan;
 	await fetch(url)
 	.then(datas => datas.json())
 	.then(datas => {
@@ -10,7 +10,11 @@ export async function getKelurahan() {
 	    }
 
 	    document.getElementById("kelurahan").innerHTML = str;
+
+	    kelurahan = datas.data;
 	});
+
+	return kelurahan;
 }
 
 export async function listOfUttpMasy() {
@@ -41,6 +45,18 @@ export async function getSpbu() {
 	let spbu = [];
 	await fetch(url).then(data => data.json()).then(data => {
 		document.getElementById("spbu").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
+		spbu = data.uttp;
+	});
+	
+	return spbu;
+}
+
+export async function getPerusahaanLoko() {
+	let url = "https://script.google.com/macros/s/AKfycbxWvCLGEN9o5TPYJJYApn4ssSgGUCYgNPvKsK6uGFGo7dIUrJsFKrvagsWZCMaq2og/exec";
+
+	let spbu = [];
+	await fetch(url).then(data => data.json()).then(data => {
+		document.getElementById("perushLoko").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
 		spbu = data.uttp;
 	});
 	

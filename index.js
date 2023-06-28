@@ -144,7 +144,7 @@ import { createFormLoko } from './service/formLoko.js';
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
 							<form>
-								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha">
+								<input type="text" class="form_data" name="nama" id="nama" list="perushLoko" placeholder="Masukkan nama / badan usaha">
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
@@ -161,6 +161,7 @@ import { createFormLoko } from './service/formLoko.js';
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>
+						<datalist id="perushLoko"></datalist>
 					</div>
 					<div class="uttpDiv hidden"></div>					
 					<div class="jmlhDiv hidden"><h1>Jumlah : </h1>

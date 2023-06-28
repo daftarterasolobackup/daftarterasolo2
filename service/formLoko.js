@@ -1,6 +1,10 @@
 import { createFormMasy } from './formMasy.js';
+import { createFormPabrik } from './formPabrik.js';
+import { getPerusahaanLoko } from '../util/utilFunc.js';
 
 export class createFormLoko extends createFormMasy {
+	#perushLokoData = [];
+
 	//override method pd parent class yg dijalankan pd #generateLoadingBar()
 	setLoadingBarColor() {
 		document.querySelectorAll(".lds-facebook div").forEach(el => el.style.background = "red");
@@ -45,11 +49,16 @@ export class createFormLoko extends createFormMasy {
 		this.#setCssFormJml();
 	}
 
+	//method load nama-nama perusahaan loko utk dijalankan pd method generateForm()
+	async #loadPerushLoko() {
+		document.getElementById("perushLoko") != null ? this.#perushLokoData = await getPerusahaanLoko() : '';
+	}
+
 	//override generateForm() pd parent class
 	async generateForm() {
 		super.generateForm();
 		this.#setCSSLoko();
-		//await this.#loadPabrikTimb();
+		await this.#loadPerushLoko();
 	}
 
 	//override method generateShopChartTbl() pd parent class
@@ -57,4 +66,46 @@ export class createFormLoko extends createFormMasy {
 		super.generateShopChartTbl(arr);
 		document.querySelector("table").setAttribute('id', 'tabelLoko');
 	} 
+
+	//method utk dijalankan pd method #autoCompleteForm()
+	#clearFormPendaftaran() {
+		document.getElementById("alamat").value = "";
+		document.getElementById("kel").value = "";
+		document.getElementById("wa").value = "";			
+	}
+
+	//method untuk dijalankan pada method #generateEventHandler()
+	#autoCompleteForm(katakunci, srcData) {
+		this.#clearFormPendaftaran();
+		
+		let filteredData = srcData.filter(e => e[1] === katakunci);
+		if (filteredData[0] != undefined) {
+			document.getElementById("alamat").value = filteredData[0][2];
+			document.getElementById("kel").value = filteredData[0][4];
+			document.getElementById("wa").value = filteredData[0][3];			
+		}
+	}
+
+	determineDataSrc() {
+		console.log(this.constructor.kelurahan);
+		return this.#perushLokoData;
+	}
+
+	//method utk dijalankan pd method generateBtnHandler()
+	#generateEventHandler() {	
+		document.getElementById("nama").addEventListener('input', e => {
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+		});
+
+		document.getElementById("nama").addEventListener('keyup', e => {
+			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+		});
+
+	}
+
+	//override generateBtnHandler() from parent class
+	generateBtnHandler() {
+		super.generateBtnHandler();
+		this.#generateEventHandler();
+	}	
 }

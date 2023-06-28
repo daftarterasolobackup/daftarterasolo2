@@ -5,6 +5,7 @@ export class createFormMasy {
 	strUttp;
 	argsUttp;
 	list;
+	static kelurahan;
 	#listIndex;
 	#shopChartTemp = [];
 
@@ -36,7 +37,7 @@ export class createFormMasy {
 		this.#generateLoadingBar(true);
 		this.#removeContentComponent();
 		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
-		await getKelurahan();
+		this.constructor.kelurahan = await getKelurahan();
 		this.#generateLoadingBar(false);
 	}
 
