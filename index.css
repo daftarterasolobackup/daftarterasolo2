@@ -715,3 +715,15 @@ div.judl {
 .shopChart #tabelLoko tbody td {
     background-color: #3399CC;
 }
+
+td.icon {
+    background-image: url('img/del.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width : auto;
+    height : auto;
+    text-align: center;
+    background-position: center;
+}
+
+/*style="background-image:url(../uploadimages/18-2-2013-23-33-01-Lighthouse.jpg);background-repeat:no-repeat;background-size:250px 180px;   width: 250px; height: 180px;"*/

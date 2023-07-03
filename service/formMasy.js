@@ -8,10 +8,12 @@ export class createFormMasy {
 	static kelurahan;
 	#listIndex;
 	#shopChartTemp = [];
+	static dataToSend = {};
 
 	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
 		this.str = str;
+		this.constructor.dataToSend = {};
 	}
 	
 	//method yg dijalankan pd #generateLoadingBar()
@@ -55,10 +57,14 @@ export class createFormMasy {
 
 	//utk dijalankan pada method pickUttpHandler
 	static generateShopChartTbl(arr) {
-		let str = `<table><thead><tr><td>No.</td><td>UTTP</td><td>Keterangan</td><td>Jumlah</td></tr></thead>`;
-		arr.forEach((e,i) => str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[3]}</td><td>${e[5]}</td></tr>`);
+		let str = `<table><thead><tr><td>No.</td><td>UTTP</td><td>Keterangan</td><td>Jumlah</td><td>Del?</td></tr></thead>`;
+		arr.forEach((e,i) => {
+			str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[3]}</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>`;
+			this.dataToSend[`${i+1}`] = e; 
+		});
 		str += `</table>`;		
 		document.querySelector(".shopChart").innerHTML = str;
+		//console.log(this.dataToSend);
 	}
 
 
@@ -105,7 +111,7 @@ export class createFormMasy {
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
 			document.getElementById("serial") !== null ? this.list[this.#listIndex].push(document.getElementById("serial").value) : '';
 			this.constructor.generateShopChartTbl(this.#shopChartTemp);
-			console.log(this.#shopChartTemp);
+			//console.log(this.#shopChartTemp);
 		});
 	}
 
@@ -175,19 +181,28 @@ export class createFormMasy {
 		});		
 	}
 
+	/*
 	static methodToRunWhenSubmit() {
 		console.log("test");
 	}
+	*/
 
 	static setCssSubmitBtn() {
 
 	}
 
+	/*
 	#submitBtnHandler() {
 		this.constructor.setCssSubmitBtn();
 		document.getElementById("sbmt").addEventListener("click", e => {
 			this.constructor.methodToRunWhenSubmit();
 		});
+	}
+	*/
+
+	//method untk menghandle jika user menghapus item di shopping chart
+	#deleteChartHandler() {
+
 	}
 
 	//method utk dijalankan pd generateBtnHandler()
@@ -195,7 +210,7 @@ export class createFormMasy {
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
 		this.#addBtnHandler();
-		this.#submitBtnHandler();
+		//this.#submitBtnHandler();
 	}
 
 }

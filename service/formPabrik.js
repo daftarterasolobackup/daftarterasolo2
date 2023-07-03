@@ -48,10 +48,14 @@ export class createFormPabrik extends createFormMasy {
 
 	//override method generateShopChartTbl() pd parent class utk dijalankan pada method pickUttpHandler
 	static generateShopChartTbl(arr) {
-		let str = `<table id="tabelPabrik"><thead><tr><td>No.</td><td>UTTP</td><td>Kap</td><td>Serial</td><td>Jml</td></tr></thead>`;
-		arr.forEach((e,i) => str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>${e[6]} - ${parseInt(e[6]) + parseInt(e[5]) - 1}</td><td>${e[5]}</td></tr>`);
+		let str = `<table id="tabelPabrik"><thead><tr><td>No.</td><td>UTTP</td><td>Kap</td><td>Serial</td><td>Jml</td><td>Del?</td></tr></thead>`;
+		arr.forEach((e,i) => {
+			str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>${e[6]} - ${parseInt(e[6]) + parseInt(e[5]) - 1}</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>`;
+			this.dataToSend[`${i+1}`] = e;
+		});
 		str += `</table>`;		
 		document.querySelector(".shopChart").innerHTML = str;
+		//console.log(this.dataToSend);
 	}
 
 	//override pickUttpHandler() from parent class
