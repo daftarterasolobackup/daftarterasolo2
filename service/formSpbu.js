@@ -44,4 +44,10 @@ export class createFormSpbu extends createFormPabrik {
 	determineDataSrc() {
 		return this.#spbuData;
 	}
+
+	//overide method setCssSubmitBtn() pd parent class
+	static setCssSubmitBtn() {
+		super.setCssSubmitBtn();
+		document.getElementById("sbmt").style.borderColor = "rgb(67, 38, 22)";
+	}
 }

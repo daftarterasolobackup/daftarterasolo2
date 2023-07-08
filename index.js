@@ -43,6 +43,10 @@ import { createFormLoko } from './service/formLoko.js';
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][3]']
 		formMasy.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formMasy.generateBtnHandler();
+		
+		//const del = new deleteItem(formMasy);
+		//console.log(formMasy.get_shopChartTemp);
+		//console.log(formMasy.get_dataToSend);
 
 	});
 

@@ -34,6 +34,7 @@ export class createFormPabrik extends createFormMasy {
 	async generateForm() {
 		super.generateForm();
 		this.#setCSSPabrik();
+		this.constructor.setCssSubmitBtn();
 		await this.#loadPabrikTimb();
 	}
 
@@ -55,7 +56,7 @@ export class createFormPabrik extends createFormMasy {
 		});
 		str += `</table>`;		
 		document.querySelector(".shopChart").innerHTML = str;
-		//console.log(this.dataToSend);
+		this.deleteChartHandler();
 	}
 
 	//override pickUttpHandler() from parent class
@@ -137,16 +138,8 @@ export class createFormPabrik extends createFormMasy {
 	static setCssSubmitBtn() {
 		document.getElementById("sbmt").style.backgroundColor = "#D3D3D3";
 		document.getElementById("sbmt").style.color = "#000000";
-		document.getElementById("sbmt").style.borderColor = "#1E3F66";
+		document.getElementById("sbmt").style.borderColor = "rgb(32, 178, 170)";
 	}
-
-	//override method submitBtnHandler from parent class
-	/*static submitBtnHandler() {
-		super.submitBtnHandler();
-		document.getElementById("sbmt").style.backgroundColor = "#D3D3D3";
-		document.getElementById("sbmt").style.color = "#000000";
-		document.getElementById("sbmt").style.borderColor = "#1E3F66";
-	}*/
 
 	//override generateBtnHandler() from parent class
 	generateBtnHandler() {

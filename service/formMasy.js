@@ -7,13 +7,14 @@ export class createFormMasy {
 	list;
 	static kelurahan;
 	#listIndex;
-	#shopChartTemp = [];
+	static shopChartTemp = [];
 	static dataToSend = {};
 
 	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
 		this.str = str;
 		this.constructor.dataToSend = {};
+		this.constructor.shopChartTemp = [];
 	}
 	
 	//method yg dijalankan pd #generateLoadingBar()
@@ -55,6 +56,25 @@ export class createFormMasy {
 		document.querySelector(".backBtnDiv").style.top = "-25px";
 	}
 
+	//method utk menghapus item
+	static deleteItem(itemId) {
+		Reflect.deleteProperty(this.dataToSend, itemId) ? document.getElementById(itemId).parentElement.remove() : alert("Item gagal dihapus. Coba ulangi kembali");
+		this.shopChartTemp.splice(itemId-1,1);
+		console.log(this.dataToSend);
+		console.log(this.shopChartTemp);
+	}
+
+	//method untk menghandle jika user mengklik delete icon di shopping chart
+	static deleteChartHandler() {
+		let delIcon = document.querySelectorAll('.icon');
+		delIcon.forEach(e => {
+			e.addEventListener("click", el => {
+				confirm("Apakah anda yakin ingin menghapus item ini?") ? this.deleteItem(el.target.id) : '';
+			});
+		});
+	}
+	
+
 	//utk dijalankan pada method pickUttpHandler
 	static generateShopChartTbl(arr) {
 		let str = `<table><thead><tr><td>No.</td><td>UTTP</td><td>Keterangan</td><td>Jumlah</td><td>Del?</td></tr></thead>`;
@@ -64,7 +84,7 @@ export class createFormMasy {
 		});
 		str += `</table>`;		
 		document.querySelector(".shopChart").innerHTML = str;
-		//console.log(this.dataToSend);
+		this.deleteChartHandler();
 	}
 
 
@@ -107,11 +127,10 @@ export class createFormMasy {
 		document.querySelector("#setJml").addEventListener("click", () => {
 			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"));
 			document.querySelector(".jmlhDiv").style.display = "none";
-			this.#shopChartTemp.push(this.list[this.#listIndex]);
+			this.constructor.shopChartTemp.push(this.list[this.#listIndex]);
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
 			document.getElementById("serial") !== null ? this.list[this.#listIndex].push(document.getElementById("serial").value) : '';
-			this.constructor.generateShopChartTbl(this.#shopChartTemp);
-			//console.log(this.#shopChartTemp);
+			this.constructor.generateShopChartTbl(this.constructor.shopChartTemp);
 		});
 	}
 
@@ -181,27 +200,7 @@ export class createFormMasy {
 		});		
 	}
 
-	/*
-	static methodToRunWhenSubmit() {
-		console.log("test");
-	}
-	*/
-
 	static setCssSubmitBtn() {
-
-	}
-
-	/*
-	#submitBtnHandler() {
-		this.constructor.setCssSubmitBtn();
-		document.getElementById("sbmt").addEventListener("click", e => {
-			this.constructor.methodToRunWhenSubmit();
-		});
-	}
-	*/
-
-	//method untk menghandle jika user menghapus item di shopping chart
-	#deleteChartHandler() {
 
 	}
 
@@ -210,8 +209,6 @@ export class createFormMasy {
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
 		this.#addBtnHandler();
-		//this.#submitBtnHandler();
 	}
-
 }
 
