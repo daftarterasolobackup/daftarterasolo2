@@ -2,6 +2,7 @@ import { createFormMasy } from './service/formMasy.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
+import { masySubmitProcessor } from './service/submitProcessor.js';
 
 (function main() {
 
@@ -45,10 +46,7 @@ import { createFormLoko } from './service/formLoko.js';
 		formMasy.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formMasy.generateBtnHandler();
 		
-		//const del = new deleteItem(formMasy);
-		//console.log(formMasy.get_shopChartTemp);
-		//console.log(formMasy.get_dataToSend);
-
+		const sbmtHandler = new masySubmitProcessor(formMasy);
 	});
 
 	let menuPbrk = document.querySelector(".menu").children[0];

@@ -233,6 +233,10 @@ export class createFormMasy {
 		return this.#closeFormJmlHandler();
 	}
 
+	get get_dataToSend() {
+		return this.constructor.dataToSend;
+	}
+
 	set set_listIndex(idx) {
 		this.#listIndex = idx;
 	}

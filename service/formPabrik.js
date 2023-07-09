@@ -75,6 +75,9 @@ export class createFormPabrik extends createFormMasy {
 			if (this.list[e.id][0] !== "TE") {
 				document.getElementById("kap").style.display = "none";
 				document.getElementById("d").style.display = "none";
+			} else {
+				document.getElementById("kap").style.display = "block";
+				document.getElementById("d").style.display = "block";
 			}
 			this.get_changeShopChartLayout;
 			document.querySelector(".uttpDiv").style.display = "none";

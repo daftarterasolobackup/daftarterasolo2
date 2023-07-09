@@ -8,8 +8,8 @@
 <body>
 
 </body>
-<script type="text/javascript">
-  
+<script language="javascript">
+/*  
 class GrandParent {
   funcA() {
     console.log('GrandParent');
@@ -29,5 +29,32 @@ class Child extends Parent {
 
 const child = new Child();
 child.funcA();
+*/
+
+class submitProcessor {
+  constructor() {
+    if (this.constructor === submitProcessor) {
+      throw new Error("Object cannot be made..");
+    } 
+  }
+
+  test() {
+    throw new Error("Abstract Method has no implementation...");
+  }
+}
+
+class newSubmitProcessor extends submitProcessor {
+  constructor(name) {
+    super(constructor);
+    this.name = name;
+  }
+
+  test() {
+    console.log(this.name);
+  }
+}
+
+const sbmt = new newSubmitProcessor("Egaotomo");
+sbmt.test();
 </script>
 </html>
