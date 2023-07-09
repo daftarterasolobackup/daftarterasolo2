@@ -726,4 +726,13 @@ td.icon {
     background-position: center;
 }
 
+.closeFormJml {
+    color : #ffffff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.closeFormJml span {
+    color : red;
+}
 /*style="background-image:url(../uploadimages/18-2-2013-23-33-01-Lighthouse.jpg);background-repeat:no-repeat;background-size:250px 180px;   width: 250px; height: 180px;"*/

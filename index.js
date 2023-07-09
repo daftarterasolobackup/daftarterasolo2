@@ -36,6 +36,7 @@ import { createFormLoko } from './service/formLoko.js';
 							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah..">
 							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
 						</form>
+						<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>
 					</div>`;
 		
 		const formMasy = new createFormMasy(document.querySelector(".main"), str);
@@ -78,12 +79,16 @@ import { createFormLoko } from './service/formLoko.js';
 						<datalist id="pabrik"></datalist>
 					</div>
 					<div class="uttpDiv hidden"></div>
-					<div class="jmlhDiv hidden"><h1>Silahkan isi jumlah & no.seri</h1>
+					<div class="jmlhDiv hidden">
+						<h1>Silahkan isi jumlah & no.seri</h1>
 						<form>
 							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah...">
+							<input type="number" class="form_data" name="kap" id="kap" placeholder="kapasitas maksimum...">
+							<input type="number" class="form_data" name="d" id="d" placeholder="dayabaca...">
 							<input type="number" class="form_data" name="serial" id="serial" style="width : 45%;" placeholder="no seri awal">
 							<input type="number" class="form_data" name="serialAkhir" id="serialAkhir" style="width : 45%;" placeholder="no seri akhir" readonly>
 							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
+							<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>
 						</form>
 					</div>`;
 
@@ -173,6 +178,7 @@ import { createFormLoko } from './service/formLoko.js';
 							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah..">
 							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
 						</form>
+						<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>
 					</div>`;
 		
 		const formLoko = new createFormLoko(document.querySelector(".main"), str);

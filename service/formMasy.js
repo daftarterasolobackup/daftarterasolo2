@@ -102,12 +102,22 @@ export class createFormMasy {
 		return returnVal;
 	}
 
+	//method utk dijalankan pd pickUttpHandler()
+	#closeFormJmlHandler() {
+		let closeBtn = document.querySelector(".closeFormJml");
+		closeBtn.addEventListener('click',() => {
+			document.querySelector(".jmlhDiv").style.display = "none";
+			document.querySelector(".uttpDiv").style.display = "flex";
+		});
+	}
+
 	//method utk dijalankan pada generateListUttp()
 	pickUttpHandler() {
 		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
 			this.#changeShopChartLayout();
 			document.querySelector(".uttpDiv").style.display = "none";
 			document.querySelector(".jmlhDiv").style.display = "flex";
+			this.#closeFormJmlHandler();
 			this.#resetFormJmlh();
 			this.#listIndex = e.id;
 		}));
@@ -210,5 +220,20 @@ export class createFormMasy {
 		this.#backBtnHandler();
 		this.#addBtnHandler();
 	}
-}
 
+	get get_changeShopChartLayout() {
+		return this.#changeShopChartLayout();
+	}
+
+	get get_resetFormJmlh() {
+		return this.#resetFormJmlh();
+	}
+
+	get get_closeFormJmlHandler() {
+		return this.#closeFormJmlHandler();
+	}
+
+	set set_listIndex(idx) {
+		this.#listIndex = idx;
+	}
+}

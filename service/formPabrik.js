@@ -43,6 +43,8 @@ export class createFormPabrik extends createFormMasy {
 		document.querySelector(".jmlhDiv").style.backgroundColor = "#0D98BA";
 		document.querySelector("#setJml").style.backgroundColor = "#072a6c";
 		document.querySelector("#jml").style.borderColor = "#FFFFFF";
+		document.querySelector("#kap").style.borderColor = "#FFFFFF";
+		document.querySelector("#d").style.borderColor = "#FFFFFF";
 		document.querySelector("#serial").style.borderColor = "#FFFFFF";
 		document.querySelector("#serialAkhir").style.borderColor = "#FFFFFF";
 	}
@@ -58,11 +60,30 @@ export class createFormPabrik extends createFormMasy {
 		document.querySelector(".shopChart").innerHTML = str;
 		this.deleteChartHandler();
 	}
-
+	
+	/*
 	//override pickUttpHandler() from parent class
 	pickUttpHandler() {
 		super.pickUttpHandler();
 		this.#setCssFormJml();
+	}
+	*/
+
+	//method utk dijalankan pada generateListUttp()
+	pickUttpHandler() {
+		document.querySelectorAll(".daftarUttp").forEach(e => e.addEventListener("click", () => {
+			if (this.list[e.id][0] !== "TE") {
+				document.getElementById("kap").style.display = "none";
+				document.getElementById("d").style.display = "none";
+			}
+			this.get_changeShopChartLayout;
+			document.querySelector(".uttpDiv").style.display = "none";
+			document.querySelector(".jmlhDiv").style.display = "flex";
+			this.get_closeFormJmlHandler;
+			this.get_resetFormJmlh;
+			this.set_listIndex = e.id;
+			this.#setCssFormJml();
+		}));
 	}
 
 	//method for handling when user input serial number yg dijalankan pd generateListUttp()
