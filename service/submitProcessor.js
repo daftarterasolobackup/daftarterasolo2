@@ -31,9 +31,26 @@ export class masySubmitProcessor extends submitProcessor {
 		}
 	}
 
-	#entryTheData() {
-		console.log(this.#obj.get_dataForm);
-		console.log(this.#obj.get_dataToSend);
+	async #entryTheData() {
+		//console.log(this.#obj.get_dataForm);
+		//console.log(this.#obj.get_dataToSend);
+		let dataComplete = {
+			'dataForm' : this.#obj.get_dataForm,
+			'dataToSend' : this.#obj.get_dataToSend 
+		}
+
+		let api = "";
+		await fetch(api, {
+			method : "POST",
+			body : JSON.stringify(dataComplete)
+		})
+		/*
+		.then(e => JSON.parse(e))
+		.then(e => console.log(e));
+		*/
+		console.log(dataComplete);
+		console.log(JSON.stringify(dataComplete));
+
 		console.log('Melakukan entry data ... ');
 	}
 
