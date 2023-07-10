@@ -2,7 +2,7 @@ import { createFormMasy } from './service/formMasy.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
-import { masySubmitProcessor } from './service/submitProcessor.js';
+import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor } from './service/submitProcessor.js';
 
 (function main() {
 
@@ -95,6 +95,8 @@ import { masySubmitProcessor } from './service/submitProcessor.js';
 		formPabrik.generateBtnHandler();
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
 		formPabrik.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+
+		const sbmtHandler = new pabrikSubmitProcessor(formPabrik);
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
@@ -184,6 +186,8 @@ import { masySubmitProcessor } from './service/submitProcessor.js';
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][3]']
 		formLoko.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]}</legend></fieldset></div>`;
 		formLoko.generateBtnHandler();
+
+		const sbmtHandler = new lokoSubmitProcessor(formLoko);
 	});
 
 })();

@@ -237,6 +237,16 @@ export class createFormMasy {
 		return this.constructor.dataToSend;
 	}
 
+	get get_dataForm() {
+		let dataForm = {}
+		dataForm['nama'] = document.getElementById('nama').value;
+		dataForm['alamat'] = document.getElementById('alamat').value;
+		dataForm['kel'] = document.getElementById('kel').value;
+		dataForm['wa'] = document.getElementById('wa').value; 
+
+		return dataForm;
+	}
+
 	set set_listIndex(idx) {
 		this.#listIndex = idx;
 	}
