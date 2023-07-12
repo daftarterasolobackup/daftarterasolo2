@@ -31,6 +31,22 @@ export class masySubmitProcessor extends submitProcessor {
 		}
 	}
 
+	#resetFormIdentitas() {
+		document.getElementById('sub1').children[1].reset();
+	}
+
+	#deleteTableShopChart() {
+		document.getElementById('sub2').children[1].children[0].remove();	
+	}
+
+	#afterEntryDataSuccess() {
+		this.#obj.set_dataToSend = {};
+		this.#obj.set_shopChartTemp = [];
+		this.#resetFormIdentitas();	
+		this.#deleteTableShopChart();
+		alert("Data telah berhasil dimasukkan.");
+	}
+
 	async #entryTheData() {
 		//console.log(this.#obj.get_dataForm);
 		//console.log(this.#obj.get_dataToSend);
@@ -48,10 +64,11 @@ export class masySubmitProcessor extends submitProcessor {
 		.then(e => JSON.parse(e))
 		.then(e => console.log(e));
 		*/
-		console.log(dataComplete);
-		console.log(JSON.stringify(dataComplete));
+		//console.log(dataComplete);
+		//console.log(JSON.stringify(dataComplete));
 
 		console.log('Melakukan entry data ... ');
+		this.#afterEntryDataSuccess();
 	}
 
 	#detectIfSubmitClicked() {

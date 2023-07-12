@@ -250,4 +250,13 @@ export class createFormMasy {
 	set set_listIndex(idx) {
 		this.#listIndex = idx;
 	}
+
+	set set_dataToSend(val) {
+		this.constructor.dataToSend = val;
+	}
+
+	set set_shopChartTemp(val) {
+		this.constructor.shopChartTemp = val;
+	}
+
 }
