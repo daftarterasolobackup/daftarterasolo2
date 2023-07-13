@@ -12,10 +12,16 @@ class submitProcessor {
 
 export class masySubmitProcessor extends submitProcessor {
 	#obj;
+	#api;
 	constructor(obj) {
 		super(constructor);
 		this.#obj = obj;
 		this.#detectIfSubmitClicked();
+		//this.#api = "https://script.google.com/macros/s/AKfycbyy2jsLFItoH2iSsbee3o4IjH_d-X_gm8zJClJNmZ76nXcF532iqDtVb9FFP5SBLqmxBA/exec";
+		
+		//this.#api = "https://script.google.com/macros/s/AKfycbxRiXf39HfkAnwysBIPQuYt5Nzu3Fz62b3ek3zFzcLtenIQCjUMnhwFrKv6SUWw2e6hxg/exec";
+
+		this.#api = "https://script.google.com/macros/s/AKfycbysLaGr6E7Csyg62OqWf_gU9JBJsy0hEOszUTdISCvfYE-dPtZ7-qyEnUeXJCIkfe2eig/exec";
 	}
 
 	#checkIfDataToSendIsEmpty() {
@@ -39,12 +45,12 @@ export class masySubmitProcessor extends submitProcessor {
 		document.getElementById('sub2').children[1].children[0].remove();	
 	}
 
-	#afterEntryDataSuccess() {
+	#afterEntryDataSuccess(msg) {
 		this.#obj.set_dataToSend = {};
 		this.#obj.set_shopChartTemp = [];
 		this.#resetFormIdentitas();	
 		this.#deleteTableShopChart();
-		alert("Data telah berhasil dimasukkan.");
+		alert(msg);
 	}
 
 	async #entryTheData() {
@@ -55,20 +61,19 @@ export class masySubmitProcessor extends submitProcessor {
 			'dataToSend' : this.#obj.get_dataToSend 
 		}
 
-		let api = "";
-		await fetch(api, {
+		console.log('Melakukan entry data ... ');
+
+		await fetch(this.#api, {
 			method : "POST",
 			body : JSON.stringify(dataComplete)
 		})
-		/*
-		.then(e => JSON.parse(e))
-		.then(e => console.log(e));
-		*/
-		//console.log(dataComplete);
+		.then(e => e.json())
+		.then(e => {
+			this.#afterEntryDataSuccess(e.msg);
+		});
+		console.log(dataComplete);
 		//console.log(JSON.stringify(dataComplete));
-
-		console.log('Melakukan entry data ... ');
-		this.#afterEntryDataSuccess();
+		
 	}
 
 	#detectIfSubmitClicked() {
@@ -82,6 +87,10 @@ export class masySubmitProcessor extends submitProcessor {
 				alert(e);
 			}
 		});
+	}
+
+	set set_api(url) {
+		this.#api = url;
 	}
 }
 

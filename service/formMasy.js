@@ -243,7 +243,7 @@ export class createFormMasy {
 		dataForm['alamat'] = document.getElementById('alamat').value;
 		dataForm['kel'] = document.getElementById('kel').value;
 		dataForm['wa'] = document.getElementById('wa').value; 
-
+		dataForm['jenisTera'] = "tuk"; 
 		return dataForm;
 	}
 

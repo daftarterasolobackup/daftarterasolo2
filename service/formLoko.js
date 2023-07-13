@@ -108,4 +108,15 @@ export class createFormLoko extends createFormMasy {
 		super.generateBtnHandler();
 		this.#generateEventHandler();
 	}	
+
+	get get_dataForm() {
+		let dataForm = {}
+		dataForm['nama'] = document.getElementById('nama').value;
+		dataForm['alamat'] = document.getElementById('alamat').value;
+		dataForm['kel'] = document.getElementById('kel').value;
+		dataForm['wa'] = document.getElementById('wa').value; 
+		dataForm['jenisTera'] = "loko";
+		return dataForm;
+	}
+
 }
