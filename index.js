@@ -2,7 +2,7 @@ import { createFormMasy } from './service/formMasy.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
-import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor } from './service/submitProcessor.js';
+import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSubmitProcessor } from './service/submitProcessor.js';
 
 (function main() {
 
@@ -145,6 +145,8 @@ import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor } from 
 			const formSpbu = new createFormSpbu(document.querySelector(".main"), str);
 			formSpbu.generateForm();
 			formSpbu.generateBtnHandler();
+
+			const sbmtHandler = new spbuSubmitProcessor(formSpbu);
 	});
 
 	let menuLoko = document.querySelector(".menu").children[3];

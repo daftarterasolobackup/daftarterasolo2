@@ -22,15 +22,21 @@ export class createFormSpbu extends createFormPabrik {
 		document.getElementById("spbu") != null ? this.#spbuData = await getSpbu() : '';
 	}
 
+	/*
 	//override method methodRunWhenSubmit() pd parent class utk menghandle tombol submit ketika ditekan..
 	static methodToRunWhenSubmit() {
 		this.showUncompleteMsg(this.isJmlEmpty("jml_nozzle"));
 		super.methodToRunWhenSubmit();
 	}
+	*/
 
 	//Override setLoadingBarColor() from parent class
 	setLoadingBarColor() {
 		document.querySelectorAll(".lds-facebook div").forEach(el => el.style.background = "#432616");
+	}
+
+	#setDataToSend() {
+		this.set_dataToSend = {1 : ['PUBBM','','','','','']};
 	}
 
 	//override method generateForm() from parent class
@@ -38,6 +44,7 @@ export class createFormSpbu extends createFormPabrik {
 		await super.generateForm();
 		this.#setCSSSpbu();
 		await this.#loadSpbu();
+		this.#setDataToSend();
 	}
 
 	//override determineDataSrc() from parent class
@@ -50,4 +57,5 @@ export class createFormSpbu extends createFormPabrik {
 		super.setCssSubmitBtn();
 		document.getElementById("sbmt").style.borderColor = "rgb(67, 38, 22)";
 	}
+	
 }
