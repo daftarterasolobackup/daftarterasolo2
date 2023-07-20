@@ -47,6 +47,7 @@ export class createFormPabrik extends createFormMasy {
 		document.querySelector("#d").style.borderColor = "#FFFFFF";
 		document.querySelector("#serial").style.borderColor = "#FFFFFF";
 		document.querySelector("#serialAkhir").style.borderColor = "#FFFFFF";
+		document.querySelector("#txtSerial").style.borderColor = "#FFFFFF";
 	}
 
 	//override method generateShopChartTbl() pd parent class utk dijalankan pada method pickUttpHandler

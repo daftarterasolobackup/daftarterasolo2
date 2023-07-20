@@ -140,6 +140,7 @@ export class createFormMasy {
 			this.constructor.shopChartTemp.push(this.list[this.#listIndex]);
 			this.list[this.#listIndex].push(document.getElementById("jml").value);
 			document.getElementById("serial") !== null ? this.list[this.#listIndex].push(document.getElementById("serial").value) : '';
+			//console.log(`shopChartTemp ===== ${this.constructor.shopChartTemp}`);
 			this.constructor.generateShopChartTbl(this.constructor.shopChartTemp);
 		});
 	}
