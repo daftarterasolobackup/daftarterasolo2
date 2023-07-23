@@ -6,7 +6,7 @@ export async function getKelurahan() {
 	.then(datas => {
 	    let str = '';
 	    for (let k in datas.data) {
-			str += `<option value='${datas.data[k]}'>${datas.data[k][0]}</option>`;
+			str += `<option value='${datas.data[k][0]}'>${datas.data[k][0]}</option>`;
 	    }
 
 	    document.getElementById("kelurahan").innerHTML = str;

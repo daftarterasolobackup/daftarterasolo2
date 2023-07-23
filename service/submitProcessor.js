@@ -30,9 +30,14 @@ export class masySubmitProcessor extends submitProcessor {
 
 	#checkIfdataFormIsEmpty() {
 		let dat = this.#obj.get_dataForm; 
-		if (dat['nama'] === "" || dat['alamat'] === "" || dat['kel'] === "" || dat['wa'] === "") {
+		if (dat['nama'] === "" || dat['alamat'] === "" || dat['kel'] === "") {
 			throw new Error("Anda belum mengisi data identitas dengan lengkap....Silahkan klik tanda tombol 'Back' untuk melengkapi data identitas.");
 		}
+
+		if (dat['wa'] === "") {
+			document.getElementById('wa').value = "62";
+		}
+
 	}
 
 	#resetFormIdentitas() {
@@ -57,7 +62,7 @@ export class masySubmitProcessor extends submitProcessor {
 
 	async #entryTheData() {
 		//console.log(this.#obj.get_dataForm);
-		console.log(this.#obj.get_dataToSend);
+		//console.log(this.#obj.get_dataToSend);
 		let dataComplete = {
 			'dataForm' : this.#obj.get_dataForm,
 			'dataToSend' : this.#obj.get_dataToSend 

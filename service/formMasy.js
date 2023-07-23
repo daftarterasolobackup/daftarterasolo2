@@ -9,6 +9,7 @@ export class createFormMasy {
 	#listIndex;
 	static shopChartTemp = [];
 	static dataToSend = {};
+	#dataForm = {};
 
 	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
@@ -60,8 +61,8 @@ export class createFormMasy {
 	static deleteItem(itemId) {
 		Reflect.deleteProperty(this.dataToSend, itemId) ? document.getElementById(itemId).parentElement.remove() : alert("Item gagal dihapus. Coba ulangi kembali");
 		this.shopChartTemp.splice(itemId-1,1);
-		console.log(this.dataToSend);
-		console.log(this.shopChartTemp);
+		//console.log(this.dataToSend);
+		//console.log(this.shopChartTemp);
 	}
 
 	//method untk menghandle jika user mengklik delete icon di shopping chart
@@ -239,13 +240,12 @@ export class createFormMasy {
 	}
 
 	get get_dataForm() {
-		let dataForm = {}
-		dataForm['nama'] = document.getElementById('nama').value;
-		dataForm['alamat'] = document.getElementById('alamat').value;
-		dataForm['kel'] = document.getElementById('kel').value;
-		dataForm['wa'] = document.getElementById('wa').value; 
-		dataForm['jenisTera'] = "tuk"; 
-		return dataForm;
+		this.#dataForm['nama'] = document.getElementById('nama').value;
+		this.#dataForm['alamat'] = document.getElementById('alamat').value;
+		this.#dataForm['kel'] = document.getElementById('kel').value;
+		this.#dataForm['wa'] = document.getElementById('wa').value; 
+		this.#dataForm['jenisTera'] = "tuk"; 
+		return this.#dataForm;
 	}
 
 	set set_listIndex(idx) {

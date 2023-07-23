@@ -87,7 +87,7 @@ export class createFormLoko extends createFormMasy {
 	}
 
 	determineDataSrc() {
-		console.log(this.constructor.kelurahan);
+		//console.log(this.constructor.kelurahan);
 		return this.#perushLokoData;
 	}
 
