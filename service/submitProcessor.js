@@ -51,6 +51,10 @@ export class masySubmitProcessor extends submitProcessor {
 		alert(msg);
 	}
 
+	#ifEntryDataFail(msg) {
+		alert(msg);
+	}
+
 	async #entryTheData() {
 		//console.log(this.#obj.get_dataForm);
 		console.log(this.#obj.get_dataToSend);
@@ -59,17 +63,25 @@ export class masySubmitProcessor extends submitProcessor {
 			'dataToSend' : this.#obj.get_dataToSend 
 		}
 
-		console.log('Melakukan entry data ... ');
+		//console.log('Melakukan entry data ... ');
+		document.querySelector('.loadingBar').style.display = "block";
+		try {
+			await fetch(this.#api, {
+				method : "POST",
+				body : JSON.stringify(dataComplete)
+			})
+			.then(e => e.json())
+			.then(e => {
+				document.querySelector('.loadingBar').style.display = "none";
+				e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
+			});
+		}
+		catch(err) {
+			document.querySelector('.loadingBar').style.display = "none";
+			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
+		}
 
-		await fetch(this.#api, {
-			method : "POST",
-			body : JSON.stringify(dataComplete)
-		})
-		.then(e => e.json())
-		.then(e => {
-			this.#afterEntryDataSuccess(e.msg);
-		});
-		console.log(dataComplete);
+		//console.log(dataComplete);
 		//console.log(JSON.stringify(dataComplete));
 		
 	}

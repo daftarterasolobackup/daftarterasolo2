@@ -737,3 +737,63 @@ td.icon {
     color : red;
 }
 /*style="background-image:url(../uploadimages/18-2-2013-23-33-01-Lighthouse.jpg);background-repeat:no-repeat;background-size:250px 180px;   width: 250px; height: 180px;"*/
+
+.loadingBar {
+    position: absolute;
+    width: 100%;
+    height : 100%;
+    background-color: #000000;
+    opacity: 0.8;
+    top: -2px;
+    z-index: 5;
+    align-content: center;
+}
+
+/*
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+*/
+
+.loader {
+  border: 12px solid #ffffff; 
+  border-top: 12px solid #76d3fe;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  top: 30%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  position: absolute;
+}
+
+.loadertxt {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  position: absolute;
+  background-color: #ffffff;
+  color : #000000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  border: 12px solid #ffffff;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.loadingBar.hidden {
+    display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
