@@ -73,6 +73,7 @@ export class masySubmitProcessor extends submitProcessor {
 			.then(e => e.json())
 			.then(e => {
 				document.querySelector('.loadingBar').style.display = "none";
+				setTimeout(() => {},1000);
 				e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
 			});
 		}
