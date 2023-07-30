@@ -45,6 +45,30 @@ div.header {
     font-weight: bold;
 }
 
+div.backMenu {
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 3px;
+    width : 95%;
+    height : 20px;
+    position: relative;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    margin: 7px auto 0 auto;
+    display: flex;
+    font-family: 'Montserrat';
+    font-size: 11px;
+    flex-direction:row;
+    flex-wrap: no-wrap;
+    justify-content: center;
+    background-color: #EEEEEE;
+    color :#0098BA;
+    font-weight: bold;
+    padding: 4px 0;
+
+}
+
 div.menu {
     background-color: #FFFFFF;
     text-align: center;
@@ -58,6 +82,10 @@ div.menu {
     /*padding-top: 15px;*/
     margin: 7px auto 0 auto;
     display: flex;
+
+    flex-direction:row;
+    flex-wrap: no-wrap;
+    justify-content: center;
 
 }
 
@@ -124,19 +152,20 @@ legend.legendTitle {
     font-weight: 400;
 }
 
+
 .column {
     float: left;
     width: 25%;
     height: 50px;
     background-position: center;
+    background-color: #EEEEEE;
+    border-radius: 6px;
 }
 
 .column:first-child {
     background-image: url("img/manufacturing-plant.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #EEEEEE;
-    border-radius: 6px;
     margin-right: 4px;
     width : 25%;
 }
@@ -145,8 +174,6 @@ legend.legendTitle {
     background-image: url("img/partners.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #EEEEEE;
-    border-radius: 6px;
     margin-right: 4px;
     width : 24%;
 }
@@ -155,8 +182,6 @@ legend.legendTitle {
     background-image: url("img/petrol.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #EEEEEE;
-    border-radius: 6px;
     margin-right: 4px;
     width : 23%;
 }
@@ -165,9 +190,6 @@ legend.legendTitle {
     background-image: url("img/scale-up.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #EEEEEE;
-    border-radius: 6px;
-    /*margin-right: 2px;*/
     width : 24.5%;
 }
 
