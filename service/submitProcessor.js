@@ -62,7 +62,7 @@ export class masySubmitProcessor extends submitProcessor {
 
 	async #entryTheData() {
 		//console.log(this.#obj.get_dataForm);
-		//console.log(this.#obj.get_dataToSend);
+		console.log(this.#obj.get_dataToSend);
 		let dataComplete = {
 			'dataForm' : this.#obj.get_dataForm,
 			'dataToSend' : this.#obj.get_dataToSend 
@@ -127,8 +127,7 @@ export class spbuSubmitProcessor extends masySubmitProcessor {
 	
 	#checkIfJmlEmpty() {
 		if (document.getElementById('jml_nozzle').value === '') {
-			alert('Error : Jumlah PUBBM belum diisi, silahkan isi terlebih dahulu.');
-			return;
+			throw Error('Jumlah PUBBM belum diisi, silahkan isi terlebih dahulu.');
 		} 
 	}
 	

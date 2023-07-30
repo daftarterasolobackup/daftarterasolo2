@@ -4,6 +4,7 @@ import { getPerusahaanLoko } from '../util/utilFunc.js';
 
 export class createFormLoko extends createFormMasy {
 	#perushLokoData = [];
+	#dataForm = {};
 
 	//override method pd parent class yg dijalankan pd #generateLoadingBar()
 	setLoadingBarColor() {
@@ -110,13 +111,12 @@ export class createFormLoko extends createFormMasy {
 	}	
 
 	get get_dataForm() {
-		let dataForm = {}
-		dataForm['nama'] = document.getElementById('nama').value;
-		dataForm['alamat'] = document.getElementById('alamat').value;
-		dataForm['kel'] = document.getElementById('kel').value;
-		dataForm['wa'] = document.getElementById('wa').value; 
-		dataForm['jenisTera'] = "loko";
-		return dataForm;
+		this.#dataForm['nama'] = document.getElementById('nama').value;
+		this.#dataForm['alamat'] = document.getElementById('alamat').value;
+		this.#dataForm['kel'] = document.getElementById('kel').value;
+		this.#dataForm['wa'] = document.getElementById('wa').value; 
+		this.#dataForm['jenisTera'] = "loko";
+		return this.#dataForm;
 	}
 
 }

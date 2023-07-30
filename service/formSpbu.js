@@ -4,6 +4,7 @@ import { getSpbu } from '../util/utilFunc.js';
 
 export class createFormSpbu extends createFormPabrik {
 	#spbuData = [];
+	#dataForm = {};
 
 	//new method
 	#setCSSSpbu() {
@@ -57,5 +58,20 @@ export class createFormSpbu extends createFormPabrik {
 		super.setCssSubmitBtn();
 		document.getElementById("sbmt").style.borderColor = "rgb(67, 38, 22)";
 	}
+
+	get get_dataForm() {
+		this.#dataForm['nama'] = document.getElementById('nama').value;
+		this.#dataForm['alamat'] = document.getElementById('alamat').value;
+		this.#dataForm['kel'] = document.getElementById('kel').value;
+		this.#dataForm['wa'] = document.getElementById('wa').value; 
+		this.#dataForm['jenisTera'] = "spbu";
+		return this.#dataForm;
+	}
+
+	get get_dataToSend() {
+		this.constructor.dataToSend[1][5] = document.getElementById('jml_nozzle').value;
+		return this.constructor.dataToSend;
+	}
+
 	
 }
