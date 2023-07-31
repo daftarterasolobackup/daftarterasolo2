@@ -248,6 +248,10 @@ export class createFormMasy {
 		return this.#dataForm;
 	}
 
+	get get_listIndex() {
+		return this.#listIndex;
+	}
+
 	set set_listIndex(idx) {
 		this.#listIndex = idx;
 	}

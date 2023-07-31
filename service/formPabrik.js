@@ -54,7 +54,8 @@ export class createFormPabrik extends createFormMasy {
 	static generateShopChartTbl(arr) {
 		let str = `<table id="tabelPabrik"><thead><tr><td>No.</td><td>UTTP</td><td>Kap</td><td>Serial</td><td>Jml</td><td>Del?</td></tr></thead>`;
 		arr.forEach((e,i) => {
-			str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>${e[6]} - ${parseInt(e[6]) + parseInt(e[5]) - 1}</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>`;
+			console.log(e);
+			str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>${e[7]}${e[6]} - ${e[7]}${parseInt(e[6]) + parseInt(e[5]) - 1}</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>`;
 			this.dataToSend[`${i+1}`] = e;
 		});
 		str += `</table>`;		
@@ -62,13 +63,21 @@ export class createFormPabrik extends createFormMasy {
 		this.deleteChartHandler();
 	}
 	
-	/*
-	//override pickUttpHandler() from parent class
-	pickUttpHandler() {
-		super.pickUttpHandler();
-		this.#setCssFormJml();
-	}
-	*/
+	//override method pd parent class dan utk dijalankan pada generateListUttp()
+	setJmlPickedUttp() {
+		document.querySelector("#setJml").addEventListener("click", () => {
+			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"));
+			document.querySelector(".jmlhDiv").style.display = "none";
+			this.constructor.shopChartTemp.push(this.list[this.get_listIndex]);
+			this.list[this.get_listIndex].push(document.getElementById("jml").value);
+			
+			document.getElementById("serial") !== null ? this.list[this.get_listIndex].push(document.getElementById("serial").value) : '';
+
+			document.getElementById("txtSerial") !== null ? this.list[this.get_listIndex].push(document.getElementById("txtSerial").value) : '';
+
+			this.constructor.generateShopChartTbl(this.constructor.shopChartTemp);
+		});
+	}	
 
 	//method utk dijalankan pada generateListUttp()
 	pickUttpHandler() {
