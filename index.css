@@ -65,8 +65,13 @@ div.backMenu {
     background-color: #EEEEEE;
     color :#0098BA;
     font-weight: bold;
-    padding: 4px 0;
+    padding: 5px 0;
 
+}
+
+div.backMenu a {
+    color : #0098BA;
+    text-decoration: none;
 }
 
 div.menu {

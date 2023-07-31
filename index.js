@@ -5,7 +5,6 @@ import { createFormLoko } from './service/formLoko.js';
 import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSubmitProcessor } from './service/submitProcessor.js';
 
 (function main() {
-
 	let menuMsy = document.querySelector(".menu").children[1];
 
 	menuMsy.addEventListener("click", async () => {
