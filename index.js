@@ -80,6 +80,8 @@ import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSu
 						<h1>Silahkan isi jumlah & no.seri</h1>
 						<form>
 							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah...">
+							<input type="text" class="form_data" name="merk" id="merk" placeholder="merek...">
+							<input type="text" class="form_data" name="tipe" id="tipe" placeholder="tipe...">
 							<input type="text" class="form_data" name="kap" id="kap" placeholder="kapasitas maksimum...">
 							<input type="text" class="form_data" name="d" id="d" placeholder="dayabaca...">
 							<input type="text" class="form_data" name="txtSerial" id="txtSerial" style="width : 80%;" placeholder="Masukkan text nomor seri (jika ada)">							
