@@ -58,8 +58,8 @@ export class createFormPabrik extends createFormMasy {
 	static generateShopChartTbl(arr) {
 		let str = `<table id="tabelPabrik"><thead><tr><td>No.</td><td>UTTP</td><td>Kap</td><td>Serial</td><td>Jml</td><td>Del?</td></tr></thead>`;
 		arr.forEach((e,i) => {
-			//console.log(e);
-			str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>${e[7]}${e[6]} - ${e[7]}${parseInt(e[6]) + parseInt(e[5]) - 1}</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>`;
+			
+			e[6] === '' ? str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>no serial</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>` : str += `<tr><td>${i+1}</td><td>${e[0]}</td><td>${e[1]} / ${e[2]}</td><td>${e[7]}${e[6]} - ${e[7]}${parseInt(e[6]) + parseInt(e[5]) - 1}</td><td>${e[5]}</td><td id="${i+1}" class="icon"></td></tr>`;
 			this.dataToSend[`${i+1}`] = e;
 		});
 		str += `</table>`;		
@@ -74,27 +74,16 @@ export class createFormPabrik extends createFormMasy {
 			document.querySelector(".jmlhDiv").style.display = "none";
 			let listTampung = [].concat(this.list[this.get_listIndex]);
 			console.log(listTampung);
-			//console.log(this.list[this.get_listIndex]);
+			
 			listTampung.push(document.getElementById("jml").value);
+			listTampung.push(document.getElementById("serial").value);
+			listTampung.push(document.getElementById("txtSerial").value);
+			document.getElementById('kap').value !== "" ? listTampung[1] = document.getElementById("kap").value : '';
+			document.getElementById('d').value !== "" ?listTampung[2] = document.getElementById("d").value : '';
+			listTampung.push(document.getElementById("merk").value);
+			listTampung.push(document.getElementById("tipe").value);
 			this.constructor.shopChartTemp.push(listTampung);
 			console.log(this.constructor.shopChartTemp);
-			/*console.log(this.list[this.get_listIndex]);
-			this.constructor.shopChartTemp.push(this.list[this.get_listIndex]);
-			this.list[this.get_listIndex].push(document.getElementById("jml").value);
-			*/
-			/*
-			this.constructor.shopChartTemp.push(this.list[this.get_listIndex]);
-			this.list[this.get_listIndex].push(document.getElementById("jml").value);
-			
-			document.getElementById("serial") !== null ? this.list[this.get_listIndex].push(document.getElementById("serial").value) : '';
-			document.getElementById("txtSerial") !== null ? this.list[this.get_listIndex].push(document.getElementById("txtSerial").value) : '';
-			*/
-			//document.getElementById("kap") !== null ? this.list[this.get_listIndex][1] = document.getElementById("kap").value : '';
-			//document.getElementById("d") !== null ? this.list[this.get_listIndex][2] = document.getElementById("d").value : '';
-			//document.getElementById("merk") !== null ? this.list[this.get_listIndex].push(document.getElementById("merk").value) : '';
-			//document.getElementById("tipe") !== null ? this.list[this.get_listIndex].push(document.getElementById("tipe").value) : '';
-
-
 
 			this.constructor.generateShopChartTbl(this.constructor.shopChartTemp);
 		});
