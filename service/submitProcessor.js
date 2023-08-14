@@ -48,12 +48,17 @@ export class masySubmitProcessor extends submitProcessor {
 		document.getElementById('sub2').children[1].children[0].remove();	
 	}
 
-	#afterEntryDataSuccess(msg) {
+	showConfirmation(msg, respon) {
+		alert(`${msg}\nNomor Order Anda : ${respon}`);
+	}
+
+	//#afterEntryDataSuccess(msg) 
+	#afterEntryDataSuccess() {
 		this.#obj.set_dataToSend = {};
 		this.#obj.set_shopChartTemp = [];
 		this.#resetFormIdentitas();	
 		this.#deleteTableShopChart();
-		alert(msg);
+		//alert(msg);
 	}
 
 	#ifEntryDataFail(msg) {
@@ -61,8 +66,7 @@ export class masySubmitProcessor extends submitProcessor {
 	}
 
 	async #entryTheData() {
-		//console.log(this.#obj.get_dataForm);
-		//console.log(this.#obj.get_dataToSend);
+		
 		let dataComplete = {
 			'dataForm' : this.#obj.get_dataForm,
 			'dataToSend' : this.#obj.get_dataToSend 
@@ -79,16 +83,21 @@ export class masySubmitProcessor extends submitProcessor {
 			.then(e => {
 				document.querySelector('.loadingBar').style.display = "none";
 				setTimeout(() => {},1000);
-				e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
+				//e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
+				switch(e.result) {
+					case 'success':
+						this.#afterEntryDataSuccess();
+						this.showConfirmation(e.msg, e.data);
+						break;
+					default:
+						this.#ifEntryDataFail(e.msg);
+				}
 			});
 		}
 		catch(err) {
 			document.querySelector('.loadingBar').style.display = "none";
 			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
 		}
-
-		//console.log(dataComplete);
-		//console.log(JSON.stringify(dataComplete));
 		
 	}
 
@@ -116,6 +125,9 @@ export class masySubmitProcessor extends submitProcessor {
 }
 
 export class pabrikSubmitProcessor extends masySubmitProcessor {
+	setApi() {
+		this.set_api = "https://script.google.com/macros/s/AKfycbw_qgL6gQ461xKUFwXw44Si-iEzpGjszAvqOh7ofHDG53dVbzbq3qVmtMMz--Pg9qh6Tw/exec";
+	}
 
 }
 

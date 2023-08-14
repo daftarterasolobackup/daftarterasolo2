@@ -99,6 +99,7 @@ import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSu
 		formPabrik.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
 
 		const sbmtHandler = new pabrikSubmitProcessor(formPabrik);
+		sbmtHandler.setApi();
 	});
 
 	let menuSpbu = document.querySelector(".menu").children[2];
