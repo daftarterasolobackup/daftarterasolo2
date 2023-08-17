@@ -19,7 +19,8 @@ export class masySubmitProcessor extends submitProcessor {
 		this.#detectIfSubmitClicked();
 		//this.#api = "https://script.google.com/macros/s/AKfycbyy2jsLFItoH2iSsbee3o4IjH_d-X_gm8zJClJNmZ76nXcF532iqDtVb9FFP5SBLqmxBA/exec";
 
-		this.#api = "https://script.google.com/macros/s/AKfycbysLaGr6E7Csyg62OqWf_gU9JBJsy0hEOszUTdISCvfYE-dPtZ7-qyEnUeXJCIkfe2eig/exec";
+		//this.#api = "https://script.google.com/macros/s/AKfycbysLaGr6E7Csyg62OqWf_gU9JBJsy0hEOszUTdISCvfYE-dPtZ7-qyEnUeXJCIkfe2eig/exec";
+		this.#api = "https://script.google.com/macros/s/AKfycbxCRpIT-PAtmRHksjns4-xHEraWMc9fC8MT9dYHMEYsv9zr1jCqfmYQIB7sZYxsii-MyA/exec";
 	}
 
 	#checkIfDataToSendIsEmpty() {
@@ -49,7 +50,7 @@ export class masySubmitProcessor extends submitProcessor {
 	}
 
 	showConfirmation(msg, respon) {
-		alert(`${msg}\nNomor Order Anda : ${respon}`);
+		alert(`${msg}\nNomor Daftar Ulang Anda : ${respon}\nSilahkan memperlihatkan Nomor Daftar Ulang Anda Kepada Petugas Pendaftar untuk dikonfirmasi.`);
 	}
 
 	//#afterEntryDataSuccess(msg) 
@@ -128,6 +129,12 @@ export class pabrikSubmitProcessor extends masySubmitProcessor {
 	setApi() {
 		this.set_api = "https://script.google.com/macros/s/AKfycbw_qgL6gQ461xKUFwXw44Si-iEzpGjszAvqOh7ofHDG53dVbzbq3qVmtMMz--Pg9qh6Tw/exec";
 	}
+
+	//override method showConfirmation in parent class
+	showConfirmation(msg, respon) {
+		alert(`${msg}\nNomor Order Anda : ${respon}`);
+	}
+
 
 }
 
