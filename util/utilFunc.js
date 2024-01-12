@@ -62,3 +62,8 @@ export async function getPerusahaanLoko() {
 	
 	return spbu;
 }
+
+export async function listOfUttpMasyRedApp() {
+	let url = "https://script.google.com/macros/s/AKfycbzH27ZTSKFF2Q2xXIRQEs7sd6uNzTfZpp-9BvO9a5JDDrhnf_YHzqc_TYoMtdDNOVI/exec";
+	return await fetch(url).then(datas => datas.json()).then(datas => datas.uttp.filter(e => {return e[0]}));		
+}

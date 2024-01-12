@@ -1,7 +1,9 @@
 import { createFormMasy } from './service/formMasy.js';
+import { createFormMasyRedApp } from './service/formMasyRedApp.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
+import { masyPrepareCam, lokoPrepareCam, scanOnlyPrepareCam } from './util/siapkanKamera.js';
 import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSubmitProcessor } from './service/submitProcessor.js';
 
 (function main() {
@@ -193,6 +195,65 @@ import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSu
 		formLoko.generateBtnHandler();
 
 		const sbmtHandler = new lokoSubmitProcessor(formLoko);
+	});
+
+	let menuReparatir = document.querySelector(".menu2").children[0];
+
+	menuReparatir.addEventListener("click", async () => {
+		let str = `<div class="mainContent">      
+						<div class="subContent" id="sub1">
+							<div class="title">Silahkan isi data</div>
+							<form>
+								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha">
+								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
+								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
+								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="button" name="next" id="next" value="Next..">
+							</form>
+						</div>
+						<div class="subContent" id="sub2">
+							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="shopChart"></div>
+							<div class="addUttp">
+								<div class="addDiv">+<p id="klik">Klik disini</p></div>
+								<div class="addDiv qrDiv"></div>
+							</div>
+							<div class="backBtnDiv">
+								<form><input type="button" name="back" id="back" value="Back.."></form>
+								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
+							</div>                  
+						</div>
+						<datalist id="kelurahan"></datalist>
+					</div>
+					<div class="uttpDiv hidden"></div>					
+					<div class="scanDiv hidden">
+						<!--<h3></h3>--> 
+						<video id="video" autoplay style="max-width : 100%; max-height : 100%;"></video>
+					</div>
+					<div class="jmlhDiv hidden">
+						<form class="spe">
+							<input type="text" class="form_data" name="uttp" id="uttp" readonly>
+							<input type="text" class="form_data" name="kap" id="kap" readonly placeholder="kapasitas">
+							<input type="text" class="form_data" name="d" id="d" readonly placeholder="dayabaca">
+							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah..">
+							<input type="text" class="form_data" name="merk" id="merk" placeholder="merk">
+							<input type="text" class="form_data" name="tipe" id="tipe" placeholder="tipe/model">
+							<input type="text" class="form_data" name="sn" id="sn" placeholder="no seri">
+							<input type="text" class="form_data" name="buatan" id="buatan" placeholder="buatan">
+							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
+						</form>
+						<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>
+					</div>`;
+		
+		const formMasyRedApp = new createFormMasyRedApp(document.querySelector(".main"), str);
+		await formMasyRedApp.generateForm();
+
+		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
+		formMasyRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+		formMasyRedApp.generateBtnHandler();
+
+		const scanHandler = new masyPrepareCam(formMasyRedApp);
+		const sbmtHandler = new masySubmitProcessor(formMasyRedApp);
 	});
 
 })();
