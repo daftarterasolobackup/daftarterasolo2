@@ -5,6 +5,7 @@ import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
 import { masyPrepareCam, lokoPrepareCam, scanOnlyPrepareCam } from './util/siapkanKamera.js';
 import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSubmitProcessor } from './service/submitProcessor.js';
+import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 
 (function main() {
 	let menuMsy = document.querySelector(".menu").children[1];
@@ -253,7 +254,7 @@ import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSu
 		formMasyRedApp.generateBtnHandler();
 
 		const scanHandler = new masyPrepareCam(formMasyRedApp);
-		const sbmtHandler = new masySubmitProcessor(formMasyRedApp);
+		const sbmtHandler = new masySubmitProcessorRedApp(formMasyRedApp);
 	});
 
 })();
