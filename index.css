@@ -306,6 +306,8 @@ legend.legendTitle {
     
 }
 
+
+
 .jmlhDiv {
     width: 95%;
     height : 90%;
@@ -346,6 +348,52 @@ legend.legendTitle {
 .spe input{
     margin: auto;
 }
+
+.spe input:disabled {
+    background-color: grey;
+}
+
+
+/*
+.jmlhDiv {
+    width: 95%;
+    height : 90%;
+    position: absolute;
+    background-color: #1E3F66;
+    top : 20px;
+    border-radius: 6px;
+    opacity: 1;
+    border: 3px solid #FFFFFF;
+    padding : 5px;
+    display: flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    opacity: 0.95;
+    justify-content:center;
+    overflow-y:scroll;
+    overflow : auto;
+    scrollbar-color: #38c red;
+}
+
+
+.jmlhDiv.hidden {
+    display : none; 
+}
+
+.jmlhDiv h1 {
+    font-family: 'Poppins', sans-serif;
+    color : #FFFFFF;
+    z-index: 10;
+    font-size: 30px;
+    margin-bottom: 0;
+    text-align: center;
+    display: grid;
+}
+
+.spe input{
+    margin: auto;
+}
+*/
 
 .subContent {
     height : 350px;
