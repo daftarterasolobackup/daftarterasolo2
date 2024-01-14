@@ -313,7 +313,8 @@ legend.legendTitle {
     height : 90%;
     position: absolute;
     /*left : 4.25%;*/
-    background-color: #1E3F66;
+    /*background-color: #1E3F66;*/
+    background-color: #000000;
     top : 20px;
     border-radius: 6px;
     opacity: 1;
@@ -413,7 +414,7 @@ legend.legendTitle {
     height : 10%;
     width: 100%;
     position: relative;
-    background-color: orangered;
+    background-color: #FFFFFF;
     color : #FFFFFF;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
@@ -424,7 +425,7 @@ legend.legendTitle {
 .form_data2 {
     display: block;
     margin-top: 8px;
-    width : 50%;
+    width : 75%;
     background-color : #000000;
     font-family: 'Poppins', sans-serif;
     margin-left: 10px;
@@ -440,6 +441,11 @@ legend.legendTitle {
     border: 4px solid #92DFF3;
 }
 
+
+#formTable {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
 
 .form_data {
     display: block;

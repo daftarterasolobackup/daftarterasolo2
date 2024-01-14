@@ -202,9 +202,9 @@ export class masyPrepareCam extends prepareCam {
             <tr><td>Serial</td><td><input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial"></td></tr>
             <tr><td>Jenis Usaha</td><td><input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha"></td></tr>
             <tr><td>Buatan</td><td><input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan"></td></tr>
-            <!--<input type="checkbox" id="addr" name="addr" value="ya">
+            <!--<input type="checkbox" id="addr" name="addr" value="ya">-->
             </table>
-            <label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
+            <!--<label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
             <label class="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?
                 <input type="checkbox" id="addr" name="addr" value="ya">
                 <span class="checkmark"></span>
