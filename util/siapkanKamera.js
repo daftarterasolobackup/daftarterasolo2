@@ -192,16 +192,16 @@ export class masyPrepareCam extends prepareCam {
         let formQR = document.createElement("form");
         formQR.setAttribute("id","formQR");
         formQR.innerHTML = `
-            <input type="text" class="form_data2" name="qrNama" id="qrNama" placeholder="nama">
+            Nama <input type="text" class="form_data2" name="qrNama" id="qrNama" placeholder="nama">
             <!--<input type="text" class="form_data2" name="qrHp" id="qrHp" placeholder="hp">-->
-            <input type="text" class="form_data2" name="qrAlamat" id="qrAlamat" placeholder="alamat">
-            <input type="text" class="form_data2" name="qrKel" id="qrKel" placeholder="kelurahan">
-            <input type="text" class="form_data2" name="qrUttp" id="qrUttp" placeholder="uttp">
-            <input type="text" class="form_data2" name="qrMerk" id="qrMerk" placeholder="merk">
-            <input type="text" class="form_data2" name="qrModel" id="qrModel" placeholder="model">
-            <input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial">
-            <input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha">
-            <input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan">
+            Almt <input type="text" class="form_data2" name="qrAlamat" id="qrAlamat" placeholder="alamat">
+            Kel <input type="text" class="form_data2" name="qrKel" id="qrKel" placeholder="kelurahan">
+            UTTP <input type="text" class="form_data2" name="qrUttp" id="qrUttp" placeholder="uttp">
+            Merk <input type="text" class="form_data2" name="qrMerk" id="qrMerk" placeholder="merk">
+            Model <input type="text" class="form_data2" name="qrModel" id="qrModel" placeholder="model">
+            Serial <input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial">
+            Jenis Usaha <input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha">
+            Buatan <input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan">
             <!--<input type="checkbox" id="addr" name="addr" value="ya">
             <label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
             <label class="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?
