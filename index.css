@@ -1046,7 +1046,8 @@ div.captionMenu2 {
     height : 90%;
     position:absolute;
     /*left : 4.25%;*/
-    background-color: #AF9781;
+    /*background-color: #AF9781;*/
+    background-color: #000000;
     top : 20px;
     /*border-radius: 6px;*/
     opacity: 1;
