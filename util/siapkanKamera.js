@@ -191,18 +191,19 @@ export class masyPrepareCam extends prepareCam {
         kueriDiv.setAttribute("class", "hasilKueriDiv");
         let formQR = document.createElement("form");
         formQR.setAttribute("id","formQR");
-        formQR.innerHTML = `
-            Nama <input type="text" class="form_data2" name="qrNama" id="qrNama" placeholder="nama">
+        formQR.innerHTML = `<table id="formTable">
+            <tr><td>Nama</td><td><input type="text" class="form_data2" name="qrNama" id="qrNama" placeholder="nama"></td></tr>
             <!--<input type="text" class="form_data2" name="qrHp" id="qrHp" placeholder="hp">-->
-            Almt <input type="text" class="form_data2" name="qrAlamat" id="qrAlamat" placeholder="alamat">
-            Kel <input type="text" class="form_data2" name="qrKel" id="qrKel" placeholder="kelurahan">
-            UTTP <input type="text" class="form_data2" name="qrUttp" id="qrUttp" placeholder="uttp">
-            Merk <input type="text" class="form_data2" name="qrMerk" id="qrMerk" placeholder="merk">
-            Model <input type="text" class="form_data2" name="qrModel" id="qrModel" placeholder="model">
-            Serial <input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial">
-            Jenis Usaha <input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha">
-            Buatan <input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan">
+            <tr><td>Almt</td><td><input type="text" class="form_data2" name="qrAlamat" id="qrAlamat" placeholder="alamat"></td></tr>
+            <tr><td>Kel</td><td><input type="text" class="form_data2" name="qrKel" id="qrKel" placeholder="kelurahan"></td></tr>
+            <tr><td>UTTP</td><td><input type="text" class="form_data2" name="qrUttp" id="qrUttp" placeholder="uttp"></td></tr>
+            <tr><td>Merk</td><td><input type="text" class="form_data2" name="qrMerk" id="qrMerk" placeholder="merk"></td></tr>
+            <tr><td>Model</td><td><input type="text" class="form_data2" name="qrModel" id="qrModel" placeholder="model"></td></tr>
+            <tr><td>Serial</td><td><input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial"></td></tr>
+            <tr><td>Jenis Usaha</td><td><input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha"></td></tr>
+            <tr><td>Buatan</td><td><input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan"></td></tr>
             <!--<input type="checkbox" id="addr" name="addr" value="ya">
+            </table>
             <label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
             <label class="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?
                 <input type="checkbox" id="addr" name="addr" value="ya">
