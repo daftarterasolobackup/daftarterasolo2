@@ -233,15 +233,15 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 					</div>
 					<div class="jmlhDiv hidden">
 						<form class="spe">
-							<input type="text" class="form_data" name="uttp" id="uttp" readonly>
-							<input type="text" class="form_data" name="kap" id="kap" readonly placeholder="kapasitas">
-							<input type="text" class="form_data" name="d" id="d" readonly placeholder="dayabaca">
-							<input type="number" class="form_data" name="jml" id="jml" placeholder="jumlah..">
-							<input type="text" class="form_data" name="merk" id="merk" placeholder="merk">
-							<input type="text" class="form_data" name="tipe" id="tipe" placeholder="tipe/model">
-							<input type="text" class="form_data" name="sn" id="sn" placeholder="no seri">
-							<input type="text" class="form_data" name="buatan" id="buatan" placeholder="buatan">
-							<input type="button" class="form_data" name="setJml" id="setJml" value="Tambahkan ke keranjang">
+							<input type="text" class="form_data2" name="uttp" id="uttp" readonly>
+							<input type="text" class="form_data2" name="kap" id="kap" readonly placeholder="kapasitas">
+							<input type="text" class="form_data2" name="d" id="d" readonly placeholder="dayabaca">
+							<input type="number" class="form_data2" name="jml" id="jml" placeholder="jumlah..">
+							<input type="text" class="form_data2" name="merk" id="merk" placeholder="merk">
+							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model">
+							<input type="text" class="form_data2" name="sn" id="sn" placeholder="no seri">
+							<input type="text" class="form_data2" name="buatan" id="buatan" placeholder="buatan">
+							<input type="button" class="form_data2" name="setJml" id="setJml" value="Tambahkan ke keranjang">
 						</form>
 						<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>
 					</div>`;
