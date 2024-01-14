@@ -216,10 +216,10 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
 							<div class="shopChart"></div>
 							<div class="addUttp">
-								<div class="addDiv">+<p id="klik">Klik disini</p></div>
-								<div class="addDiv qrDiv"></div>
+								<div class="addDivReparatir">+<p id="klik">Klik disini</p></div>
+								<div class="addDivReparatir qrDivReparatir"></div>
 							</div>
-							<div class="backBtnDiv">
+							<div class="backBtnDivReparatir">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
 								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
 							</div>                  

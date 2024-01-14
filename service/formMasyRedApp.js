@@ -277,7 +277,7 @@ export class createFormMasyRedApp {
 
 	//method utk dijalankan pd generateBtnHandler()
 	#addBtnHandler() {
-		let addBtn = document.querySelector(".addDiv");
+		let addBtn = document.querySelector(".addDivReparatir");
 		if (addBtn !== null) {
 			addBtn.addEventListener('click',async () => {
 				this.#setCss();

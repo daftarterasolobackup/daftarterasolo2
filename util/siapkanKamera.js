@@ -119,11 +119,6 @@ export class masyPrepareCam extends prepareCam {
                 }
             }
             
-            /*
-            shopChart.push([arr[8],arr[9],arr[10],nama_uttp,"","1",`${arr[11] === "" || arr[11] === "-" ? document.getElementById("qrMerk").value : arr[11]}`,`${arr[12] === "" || arr[12] === "-" ? document.getElementById("qrModel").value : arr[12]}`,`${arr[15] === "" || arr[15] === "-" ? document.getElementById("qrSn").value : arr[15]}`,`${document.getElementById("qrBuatan").value}`]);
-
-            this.#obj.set_shopChartTemp = [].concat(shopChart);
-            */
 
             //alert(JSON.stringify(this.#obj.get_shopChartTemp));
             //alert(JSON.stringify(shopChart));
@@ -270,7 +265,8 @@ export class masyPrepareCam extends prepareCam {
     }    
 
     #addByQrcodeBtnHandler() {
-		let addQrBtn = document.querySelector(".qrDiv");
+		//let addQrBtn = document.querySelector(".qrDiv");
+        let addQrBtn = document.querySelector(".qrDivReparatir");
 		if (addQrBtn !== null) {
 			addQrBtn.addEventListener('click', async () => {
 				this.#lakukanScan();
