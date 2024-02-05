@@ -257,6 +257,10 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 		const sbmtHandler = new masySubmitProcessorRedApp(formMasyRedApp);
 	});
 
+	let menuHistory = document.querySelector(".menu2").children[1];
+
+	menuHistory.addEventListener('click', () => window.location.assign('history_pc.html'));
+
 })();
 
 

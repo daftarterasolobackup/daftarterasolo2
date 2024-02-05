@@ -1008,6 +1008,13 @@ div.captionMenu2 {
     width : 25%;
 }
 
+.column2:nth-child(2) {
+    background-image: url("img/folder.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 4px;
+    width : 25%;
+}
 
 /*
 #video {

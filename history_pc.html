@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="history_pc.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+    <title>RedApp Metrologi Surakarta</title>
+    <script type="module" src="checkNlout.js"></script>
+</head>
+<body>
+<div class="kontainerMain">
+    <button class="tablink" onclick="openPage('tera', this, '#6879D0')" id="tabTera">Tera</button>
+    <button class="tablink" onclick="openPage('tuk', this, '#6879D0')" id="defaultOpen">TUK</button>
+    <button class="tablink" onclick="openPage('spbu', this, '#6879D0')" id="tabSpbu">SPBU</button>
+    <button class="tablink" onclick="openPage('loko', this, '#6879D0')" id="tabLoko">Loko</button>
+    <div><a href="#" id="backToMain">Kembali ke Menu Utama</a></div>
+    <div id="tera" class="tabcontent">
+        <form id="tglForm">
+            <input type="date" name="tgl_tera" id="tgl_tera" class="tgl" value="2023-11-08">        
+        </form>
+        <div class="kontainer k_tera">
+            <div class="item">
+                <div class="inner">
+                    <!--Nomor Order : 127/TM/X/2023 -->
+                </div>
+            </div>
+            <!--
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        -->
+        </div>
+
+    </div>
+
+    <div id="tuk" class="tabcontent">
+        <form id="tglForm">
+            <input type="date" name="tgl_tuk" id="tgl_tuk" class="tgl" value="2023-11-08">        
+        </form>
+        <div class="kontainer k_tuk">
+            <div class="item">
+                <div class="inner">
+                    <!-- Nomor Order : 127/TM/X/2023
+                    <div class="innerOfInner">Tes</div>
+                    <div class="innerOfInner">Tes</div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="spbu" class="tabcontent">
+        <form id="tglForm">
+            <input type="date" name="tgl_spbu" id="tgl_spbu" class="tgl" value="2023-11-08">        
+        </form>
+        <div class="kontainer k_spbu">
+            <div class="item">
+                <div class="inner">
+                    <!--Nomor Order : 127/TM/X/2023-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loko" class="tabcontent">
+        <form id="tglForm">
+            <input type="date" name="tgl_loko" id="tgl_loko" class="tgl" value="2023-11-08">        
+        </form>
+        <div class="kontainer k_loko">
+            <div class="item">
+                <div class="inner">
+                    <!--Nomor Order : 127/TM/X/2023-->
+                    <div class="innerOfInner"><!--Tes--></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="module" src="history_pc.js"></script>
+<script type="text/javascript">
+    function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
+
+
