@@ -18,6 +18,7 @@ function removeSession() {
 
 function clickLogout() {
 	document.getElementById("logout").addEventListener("click", async () => {
+		alert("logout");
 		const l_out = new lout(parseInt(sessionStorage.getItem('id')), sessionStorage.getItem('key'));
 		let loutResult = await l_out.doOut();
 		loutResult.result === "success" ? removeSession() : '';

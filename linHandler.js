@@ -46,5 +46,9 @@ function pageRedirect() {
 		document.getElementById("spanAlert").innerHTML = "";	
 	});
 
+	let backToMain = document.getElementById('backToMain');
+	backToMain.addEventListener("click", () => {
+  		window.location.replace("/");
+	});
 })();
 

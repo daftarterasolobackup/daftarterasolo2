@@ -1,3 +1,51 @@
+#logout {
+    color : white;
+}
+
+#iconImg {
+    border-radius: 20px;
+    border : 2px solid #22303c;
+}
+
+div.log {
+    /*background-color: #22303c;*/
+    border-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width : 95%;
+    height : 40px;
+    position: relative;
+    margin: 7px auto 0 auto;
+    margin-bottom: -23px;
+    left: 0;
+    right: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction:row-reverse;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content:flex-start;
+    font-size: 12px;
+    background: rgba(34,48,60, 1);
+    z-index: 100;
+}
+
+p#logMsg {
+    text-align: right;
+}
+
+#historyTitle {
+    background-color: steelblue;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    font-size: 28px;
+    padding-left: 5px;
+    color : #FFFFFF;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
 .kontainer {
     display: flex;
     flex-flow: row wrap;
@@ -76,7 +124,7 @@ form .tgl:focus {
 body, html {
   height: 100%;
   margin: 0;
-  background-color: #000000;
+  background-color: #FFFFFF;
 }
 
 /* Style tab links */
@@ -113,15 +161,14 @@ body, html {
 #loko {background-color: #000000;}
 
 .kontainerMain {
-    margin-top: 10px;
-    width: 98%;
-    /*margin-left : auto;
-    margin-right : auto;*/
+    margin-top: 4px;
+    width: 95%;
     position: absolute;
     z-index: 1;
     margin: auto;
     left : 0;
     right : 0;
+    height : auto;
 }
 
 .innerOfInner {
@@ -161,10 +208,16 @@ body, html {
     border : 1px solid #FFFFFF;
 }
 
+#bToMain {
+    margin-top: -20px;
+    padding-left: 3px;
+}
+
 #backToMain {
     font-family:  'Poppins', sans-serif;
     font-size: 12px;
-    color: #FFFFFF;
+    color: steelblue;
+    margin-top: -4px;
 }
 
 .printSKRD {

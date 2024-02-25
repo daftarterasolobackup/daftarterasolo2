@@ -9,33 +9,40 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     </style>
-    <title>RedApp Metrologi Surakarta</title>
+    <title>Daftar Tera Solo - History Order Tera Pabrik</title>
     <script type="module" src="checkNlout.js"></script>
 </head>
 <body>
+<div class="log">
+    <img src="img/icon.png" id="iconImg"/>
+    <div>
+        <p id="logMsg">Sign in as : <span id="idUser"></span><br><a href=# id="logout">Logout</a></p>
+    </div>
+</div>
+
 <div class="kontainerMain">
-    <button class="tablink" onclick="openPage('tera', this, '#6879D0')" id="tabTera">Tera</button>
+    <h2 id="historyTitle">History Order Tera Pabrik</h2>
+    <!--<button class="tablink" onclick="openPage('tera', this, '#6879D0')" id="tabTera">Tera</button>
     <button class="tablink" onclick="openPage('tuk', this, '#6879D0')" id="defaultOpen">TUK</button>
     <button class="tablink" onclick="openPage('spbu', this, '#6879D0')" id="tabSpbu">SPBU</button>
-    <button class="tablink" onclick="openPage('loko', this, '#6879D0')" id="tabLoko">Loko</button>
-    <div><a href="#" id="backToMain">Kembali ke Menu Utama</a></div>
+    <button class="tablink" onclick="openPage('loko', this, '#6879D0')" id="tabLoko">Loko</button>-->
+    <div id="bToMain"><a href="#" id="backToMain">Kembali ke Menu Utama</a></div>
     <div id="tera" class="tabcontent">
         <form id="tglForm">
             <input type="date" name="tgl_tera" id="tgl_tera" class="tgl" value="2023-11-08">        
         </form>
+<!--
         <div class="kontainer k_tera">
             <div class="item">
                 <div class="inner">
-                    <!--Nomor Order : 127/TM/X/2023 -->
+                    Nomor Order : 127/TM/X/2023
                 </div>
             </div>
-            <!--
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
-        -->
         </div>
 
     </div>
@@ -47,9 +54,9 @@
         <div class="kontainer k_tuk">
             <div class="item">
                 <div class="inner">
-                    <!-- Nomor Order : 127/TM/X/2023
+                    Nomor Order : 127/TM/X/2023
                     <div class="innerOfInner">Tes</div>
-                    <div class="innerOfInner">Tes</div> -->
+                    <div class="innerOfInner">Tes</div> 
 
                 </div>
             </div>
@@ -63,7 +70,7 @@
         <div class="kontainer k_spbu">
             <div class="item">
                 <div class="inner">
-                    <!--Nomor Order : 127/TM/X/2023-->
+                    Nomor Order : 127/TM/X/2023
                 </div>
             </div>
         </div>
@@ -76,16 +83,17 @@
         <div class="kontainer k_loko">
             <div class="item">
                 <div class="inner">
-                    <!--Nomor Order : 127/TM/X/2023-->
-                    <div class="innerOfInner"><!--Tes--></div>
+                    Nomor Order : 127/TM/X/2023
+                    <div class="innerOfInner">Tes</div>
                 </div>
             </div>
         </div>
     </div>
-    
+-->
 </div>
 
 <script type="module" src="history_pc.js"></script>
+<!--
 <script type="text/javascript">
     function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;
@@ -102,9 +110,9 @@
 }
 
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+//document.getElementById("defaultOpen").click();
 </script>
-   
+-->
 </body>
 </html> 
 

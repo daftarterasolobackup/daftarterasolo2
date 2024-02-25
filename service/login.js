@@ -13,7 +13,8 @@ export class lgin extends signIn {
 		super(constructor);
 		//this.#api = "https://script.google.com/macros/s/AKfycbyUVM-nfIp4r0rWaAuLmN9hpQ8riac03l3XKEU5rfIzsgNM0WkVI2IHGoolo0pKNsL2/exec";
 		//this.#api = "https://script.google.com/macros/s/AKfycbzLEUuVBFj8YyojHk9uCCCt7TVExmODyOE3F8GJtSmsnBvu4JDVsx2gAsylc6168H9MaQ/exec";
-		this.#api = "https://script.google.com/macros/s/AKfycbzsvJbmv2qaeJDm4ROtlzyxg-ULBqHixaTjgnD74mzXHy-lPLgE9WZ-heor1MmrRI4SSg/exec";
+		//this.#api = "https://script.google.com/macros/s/AKfycbzsvJbmv2qaeJDm4ROtlzyxg-ULBqHixaTjgnD74mzXHy-lPLgE9WZ-heor1MmrRI4SSg/exec";
+		this.#api = "https://script.google.com/macros/s/AKfycbyy6gN5saJd67_gfcTaqZkgiRGEA-JPZOcBr9tNBKq2GnOuOqkMkwDayYj25jUpNMGFXg/exec";
 		this.#lData = {
 			'emanu' : emanu,
 			'sapp' : sapp
