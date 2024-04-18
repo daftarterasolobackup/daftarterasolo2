@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="input_tuk_pasar.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+    <title>Daftar Tera Solo - Input Tera Ulang Kantor Pasar Tradisional</title>
+    <!--<script type="module" src="checkNlout.js"></script>-->
+</head>
+<body>
+<div class="log">
+    <img src="img/icon.png" id="iconImg"/>
+    <div>
+        <p id="logMsg">Sign in as : <span id="idUser"></span><br><a href=# id="logout">Logout</a></p>
+    </div>
+</div>
+
+<div class="kontainerMain">
+    <h2 id="historyTitle">Daftar TUK Pasar Tradisional</h2>
+    <div id="bToMain"><a href="#" id="backToMain">Kembali ke Menu Utama</a></div>
+    <div id="content">
+        <!--
+        <form id="tglForm">
+            <input type="date" name="tgl_tera" id="tgl_tera" class="tgl" value="2023-11-08">        
+        </form>
+        -->
+        <form id="pasarForm">
+            <select id="psr" class="form_data"></select>
+            <select id="uttp" class="form_data"></select>
+            <!--<table id="tblInputWtu">
+                <tr><td><input type="text" id="wtu1" class="form_data" value=""></td><td><input type="text" id="wtu2" class="form_data"  value=""></td><td><input type="text" id="wtu3" class="form_data" value=""></td></tr>
+            </table>-->
+            <table id="tblInputWtu">
+                <thead><tr><td colspan="3"><span id="tblSpan">Masukkan nama WTU</span></td></tr></thead>
+                <tbody id="myBody"></tbody>
+            </table>
+        </form>    
+</div>
+
+<script type="module" src="input_tuk_pasar.js"></script>
+</body>
+</html> 
+
+

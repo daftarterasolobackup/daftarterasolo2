@@ -261,6 +261,14 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 
 	menuHistory.addEventListener('click', () => window.location.assign('history_pc.html'));
 
+	let menuPasarTradisional = document.querySelector(".menu2").children[2];
+
+	menuPasarTradisional.addEventListener('click', () => {
+		window.location.assign('input_tuk_pasar.html');
+	});
+
+
+
 })();
 
 
