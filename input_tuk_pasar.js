@@ -21,7 +21,7 @@ const getUttp = async () => {
   .then(hasil => {
     let str = ``;
     hasil.data.forEach((el, idx) => {
-      idx === 0 ? str += `<option value=''>-- Pilih UTTP --</option>` : str += `<option value='${el[0]}/${el[1]}/${el[2]}'>${el[0]} ${el[1]} / ${el[2]}</option>`;
+      idx === 0 ? str += `<option value=''>-- Pilih UTTP --</option>` : str += `<option value='${el[0]}/${el[1]}/${el[2]}'>${el[0]} ${el[1]}</option>`;
     });
 
     document.getElementById("uttp").innerHTML = str;
@@ -50,6 +50,15 @@ const isiTabel = () => {
 
   document.getElementById("myBody").innerHTML = str;
 }
+
+const showKap_n_dayabaca = () => {
+  document.querySelectorAll('.hidden').forEach(el => {
+    el.disabled = false;
+    el.display = "inline-block";
+  });
+} 
+
 getPasar();
 getUttp();
 isiTabel();
+showKap_n_dayabaca();

@@ -18,11 +18,26 @@ input.form_data {
     display: inline-block;
 }
 
+input[type=button].form_data {
+    background-color: #FFFFFF;
+    border : 2px solid steelblue;
+    width : 30%;
+    color : steelblue;
+}
+
+#kap.hidden, #d.hidden {
+    display: none;
+}
+
 #tblInputWtu thead tr td {
     text-align: left;
     font-size: 16px;
     color: #FFFFFF;
     padding-left: 7px;
+}
+
+#tblInputWtu tfoot tr td {
+    text-align: center;
 }
 
 span#tblSpan {
