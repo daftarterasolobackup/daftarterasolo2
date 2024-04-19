@@ -1016,6 +1016,14 @@ div.captionMenu2 {
     width : 25%;
 }
 
+.column2:nth-child(3) {
+    background-image: url("img/farmers-market.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 4px;
+    width : 25%;
+}
+
 /*
 #video {
     height : 80%;

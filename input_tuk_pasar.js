@@ -1,3 +1,7 @@
+const backToMain = () => {
+  document.getElementById('backToMain').addEventListener('click', () => window.location.replace("/"));
+}
+
 const getPasar = async () => {
   const api = "https://script.google.com/macros/s/AKfycbwzVP84YKO62g10ShP-DKAqmOieh8VMJv_8L1FG6ZldOUNPnNFTTZgEKid6d8B6Dx6n/exec";
   
@@ -58,6 +62,7 @@ const showKap_n_dayabaca = () => {
   });
 } 
 
+backToMain();
 getPasar();
 getUttp();
 isiTabel();
