@@ -41,7 +41,7 @@ const doWhenUttpSelected = () => {
       return false;
     }
 
-    console.log(this.value);
+    document.getElementById("uttp").value.includes("TE") === true ? showKap_n_dayabaca() : hideKap_n_dayabaca();
   });
 }
 
@@ -49,21 +49,53 @@ const isiTabel = () => {
   let str = ``;
 
   for (let k = 0; k < 15; k++) {
-    str += `<tr><td><input type="text" id="wtu"${k*3+1} class="form_data" value="" placeholder="wtu ${k*3+1}"></td><td><input type="text" id="wtu"${k*3+2} class="form_data" value="" placeholder="wtu ${k*3+2}"></td><td><input type="text" id="wtu"${k*3+3} class="form_data" value="" placeholder="wtu ${k*3+3}"></td></tr>`;
+    str += `<tr><td><input type="text" name=wtu${k*3+1} id=wtu${k*3+1} class="form_data" value="" placeholder="wtu ${k*3+1}"></td><td><input type="text" name=wtu${k*3+2} id=wtu${k*3+2} class="form_data" value="" placeholder="wtu ${k*3+2}"></td><td><input type="text" name=wtu${k*3+3} id=wtu${k*3+3} class="form_data" value="" placeholder="wtu ${k*3+3}"></td></tr>`;
   }
 
   document.getElementById("myBody").innerHTML = str;
 }
 
 const showKap_n_dayabaca = () => {
-  document.querySelectorAll('.hidden').forEach(el => {
+  document.querySelectorAll('.toHide').forEach(el => {
     el.disabled = false;
-    el.display = "inline-block";
+    el.classList.remove("hidden");
+    el.value = "";
   });
 } 
+
+const hideKap_n_dayabaca = () => {
+  document.querySelectorAll('.toHide').forEach(el => {
+    el.disabled = true;
+    el.classList.add("hidden");
+    el.value = "";
+  });
+} 
+
+const ifSubmitted = () => {
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    if (document.getElementById("psr").value === "" || document.getElementById("uttp").value === "" ) {
+      alert("Peringatan! Pasar atau jenis UTTP belum dipilih. Silahkan dipilih dahulu sebelum submit");
+      return false;
+    }
+
+    let formData = new FormData(document.getElementById('pasarForm'));
+    let serializedData = {};
+    let wtuArr = [];
+
+
+    for (let[name, value] of formData) {
+      name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
+    }
+
+    serializedData['wtu'] = wtuArr;
+
+    console.log(serializedData);
+  });
+}
 
 backToMain();
 getPasar();
 getUttp();
 isiTabel();
-showKap_n_dayabaca();
+//showKap_n_dayabaca();
+ifSubmitted();
