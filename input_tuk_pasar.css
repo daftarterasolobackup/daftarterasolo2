@@ -16,9 +16,26 @@ input.form_data {
     width : 90%;
     margin-left: 6px;
     display: inline-block;
+    background-color: #FFFFFF;
+    color : steelblue;
+    font-weight: bold;
+    border: 3px solid steelblue;
+
+}
+
+input.form_data:focus {
+    outline: none;
+    border: 3px solid green;
 }
 
 input[type=button].form_data {
+    background-color: steelblue;
+    border : 2px solid #000000;
+    width : 30%;
+    color : #FFF;
+}
+
+input[type=button].form_data:active {
     background-color: #FFFFFF;
     border : 2px solid steelblue;
     width : 30%;

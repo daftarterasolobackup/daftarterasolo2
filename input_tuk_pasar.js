@@ -81,15 +81,21 @@ const ifSubmitted = () => {
     let formData = new FormData(document.getElementById('pasarForm'));
     let serializedData = {};
     let wtuArr = [];
-
+    let TPTE_Arr = {};
 
     for (let[name, value] of formData) {
       name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
     }
 
+    if (Object.keys(serializedData).length <= 3) {
+      serializedData['kap'] = serializedData['uttp'].split("/")[1];
+      serializedData['d'] = serializedData['uttp'].split("/")[2];;      
+    }
+
     serializedData['wtu'] = wtuArr;
 
     console.log(serializedData);
+    
   });
 }
 
