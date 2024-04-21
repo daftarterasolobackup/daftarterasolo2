@@ -42,7 +42,7 @@ input[type=button].form_data:active {
     color : steelblue;
 }
 
-#kap.hidden, #d.hidden {
+#kap.hidden, #d.hidden, #kel.hidden, #almt.hidden {
     display: none;
 }
 

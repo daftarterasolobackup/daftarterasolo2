@@ -1,20 +1,34 @@
+let arr;
+
 const backToMain = () => {
   document.getElementById('backToMain').addEventListener('click', () => window.location.replace("/"));
 }
 
 const getPasar = async () => {
-  const api = "https://script.google.com/macros/s/AKfycbwzVP84YKO62g10ShP-DKAqmOieh8VMJv_8L1FG6ZldOUNPnNFTTZgEKid6d8B6Dx6n/exec";
-  
+  //const api = "https://script.google.com/macros/s/AKfycbwzVP84YKO62g10ShP-DKAqmOieh8VMJv_8L1FG6ZldOUNPnNFTTZgEKid6d8B6Dx6n/exec";
+  const api = "https://script.google.com/macros/s/AKfycbxu8LXLu71dgPMtqHy0Azy1eCMnzz2JaSJEjbzo2A_bJ3sCFsNIBMHr8NTRyUzy6VI/exec";
+
   await fetch(api)
   .then(hasil => hasil.json())
   .then(hasil => {
     let str = ``;
+    console.log(hasil.data);
+    arr = hasil.data;
+
     hasil.data.forEach((el, idx) => {
-      idx === 0 ? str += `<option value="">-- Pilih Pasar --</option>` : str += `<option>${el[0]}</option>`;
+      idx === 0 ? str += `<option value="">-- Pilih Pasar --</option>` : str += `<option id=${idx}}>${el[0]}</option>`;
     });
 
     document.getElementById("psr").innerHTML = str;
+    doWhenPasarSelected();
   })
+}
+
+const doWhenPasarSelected = () => {
+  document.getElementById("psr").addEventListener("change", function() {
+    document.getElementById("kel").value = arr[parseInt(this.options[this.selectedIndex].id)][1];
+    document.getElementById("almt").value = arr[parseInt(this.options[this.selectedIndex].id)][3];
+  });
 }
 
 const getUttp = async () => {
@@ -24,6 +38,7 @@ const getUttp = async () => {
   .then(hasil => hasil.json())
   .then(hasil => {
     let str = ``;
+
     hasil.data.forEach((el, idx) => {
       idx === 0 ? str += `<option value=''>-- Pilih UTTP --</option>` : str += `<option value='${el[0]}/${el[1]}/${el[2]}'>${el[0]} ${el[1]}</option>`;
     });
@@ -71,7 +86,7 @@ const hideKap_n_dayabaca = () => {
   });
 } 
 
-const ifSubmitted = () => {
+const ifSubmitted = async () => {
   document.getElementById("submitBtn").addEventListener("click", () => {
     if (document.getElementById("psr").value === "" || document.getElementById("uttp").value === "" ) {
       alert("Peringatan! Pasar atau jenis UTTP belum dipilih. Silahkan dipilih dahulu sebelum submit");
@@ -95,7 +110,14 @@ const ifSubmitted = () => {
     serializedData['wtu'] = wtuArr;
 
     console.log(serializedData);
-    
+
+    let postUrl ="";
+/*
+    await fetch(postUrl,{
+      method : 'POST',
+      body : JSON.stringify(serializedData)
+    })
+*/    
   });
 }
 
