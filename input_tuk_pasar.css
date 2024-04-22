@@ -13,14 +13,13 @@
 }
 
 input.form_data {
-    width : 90%;
-    margin-left: 6px;
+    width : 48%;
+    margin-left: 2px;
     display: inline-block;
     background-color: #FFFFFF;
     color : steelblue;
     font-weight: bold;
-    border: 3px solid steelblue;
-
+    border: 2px solid steelblue;
 }
 
 input.form_data:focus {
@@ -42,7 +41,7 @@ input[type=button].form_data:active {
     color : steelblue;
 }
 
-#kap.hidden, #d.hidden, #kel.hidden, #almt.hidden {
+#kap.hidden, #d.hidden, #kel.hidden, #almt.hidden, #buatan.hidden {
     display: none;
 }
 
@@ -50,7 +49,27 @@ input[type=button].form_data:active {
     text-align: left;
     font-size: 16px;
     color: #FFFFFF;
-    padding-left: 7px;
+    padding-left: 3px;
+}
+
+#tblInputWtu tbody tr td {
+    text-align: left;
+    font-size: 15px;
+    color: #FFFFFF;
+    padding-left: 0px;
+    padding-bottom: 7px;
+}
+
+#tblInputWtu tbody tr {
+    margin-bottom: 10px;
+}
+
+#tblInputWtu tbody tr td:nth-child(even) {
+    background-color: steelblue;
+}
+
+#tblInputWtu tbody tr td:nth-child(odd) {
+    background-color: lightblue;
 }
 
 #tblInputWtu tfoot tr td {

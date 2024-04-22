@@ -64,7 +64,7 @@ const isiTabel = () => {
   let str = ``;
 
   for (let k = 0; k < 15; k++) {
-    str += `<tr><td><input type="text" name=wtu${k*3+1} id=wtu${k*3+1} class="form_data" value="" placeholder="wtu ${k*3+1}"></td><td><input type="text" name=wtu${k*3+2} id=wtu${k*3+2} class="form_data" value="" placeholder="wtu ${k*3+2}"></td><td><input type="text" name=wtu${k*3+3} id=wtu${k*3+3} class="form_data" value="" placeholder="wtu ${k*3+3}"></td></tr>`;
+    str += `<tr><td><input type="text" name=wtu${k*3+1} id=wtu${k*3+1} class="form_data" value="" placeholder="wtu ${k*3+1}"><input type="text" name=merk${k*3+1} id=merk${k*3+1} class="form_data" value="" placeholder="merk ${k*3+1}"></td><td><input type="text" name=wtu${k*3+2} id=wtu${k*3+2} class="form_data" value="" placeholder="wtu ${k*3+2}"><input type="text" name=merk${k*3+2} id=merk${k*3+2} class="form_data" value="" placeholder="merk ${k*3+2}"></td><td><input type="text" name=wtu${k*3+3} id=wtu${k*3+3} class="form_data" value="" placeholder="wtu ${k*3+3}"><input type="text" name=merk${k*3+3} id=merk${k*3+3} class="form_data" value="" placeholder="merk ${k*3+3}"></td></tr>`;
   }
 
   document.getElementById("myBody").innerHTML = str;
@@ -96,18 +96,27 @@ const ifSubmitted = async () => {
     let formData = new FormData(document.getElementById('pasarForm'));
     let serializedData = {};
     let wtuArr = [];
+    let merkArr = [];
     let TPTE_Arr = {};
 
+    /*function fillWtuArr() {
+      wtuArr.push(value);
+      merkArr.push(value)
+    }*/
+
     for (let[name, value] of formData) {
-      name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
+      //name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
+       value !== "" ? name.includes("wtu") === true ? wtuArr.push(value) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
     }
 
-    if (Object.keys(serializedData).length <= 3) {
+    if (Object.keys(serializedData).length <= 5) {
       serializedData['kap'] = serializedData['uttp'].split("/")[1];
-      serializedData['d'] = serializedData['uttp'].split("/")[2];;      
+      serializedData['d'] = serializedData['uttp'].split("/")[2];
+      serializedData['buatan'] = 'Indonesia';      
     }
 
     serializedData['wtu'] = wtuArr;
+    serializedData['merk'] = merkArr;
 
     console.log(serializedData);
 
