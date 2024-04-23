@@ -99,11 +99,6 @@ const ifSubmitted = async () => {
     let merkArr = [];
     let TPTE_Arr = {};
 
-    /*function fillWtuArr() {
-      wtuArr.push(value);
-      merkArr.push(value)
-    }*/
-
     for (let[name, value] of formData) {
       //name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
        value !== "" ? name.includes("wtu") === true ? wtuArr.push(value) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
@@ -120,13 +115,18 @@ const ifSubmitted = async () => {
 
     console.log(serializedData);
 
-    let postUrl ="";
-/*
-    await fetch(postUrl,{
+    let postUrl = "https://script.google.com/macros/s/AKfycbzdhq760G4nZjNa87jPqmYzDhXfr2Ox3Qtg-ud9eku3aw42vLAq6YPEibEpbRHNEMM2LA/exec";
+    let datas = {
+      'nama' : 'Praditya'
+    };
+
+    fetch(postUrl,{
       method : 'POST',
-      body : JSON.stringify(serializedData)
+      body : JSON.stringify(datas)
     })
-*/    
+    .then(res => res.json())
+    .then(res => console.log(res));
+    
   });
 }
 
