@@ -101,7 +101,7 @@ const ifSubmitted = async () => {
 
     for (let[name, value] of formData) {
       //name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
-       value !== "" ? name.includes("wtu") === true ? wtuArr.push(value) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
+       value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
     }
 
     if (Object.keys(serializedData).length <= 5) {
@@ -115,14 +115,17 @@ const ifSubmitted = async () => {
 
     console.log(serializedData);
 
-    let postUrl = "https://script.google.com/macros/s/AKfycbzdhq760G4nZjNa87jPqmYzDhXfr2Ox3Qtg-ud9eku3aw42vLAq6YPEibEpbRHNEMM2LA/exec";
+    let postUrl = "https://script.google.com/macros/s/AKfycbyPS2A1IICr7RHz-Xn5mjVF9gFyUZ-CC5W4zyvQiToMHZsOkkRG90KQNA-xvy-miRRiCw/exec";
+
+    /*
     let datas = {
       'nama' : 'Praditya'
     };
+    */
 
     fetch(postUrl,{
       method : 'POST',
-      body : JSON.stringify(datas)
+      body : JSON.stringify(serializedData)
     })
     .then(res => res.json())
     .then(res => console.log(res));
