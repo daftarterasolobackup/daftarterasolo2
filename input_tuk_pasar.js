@@ -93,6 +93,9 @@ const ifSubmitted = async () => {
       return false;
     }
 
+    document.getElementById('submitBtn').value = "Wait. Still Processing...";
+    document.getElementById('submitBtn').classList.add('proses');
+
     let formData = new FormData(document.getElementById('pasarForm'));
     let serializedData = {};
     let wtuArr = [];
@@ -115,20 +118,18 @@ const ifSubmitted = async () => {
 
     console.log(serializedData);
 
-    let postUrl = "https://script.google.com/macros/s/AKfycbyPS2A1IICr7RHz-Xn5mjVF9gFyUZ-CC5W4zyvQiToMHZsOkkRG90KQNA-xvy-miRRiCw/exec";
-
-    /*
-    let datas = {
-      'nama' : 'Praditya'
-    };
-    */
+    let postUrl = "https://script.google.com/macros/s/AKfycbwYNDaXGwVvGlsDBxf8P0u_yomZirY2B01f1NQJ_sHHINXPmnnOiKQJTCDll1jDjwGrxw/exec";
 
     fetch(postUrl,{
       method : 'POST',
       body : JSON.stringify(serializedData)
     })
     .then(res => res.json())
-    .then(res => console.log(res));
+    .then(res => {
+      document.getElementById('submitBtn').value = "SUBMIT";
+      document.getElementById('submitBtn').classList.remove('proses');
+      console.log(res)
+    });
     
   });
 }

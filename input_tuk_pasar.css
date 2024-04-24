@@ -41,6 +41,14 @@ input[type=button].form_data:active {
     color : steelblue;
 }
 
+input[type=button].proses {
+    background-color: lightblue;
+    border : 2px solid #000000;
+    width : auto;
+    color : steelblue;
+    font-weight: 700;
+}
+
 #kap.hidden, #d.hidden, #kel.hidden, #almt.hidden, #buatan.hidden {
     display: none;
 }
