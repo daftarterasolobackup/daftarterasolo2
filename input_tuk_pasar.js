@@ -56,25 +56,43 @@ const doWhenUttpSelected = () => {
       return false;
     }
 
-    document.getElementById("uttp").value.includes("TE") === true ? showKap_n_dayabaca() : hideKap_n_dayabaca();
+    document.getElementById("uttp").value.includes("TE") === true || document.getElementById("uttp").value.includes("TP") === true ? showKap_n_dayabaca() : hideKap_n_dayabaca();
   });
 }
 
 const isiTabel = () => {
   let str = ``;
 
+  /*
   for (let k = 0; k < 15; k++) {
     str += `<tr><td><input type="text" name=wtu${k*3+1} id=wtu${k*3+1} class="form_data" value="" placeholder="wtu ${k*3+1}"><input type="text" name=merk${k*3+1} id=merk${k*3+1} class="form_data" value="" placeholder="merk ${k*3+1}"></td><td><input type="text" name=wtu${k*3+2} id=wtu${k*3+2} class="form_data" value="" placeholder="wtu ${k*3+2}"><input type="text" name=merk${k*3+2} id=merk${k*3+2} class="form_data" value="" placeholder="merk ${k*3+2}"></td><td><input type="text" name=wtu${k*3+3} id=wtu${k*3+3} class="form_data" value="" placeholder="wtu ${k*3+3}"><input type="text" name=merk${k*3+3} id=merk${k*3+3} class="form_data" value="" placeholder="merk ${k*3+3}"></td></tr>`;
+  }
+  */
+
+  for (let k =0; k < 50; k++) {
+    str += `<tr><td><input type="text" name=wtu${k+1} id=wtu${k+1} class="form_data" value="" placeholder="wtu ${k+1}"><input type="text" name=merk${k+1} id=merk${k+1} class="form_data merek" value="" placeholder="merk ${k+1}"><input type="text" name=komoditi${k+1} id=komoditi${k+1} class="form_data komo" value="" placeholder="komoditi ${k+1}"></td></tr>`;
   }
 
   document.getElementById("myBody").innerHTML = str;
 }
 
+const setMerkPlaceholder = (args) => {
+    let k = 1;
+    document.querySelectorAll('.merek').forEach(elem => {
+      args === 'show' ? elem.placeholder = `merk ${k} / tipe ${k} / serial ${k}` : elem.placeholder = `merk ${k}`;
+      k++;
+    });
+};
+
 const showKap_n_dayabaca = () => {
   document.querySelectorAll('.toHide').forEach(el => {
-    el.disabled = false;
-    el.classList.remove("hidden");
-    el.value = "";
+    if (el.name !== "buatan") {
+      el.disabled = false;
+      el.classList.remove("hidden");
+      el.value = "";
+    }
+
+    setMerkPlaceholder('show');
   });
 } 
 
@@ -83,6 +101,8 @@ const hideKap_n_dayabaca = () => {
     el.disabled = true;
     el.classList.add("hidden");
     el.value = "";
+
+    setMerkPlaceholder('hide');
   });
 } 
 
@@ -100,11 +120,13 @@ const ifSubmitted = async () => {
     let serializedData = {};
     let wtuArr = [];
     let merkArr = [];
+    let komoditiArr = [];
     let TPTE_Arr = {};
 
     for (let[name, value] of formData) {
       //name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
-       value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
+      //value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
+      value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : name.includes("komoditi")=== true ? komoditiArr.push(value) : serializedData[name] = value : ''; 
     }
 
     if (Object.keys(serializedData).length <= 5) {
@@ -115,14 +137,15 @@ const ifSubmitted = async () => {
 
     serializedData['wtu'] = wtuArr;
     serializedData['merk'] = merkArr;
+    serializedData['komoditi'] = komoditiArr;
 
     console.log(serializedData);
 
     //let postUrl = "https://script.google.com/macros/s/AKfycbwYNDaXGwVvGlsDBxf8P0u_yomZirY2B01f1NQJ_sHHINXPmnnOiKQJTCDll1jDjwGrxw/exec";
 
-    //let postUrl = "https://script.google.com/macros/s/AKfycbzvFoYm8k6EkJb-ngS3LkojWXrtVMhNHKP-Y45detzudHjqTmfMgBjLnHzhz8g8XGhEGQ/exec";
+    let postUrl = "https://script.google.com/macros/s/AKfycbzvFoYm8k6EkJb-ngS3LkojWXrtVMhNHKP-Y45detzudHjqTmfMgBjLnHzhz8g8XGhEGQ/exec";
 
-    let postUrl = "https://script.google.com/macros/s/AKfycbymcisr3O7UI6ipB_zS2cOU6mQ92vflUwIMmKaOswuHDGlv383obFKGGUVjbVnDBUZEug/exec";
+    //let postUrl = "https://script.google.com/macros/s/AKfycbymcisr3O7UI6ipB_zS2cOU6mQ92vflUwIMmKaOswuHDGlv383obFKGGUVjbVnDBUZEug/exec";
 
     fetch(postUrl,{
       method : 'POST',
@@ -133,6 +156,7 @@ const ifSubmitted = async () => {
       document.getElementById('submitBtn').value = "SUBMIT";
       document.getElementById('submitBtn').classList.remove('proses');
       console.log(res)
+      document.getElementById('pasarForm').reset();
     });
     
   });

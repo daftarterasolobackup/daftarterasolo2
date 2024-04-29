@@ -13,7 +13,27 @@
 }
 
 input.form_data {
-    width : 48%;
+    width : 29%;
+    margin-left: 2px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    color : steelblue;
+    font-weight: bold;
+    border: 2px solid steelblue;
+}
+
+input.form_data.merek {
+    width : 45%;
+    margin-left: 2px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    color : steelblue;
+    font-weight: bold;
+    border: 2px solid steelblue;
+}
+
+input.form_data.komo {
+    width : 24%;
     margin-left: 2px;
     display: inline-block;
     background-color: #FFFFFF;
@@ -72,6 +92,15 @@ input[type=button].proses {
     margin-bottom: 10px;
 }
 
+#tblInputWtu tbody tr:nth-child(even) {
+    background-color: #DDEEFA;
+}
+
+#tblInputWtu tbody tr:nth-child(odd) {
+    background-color: lightblue;
+}
+
+/*
 #tblInputWtu tbody tr td:nth-child(even) {
     background-color: steelblue;
 }
@@ -79,6 +108,7 @@ input[type=button].proses {
 #tblInputWtu tbody tr td:nth-child(odd) {
     background-color: lightblue;
 }
+*/
 
 #tblInputWtu tfoot tr td {
     text-align: center;
