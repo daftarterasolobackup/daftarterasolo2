@@ -122,7 +122,7 @@ const ifSubmitted = async () => {
 
     //let postUrl = "https://script.google.com/macros/s/AKfycbzvFoYm8k6EkJb-ngS3LkojWXrtVMhNHKP-Y45detzudHjqTmfMgBjLnHzhz8g8XGhEGQ/exec";
 
-    let postUrl = "https://script.google.com/macros/s/AKfycbyuP5f0Hmh8m3ezsphXS95SZ6LrFiWTetMElbEebDJC7ynrGuzflZIoI1f258aSqC7V/exec";
+    let postUrl = "https://script.google.com/macros/s/AKfycbymcisr3O7UI6ipB_zS2cOU6mQ92vflUwIMmKaOswuHDGlv383obFKGGUVjbVnDBUZEug/exec";
 
     fetch(postUrl,{
       method : 'POST',
