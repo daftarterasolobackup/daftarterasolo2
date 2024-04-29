@@ -33,6 +33,7 @@ const doWhenPasarSelected = () => {
 
 const getUttp = async () => {
   const api = "https://script.google.com/macros/s/AKfycbz_Je2ZXuIRFmxWdYpQTbgWbEa4iqU9ucJj1FrPK8hoql-UtKnFbBj-upEFOvWU7ZYH/exec";
+
   
   await fetch(api)
   .then(hasil => hasil.json())
@@ -56,7 +57,9 @@ const doWhenUttpSelected = () => {
       return false;
     }
 
-    document.getElementById("uttp").value.includes("TE") === true || document.getElementById("uttp").value.includes("TP") === true ? showKap_n_dayabaca() : hideKap_n_dayabaca();
+    document.getElementById("uttp").value.includes("TE/-") === true || document.getElementById("uttp").value.includes("TP/-") === true ? showKap_n_dayabaca() : hideKap_n_dayabaca();
+
+      document.getElementById("uttp").value.includes("TE") === true || document.getElementById("uttp").value.includes("TP") === true ? setMerkPlaceholder("show") : setMerkPlaceholder("hide");
   });
 }
 
@@ -132,7 +135,7 @@ const ifSubmitted = async () => {
     if (Object.keys(serializedData).length <= 5) {
       serializedData['kap'] = serializedData['uttp'].split("/")[1];
       serializedData['d'] = serializedData['uttp'].split("/")[2];
-      serializedData['buatan'] = 'Indonesia';      
+      document.getElementById('uttp').value.includes('TP') || document.getElementById('uttp').value.includes('TE') ? serializedData['buatan'] = '' : serializedData['buatan'] = 'Indonesia';      
     }
 
     serializedData['wtu'] = wtuArr;
