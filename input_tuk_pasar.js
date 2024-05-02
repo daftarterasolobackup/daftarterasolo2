@@ -146,9 +146,9 @@ const ifSubmitted = async () => {
 
     //let postUrl = "https://script.google.com/macros/s/AKfycbwYNDaXGwVvGlsDBxf8P0u_yomZirY2B01f1NQJ_sHHINXPmnnOiKQJTCDll1jDjwGrxw/exec";
 
-    let postUrl = "https://script.google.com/macros/s/AKfycbzvFoYm8k6EkJb-ngS3LkojWXrtVMhNHKP-Y45detzudHjqTmfMgBjLnHzhz8g8XGhEGQ/exec";
+    //let postUrl = "https://script.google.com/macros/s/AKfycbzvFoYm8k6EkJb-ngS3LkojWXrtVMhNHKP-Y45detzudHjqTmfMgBjLnHzhz8g8XGhEGQ/exec";
 
-    //let postUrl = "https://script.google.com/macros/s/AKfycbymcisr3O7UI6ipB_zS2cOU6mQ92vflUwIMmKaOswuHDGlv383obFKGGUVjbVnDBUZEug/exec";
+    let postUrl = "https://script.google.com/macros/s/AKfycbxXkMIA4hRu7nsG2iRPcJoRmQ2IwLracHpUJkt951kF0lLCrON2_kqYSX9Rrmt3xIJBhQ/exec";
 
     fetch(postUrl,{
       method : 'POST',
