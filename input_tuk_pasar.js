@@ -129,7 +129,8 @@ const ifSubmitted = async () => {
     for (let[name, value] of formData) {
       //name.includes("wtu") === false ? serializedData[name] = value : value !== "" ? wtuArr.push(value) : ''; 
       //value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : serializedData[name] = value : ''; 
-      value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : name.includes("komoditi")=== true ? komoditiArr.push(value) : serializedData[name] = value : ''; 
+      //value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value} / ${document.getElementById("psr").value}`) : name.includes("merk")=== true ? merkArr.push(value) : name.includes("komoditi")=== true ? komoditiArr.push(value) : serializedData[name] = value : '';
+      value !== "" ? name.includes("wtu") === true ? wtuArr.push(`${value}`) : name.includes("merk")=== true ? merkArr.push(value) : name.includes("komoditi")=== true ? komoditiArr.push(value) : serializedData[name] = value : ''; 
     }
 
     if (Object.keys(serializedData).length <= 5) {
@@ -137,10 +138,14 @@ const ifSubmitted = async () => {
       serializedData['d'] = serializedData['uttp'].split("/")[2];
       document.getElementById('uttp').value.includes('TP') || document.getElementById('uttp').value.includes('TE') ? serializedData['buatan'] = '' : serializedData['buatan'] = 'Indonesia';      
     }
-
+    
+    for (let [i, val] of komoditiArr.entries()) {
+      wtuArr[i] = `${wtuArr[i]} ${val} / ${document.getElementById('psr').value}`;
+    }
+    
     serializedData['wtu'] = wtuArr;
     serializedData['merk'] = merkArr;
-    serializedData['komoditi'] = komoditiArr;
+    //serializedData['komoditi'] = komoditiArr;
 
     console.log(serializedData);
 
@@ -148,7 +153,11 @@ const ifSubmitted = async () => {
 
     //let postUrl = "https://script.google.com/macros/s/AKfycbzvFoYm8k6EkJb-ngS3LkojWXrtVMhNHKP-Y45detzudHjqTmfMgBjLnHzhz8g8XGhEGQ/exec";
 
-    let postUrl = "https://script.google.com/macros/s/AKfycbxXkMIA4hRu7nsG2iRPcJoRmQ2IwLracHpUJkt951kF0lLCrON2_kqYSX9Rrmt3xIJBhQ/exec";
+    //let postUrl = "https://script.google.com/macros/s/AKfycbxXkMIA4hRu7nsG2iRPcJoRmQ2IwLracHpUJkt951kF0lLCrON2_kqYSX9Rrmt3xIJBhQ/exec";
+
+    //let postUrl = "https://script.google.com/macros/s/AKfycbw2nePxJWjmcCHcBilNZkgeB6EPPnI-4qh2NrvwmT5wsmc332MXz3BhkFGW6Jn4deb2hg/exec";
+
+    let postUrl = "https://script.google.com/macros/s/AKfycbyeyLtW5nHg82q2H_paZD9wrGbcYWBYmmxV70CE0w2WJpKb5ntM1kHhq_BaJaL4-bXcBA/exec";
 
     fetch(postUrl,{
       method : 'POST',
