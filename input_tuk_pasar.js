@@ -72,7 +72,7 @@ const isiTabel = () => {
   }
   */
 
-  for (let k =0; k < 50; k++) {
+  for (let k =0; k < 6; k++) {
     str += `<tr><td><input type="text" name=wtu${k+1} id=wtu${k+1} class="form_data" value="" placeholder="wtu ${k+1}"><input type="text" name=merk${k+1} id=merk${k+1} class="form_data merek" value="" placeholder="merk ${k+1}"><input type="text" name=komoditi${k+1} id=komoditi${k+1} class="form_data komo" value="" placeholder="komoditi ${k+1}"></td></tr>`;
   }
 
