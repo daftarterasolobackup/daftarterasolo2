@@ -212,9 +212,9 @@ export class masyPrepareCam extends prepareCam {
         `;
     
         let formSb = document.createElement("form");
-        formSb.innerHTML = `<input type="button" id="sbBtn" value="Tambahkan ke Keranjang" data-inline="true"><input type="button" id="clBtn" value="Cancel" data-inline="true">`;
-        //let formCnl = document.createElement("form");
-        //formCnl.innerHTML = `<input type="button" id="clBtn" value="Cancel" data-inline="true">`;
+        formSb.innerHTML = `<input type="button" id="sbBtn" value="Tambahkan ke Keranjang" data-inline="true">`;
+        let formCnl = document.createElement("form");
+        formCnl.innerHTML = `<input type="button" id="clBtn" value="Cancel" data-inline="true">`;
     
         kueriDiv.append(formQR);
         kueriDiv.append(formSb);
