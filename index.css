@@ -1095,4 +1095,9 @@ div.captionMenu2 {
     display : none; 
 }
 
+#sbBtn, #clBtn {
+    background-color: gold;
+    color: #000000;
+} 
+
 
