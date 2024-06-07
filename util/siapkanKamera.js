@@ -665,7 +665,8 @@ export class scanOnlyPrepareCam extends prepareCam {
             this.#obj.set_shopChartTemp = [].concat(shopChart);
             this.#obj.set_dataToSend = Object.assign({}, dat);
             
-            alert(JSON.stringify(this.#obj.get_dataToSend));
+            //alert(JSON.stringify(this.#obj.get_dataToSend));
+            alert('Data UTTP telah dsimpan di keranjang order');
 
             this.#setBackLoadingBtn();
 
