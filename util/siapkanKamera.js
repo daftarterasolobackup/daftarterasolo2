@@ -465,7 +465,7 @@ export class lokoPrepareCam extends prepareCam {
             <!--<input type="checkbox" id="addr" name="addr" value="ya">
             <label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
             <label class="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?
-                <input type="checkbox" id="addr" name="addr" value="ya">
+                <input type="checkbox" id="addr" name="addr" value="ya" checked>
                 <span class="checkmark"></span>
             </label>
         `;

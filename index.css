@@ -1104,4 +1104,12 @@ div.captionMenu2 {
     margin-bottom: 3px;
 } 
 
+#sbBtn:active {
+    background-color: #FFFFFF;
+    border : 1px solid orange;
+    color: orange;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 3px;    
+}
 
