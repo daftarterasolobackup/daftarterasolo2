@@ -187,7 +187,7 @@ export class createFormMasyRedApp {
 	setJmlPickedUttp() {
 		document.querySelector("#setJml").addEventListener("click", () => {
 			if (this.constructor.shopChartTemp.length >= 6) {
-				alert("Jumlah UTTP pada shopcart tidak boleh melebihi 6 unit. Silahkan disubmit dahulu 6 unit yang awal, lalu daftar kembali dengan nomor order baru.");
+				alert("Item pada shopcart tidak boleh melebihi 6 item. Silahkan disubmit dahulu 6 item yang awal, lalu daftar kembali item yang lain dengan nomor order baru.");
 				
 				document.querySelector(".jmlhDiv").style.display = "none";
 				document.querySelector(".uttpDiv").style.display = "none";
