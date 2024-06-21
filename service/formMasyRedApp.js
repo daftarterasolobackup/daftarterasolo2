@@ -186,6 +186,15 @@ export class createFormMasyRedApp {
 	//method utk dijalankan pada generateListUttp()
 	setJmlPickedUttp() {
 		document.querySelector("#setJml").addEventListener("click", () => {
+			if (this.constructor.shopChartTemp.length >= 6) {
+				alert("Jumlah UTTP pada shopcart tidak boleh melebihi 6 unit. Silahkan disubmit dahulu 6 unit yang awal, lalu daftar kembali dengan nomor order baru.");
+				
+				document.querySelector(".jmlhDiv").style.display = "none";
+				document.querySelector(".uttpDiv").style.display = "none";
+
+				return;
+			}
+
 			/*
 			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"));
 			document.querySelector(".jmlhDiv").style.display = "none";
