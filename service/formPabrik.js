@@ -67,10 +67,19 @@ export class createFormPabrik extends createFormMasy {
 		this.deleteChartHandler();
 	}
 	
+	static isFirtsSerialNumExis(condition,elemToEmpty = null) {
+		if (condition === true) {
+			alert("Nomor Seri Awal belum diisi...Silahkan diisi dahulu");
+			elemToEmpty != null ? elemToEmpty.value = "" : "";
+			throw "exit";
+		}		
+	}
+
 	//override method pd parent class dan utk dijalankan pada generateListUttp()
 	setJmlPickedUttp() {
 		document.querySelector("#setJml").addEventListener("click", () => {
 			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"));
+			this.constructor.isFirtsSerialNumExis(document.getElementById("serial").value === "");
 			document.querySelector(".jmlhDiv").style.display = "none";
 			let listTampung = [].concat(this.list[this.get_listIndex]);
 			console.log(listTampung);
@@ -173,9 +182,14 @@ export class createFormPabrik extends createFormMasy {
 		//let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
 		let filteredData = srcData.filter(e => e[1] === katakunci);
 		if (filteredData[0] != undefined) {
+			/*
 			document.getElementById("alamat").value = filteredData[0][2];
 			document.getElementById("kel").value = filteredData[0][4];
 			document.getElementById("wa").value = filteredData[0][3];			
+			*/
+			document.getElementById("alamat").value = `Untuk perlindungan data pribadi, alamat & nomor HP/WA tidak kami tampilkan`;
+			document.getElementById("kel").value = filteredData[0][4];
+			document.getElementById("wa").value = `XXXXXXXXXXX`;			
 		}
 	}
 

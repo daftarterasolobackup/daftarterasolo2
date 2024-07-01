@@ -81,9 +81,14 @@ export class createFormLoko extends createFormMasy {
 		
 		let filteredData = srcData.filter(e => e[1] === katakunci);
 		if (filteredData[0] != undefined) {
+			/*
 			document.getElementById("alamat").value = filteredData[0][2];
 			document.getElementById("kel").value = filteredData[0][4];
 			document.getElementById("wa").value = filteredData[0][3];			
+			*/
+			document.getElementById("alamat").value = `Untuk perlindungan data pribadi, alamat & nomor HP/WA tidak kami tampilkan`;
+			document.getElementById("kel").value = filteredData[0][4];
+			document.getElementById("wa").value = `XXXXXXXXXXX`;			
 		}
 	}
 
