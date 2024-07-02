@@ -78,8 +78,10 @@ export class createFormPabrik extends createFormMasy {
 	//override method pd parent class dan utk dijalankan pada generateListUttp()
 	setJmlPickedUttp() {
 		document.querySelector("#setJml").addEventListener("click", () => {
+			//console.log(this.list[this.get_listIndex][0]);
 			this.constructor.showUncompleteMsg(this.constructor.isJmlEmpty("jml"));
-			this.constructor.isFirtsSerialNumExis(document.getElementById("serial").value === "");
+			this.list[this.get_listIndex][0] !== 'DL' ? this.constructor.isFirtsSerialNumExis(document.getElementById("serial").value === "") : '';
+			
 			document.querySelector(".jmlhDiv").style.display = "none";
 			let listTampung = [].concat(this.list[this.get_listIndex]);
 			console.log(listTampung);
